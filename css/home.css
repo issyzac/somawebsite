@@ -192,7 +192,7 @@ body {
 	flex-basis: calc(25% - 1.1em);
 	min-height: 380px;
 	text-align: justify;
-	line-height: 1.8em;
+	line-height: 2em;
 }
 
 .team-item .image{
@@ -215,6 +215,10 @@ body {
 	background: rgba(0, 0, 0, 0.5);
 	color: #fff;
 	padding: 1em;
+}
+
+.team-item:not(:last-of-type) .team-member-caption {
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .team-item .team-member-caption h5{
@@ -240,7 +244,7 @@ body {
 }
 
 .product-item:not(:last-of-type) {
-	margin-bottom: 3em;
+	margin-bottom: 8em;
 }
 
 .product-item:first-of-type{
@@ -315,6 +319,7 @@ body {
 
 #appScreenMovers{
 	position: absolute;
+	top: -5%;
 	left: 15%;
 	right: 0;
 	min-height: 70px;
@@ -323,8 +328,8 @@ body {
 }
 
 #appScreenMovers button{
-	margin-right: 3em;
-	font-size: 10px;
+	margin-right: 5em;
+	font-size: 12px;
 	letter-spacing: 0.09em;
 }
 
@@ -335,9 +340,9 @@ body {
 
 #appScreenMovers button img{
 	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	margin-bottom: 0.4em;
+	width: 45px;
+	height: 45px;
+	margin-bottom: 0.75em;
 }
 
 #appScreenMovers button:hover img {
@@ -412,6 +417,28 @@ body {
 	background: #2d2d2d;
 	border: 1.5px solid #585858;
 	border-radius: 25px;
+}
+
+#watchFace {
+	position: relative;
+	z-index: 1;
+	height: 350px;
+	margin-bottom: -5%;
+	margin-left: 10.5%;
+}
+
+#fitImages{
+	position: absolute;
+	left: 5%;
+	top: 15%;
+	bottom: 0;
+	width: 100%;
+	margin: auto;
+}
+
+#fitImages img{
+	height: 60px;
+	margin-right: 2em;
 }
 
 .featured-images img{
