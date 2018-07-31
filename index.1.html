@@ -15,6 +15,7 @@
 
 
 	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/flexboxgrid.min.css">
 	<link rel="stylesheet" href="css/flex.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/home.css">
@@ -150,7 +151,7 @@
 			</div>
 
 			<div class="team-item">
-				<span style="font-size: 1.25em" class="text-primary text-bold">The Somaapps Team</span> is united by an unwavering passion for quality and 
+				The Somaapps team is united by an unwavering passion for quality and 
 				problem solving.
 				We focus on strategy, design and development as we passionately pursue
 				the simplicity, solution-centric, cutting edge of mobile apps.
@@ -186,13 +187,7 @@
 				</div>
 			</div>
 			<div class="team-item">
-				<div class="image">
-					<img src="img/stock-girl.jpg" alt="New Team Member">
-				</div>
-				<div class="team-member-caption layout vertical end-justified">
-					<h5>This could be you</h5>
-					<small>Holla at us for job positions.</small>
-				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -226,15 +221,15 @@
 				<div class="product-image layout end-justified">
 					<div id="appScreenMovers">
 						<div class="layout center-justified">
-							<button onclick="moveAppScreen(0)" class="active layout vertical center-center">
+							<button class="active layout vertical center-center">
 								<img src="img/app/icon1.png" alt="">
 								<span>Conferences</span>
 							</button>
-							<button onclick="moveAppScreen(1)" class="layout vertical center-center">
+							<button class="layout vertical center-center">
 								<img src="img/app/icon2.png" alt="">
 								<span>Internships</span>
 							</button>
-							<button onclick="moveAppScreen(2)" class="layout vertical center-center">
+							<button class="layout vertical center-center">
 								<img src="img/app/icon3.png" alt="">
 								<span>Scholarships</span>
 							</button>
@@ -422,16 +417,46 @@
 		</div>
 	</footer>
 
+	<script src="js/jquery.min.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/sm.min.js"></script>
+	<script src="js/home.js"></script>
 	<script>
-		var phoneScreenScroller = document.querySelector("#appScreenScroller");
-		// var phoneScreenScroller = document.querySelector("#appScreenScroller");
-
-		function moveAppScreen(idx){
-			phoneScreenScroller.style.transform = "translateY("+(-300 + (100 * idx)) + "%)"; 
-
-			document.querySelector("#appScreenMovers button.active").classList.remove("active");
-			document.querySelectorAll("#appScreenMovers button")[idx].classList.add("active");
-		}
+		$('a[href*="#"]')
+        // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
+                    &&
+                    location.hostname === this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function() {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
 	</script>
 </body>
 </html>

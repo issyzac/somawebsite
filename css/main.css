@@ -29,6 +29,10 @@ section:not(.no-pad){
 	margin-bottom: 0;
 }
 
+.text-bold{
+	font-family: SemiBold, sans-serif;
+}
+
 .text-primary{
 	color: var(--main-color)
 }
