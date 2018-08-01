@@ -60,7 +60,7 @@
 				</div>
 
 				<div id="bannerScroller" class="flex layout">
-					<div onclick="playVideo(0)" class="scroll-item active layout end" caption="SomaApp">
+					<div onmouseover="loadVideo(0)" onclick="playVideo(0)" class="scroll-item active layout end" caption="SomaApp">
 						<div class="image">
 							<img src="img/somaapp.png" alt="">
 						</div>
@@ -75,7 +75,7 @@
 							</button>
 						</div>
 					</div>
-					<div onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
+					<div onmouseover="loadVideo(1)" onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
 						<div class="image">
 							<img src="img/somafit.png" alt="">
 						</div>
@@ -92,7 +92,7 @@
 						</div>
 					</div>
 					
-					<div onclick="playVideo(2)" class="scroll-item layout end" caption="SomaWese">
+					<div onmouseover="loadVideo(2)" onclick="playVideo(2)" class="scroll-item layout end" caption="SomaWese">
 						<div class="image">
 							<img src="img/somawese.jpg" alt="">
 						</div>
@@ -134,7 +134,7 @@
 						<svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
 					</button>
 					<img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
-					<iframe id="ytIframe" width="100%" height="100%" src="https://www.youtube.com/embed/AxPcl1Ig8ZI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<iframe id="ytIframe" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
@@ -596,10 +596,12 @@
 			}
 			setTimeout(() => {
 				bannerVideoPlayer.classList.add("open");
-				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;controls=0&amp;showinfo=0";
+				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;controls=0&amp;showinfo=0loop=1;loop=1";
 				ytIframe.setAttribute("src", src += "&autoplay=1");
 			}, 180);
 			el.style.opacity = 0;
+
+			videoPlaying = true;
 		}
 		
 		function closeVideo(){
@@ -617,6 +619,15 @@
 			videoCloseAnimation.onfinish = function () {
 				console.log("Open animation finish!");
 				bannerVideoPlayer.style.opacity = 0;
+			}
+
+			videoPlaying = false;
+		}
+
+		function loadVideo(idx){
+			if(!videoPlaying){
+				src = "https://www.youtube.com/embed/" + srcs[idx] + "?rel=0&amp;controls=0&amp;showinfo=0loop=1;loop=1";
+				ytIframe.setAttribute("src", src);
 			}
 		}
 	</script>
