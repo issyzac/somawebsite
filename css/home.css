@@ -273,6 +273,7 @@ body {
 	left: -15%;
 	width: 100vw;
 	height: calc(95vh * 0.7);
+	max-height: 650px;
 	background: var(--main-black);
 	transition: opacity 0.6s ease-out;
 	z-index: 1;

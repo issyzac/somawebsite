@@ -595,8 +595,12 @@
 				console.log("Open animation finish!");
 			}
 			setTimeout(() => {
+				el = bannerScroller.querySelectorAll(".scroll-item")[idx];
+				img = el.querySelector("img");
+				bannerVideoPlayer.querySelector("img").src = img.getAttribute('src');
+
 				bannerVideoPlayer.classList.add("open");
-				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;controls=0&amp;showinfo=0loop=1;loop=1";
+				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;loop=1&amp;controls=0&amp;showinfo=0loop=1;";
 				ytIframe.setAttribute("src", src += "&autoplay=1");
 			}, 180);
 			el.style.opacity = 0;
