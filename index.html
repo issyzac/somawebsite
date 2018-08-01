@@ -60,7 +60,7 @@
 				</div>
 
 				<div id="bannerScroller" class="flex layout">
-					<div class="scroll-item active layout end" caption="SomaApp">
+					<div onclick="playVideo(0)" class="scroll-item active layout end" caption="SomaApp">
 						<div class="image">
 							<img src="img/somaapp.png" alt="">
 						</div>
@@ -75,7 +75,7 @@
 							</button>
 						</div>
 					</div>
-					<div class="scroll-item layout end" caption="SomaFit">
+					<div onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
 						<div class="image">
 							<img src="img/somafit.png" alt="">
 						</div>
@@ -92,7 +92,7 @@
 						</div>
 					</div>
 					
-					<div class="scroll-item layout end" caption="SomaWese">
+					<div onclick="playVideo(2)" class="scroll-item layout end" caption="SomaWese">
 						<div class="image">
 							<img src="img/somawese.jpg" alt="">
 						</div>
@@ -113,11 +113,28 @@
 				<div id="currentItemCaption">
 					somaapp
 				</div>
+				
+				<div id="bannerScrollerArrows" class="layout center justified">
+					<button onclick="moveScroller(0)">
+						<svg viewbox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+					</button>
+					<button onclick="moveScroller(1)">
+						<svg viewbox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+					</button>
+				</div>
 
 				<div id="bannerScrollerButtons" class="layout center-center" style="height: 10px;">
-					<button onclick="moveScroller(0)" class="active"></button>
-					<button onclick="moveScroller(1)"></button>
-					<button onclick="moveScroller(2)"></button>
+					<button class="active"></button>
+					<button></button>
+					<button></button>
+				</div>
+
+				<div id="bannerVideoPlayer" class="layout center-center">
+					<button id="closeVideoBtn" onclick="closeVideo()">
+						<svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+					</button>
+					<img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+					<iframe id="ytIframe" width="100%" height="100%" src="https://www.youtube.com/embed/AxPcl1Ig8ZI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
@@ -470,7 +487,12 @@
 			document.querySelectorAll("#appScreenMovers button")[idx].classList.add("active");
 		}
 
+		var bannerVideoPlayer = document.querySelector("#bannerVideoPlayer");
+		var videoBox = bannerVideoPlayer.getBoundingClientRect();
+		var ytIframe = document.querySelector("#ytIframe");
+
 		var bannerScroller = document.querySelector("#bannerScroller");
+		var bannerScrollerArrows = document.querySelector("#bannerScrollerArrows");
 		var bannerScrollerButtons = document.querySelector("#bannerScrollerButtons");
 		var currentItemCaption = document.querySelector("#currentItemCaption");
 
@@ -485,8 +507,18 @@
 		}, false);
 
 		var curidx = 0;
-		function moveScroller(idx){
-			bannerScroller.style.transform = "translateX(" + -30 * idx + "%)";
+		function moveScroller(dir){
+			if(dir && curidx < 2){
+				idx = curidx + 1;
+			}
+			else if (!dir && curidx > 0) {
+				idx = curidx - 1;
+			}
+			else{
+				return;
+			}
+
+			bannerScroller.style.transform = "translateX(" + -33.333 * idx + "%)";
 
 			bannerScroller.querySelector(".scroll-item.active").classList.remove("active");
 			var currentSlide = bannerScroller.querySelectorAll(".scroll-item")[idx];
@@ -503,6 +535,89 @@
 			bannerScrollerButtons.querySelectorAll("#bannerScrollerButtons button")[idx].classList.add("active");
 
 			curidx = idx;
+
+			if(curidx == 2){
+				bannerScrollerArrows.querySelectorAll("button")[1].style.opacity = 0;
+			}else{
+				bannerScrollerArrows.querySelectorAll("button")[1].style.opacity = 1;
+			}
+
+
+			if (curidx == 0) {
+				bannerScrollerArrows.querySelectorAll("button")[0].style.opacity = 0;
+			}
+			else{
+				bannerScrollerArrows.querySelectorAll("button")[0].style.opacity = 1;
+			}
+		}
+
+		var el,elImage, elbox;
+		var srcs = ["AxPcl1Ig8ZI", "tfm0-E6Y6vM", "ucj4upHiZcM"];
+		var src;
+
+		function playVideo(idx){
+			el = bannerScroller.querySelectorAll(".scroll-item")[idx];
+			elImage = el.querySelector(".image");
+			img = el.querySelector("img");
+			elbox = elImage.getBoundingClientRect();
+
+			var scale = "scale(" + (elbox.width * .8 / videoBox.width) + ", ";
+			scale += (elbox.height * .95 / videoBox.height) + ")";
+			
+			var scaleDown = "scale(" + (elbox.width * 0.88 / videoBox.width) + ", ";
+			scaleDown += (elbox.height / videoBox.height) + ")";
+			
+			var translate = "translate(" + (elbox.left - 400 - videoBox.left + (videoBox.width / 2)) + "px, ";
+			translate += (elbox.top - 45 - videoBox.top) + "px)";
+			
+			var translateDown = "translate(" + (elbox.left - (window.innerWidth / 2 / 3) - videoBox.left) + "px, ";
+			translateDown += (elbox.top - videoBox.top) + "px)";
+
+ 			transformDown = translateDown + " " + scaleDown + " skew(-8deg)";
+			var transform = translate + " " + scale + " skew(-20deg)";
+
+			bannerVideoPlayer.querySelector("img").src = img.getAttribute('src');
+			bannerVideoPlayer.style.opacity = 1;
+			bannerVideoPlayer.style.transformOrigin = "50% 50%";
+			
+			// bannerVideoPlayer.style.pointerEvents = "auto";
+			// bannerVideoPlayer.style.transform = translateDown;
+			// bannerVideoPlayer.style.transform = transformDown;
+			
+			// return console.log(transformDown);
+
+			var videoOpenAnimation = bannerVideoPlayer.animate([
+				{transform: transformDown},
+				{transform: "skew(-8deg)"}
+			], {duration: 300});
+
+			videoOpenAnimation.onfinish = function(){
+				console.log("Open animation finish!");
+			}
+			setTimeout(() => {
+				bannerVideoPlayer.classList.add("open");
+				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;controls=0&amp;showinfo=0";
+				ytIframe.setAttribute("src", src += "&autoplay=1");
+			}, 180);
+			el.style.opacity = 0;
+		}
+		
+		function closeVideo(){
+			bannerVideoPlayer.classList.remove("open");
+			
+			ytIframe.setAttribute("src", "");
+
+			var videoCloseAnimation = bannerVideoPlayer.animate([
+				{ opacity: 1, transform: "skew(-8deg)" },
+				{ opacity: 1, transform: transformDown }
+			], { duration: 300 });
+
+			el.style.opacity = "";
+
+			videoCloseAnimation.onfinish = function () {
+				console.log("Open animation finish!");
+				bannerVideoPlayer.style.opacity = 0;
+			}
 		}
 	</script>
 </body>
