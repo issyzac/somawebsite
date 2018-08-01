@@ -108,12 +108,16 @@
 							</button>
 						</div>
 					</div>
+				</div>
 
-					<div id="bannerScrollerButtons" class="layout center-center" style="height: 10px;">
-						<button onclick="moveScroller(0)" class="active"></button>
-						<button onclick="moveScroller(1)"></button>
-						<button onclick="moveScroller(2)"></button>
-					</div>
+				<div id="currentItemCaption">
+					somaapp
+				</div>
+
+				<div id="bannerScrollerButtons" class="layout center-center" style="height: 10px;">
+					<button onclick="moveScroller(0)" class="active"></button>
+					<button onclick="moveScroller(1)"></button>
+					<button onclick="moveScroller(2)"></button>
 				</div>
 			</div>
 		</div>
@@ -464,6 +468,41 @@
 
 			document.querySelector("#appScreenMovers button.active").classList.remove("active");
 			document.querySelectorAll("#appScreenMovers button")[idx].classList.add("active");
+		}
+
+		var bannerScroller = document.querySelector("#bannerScroller");
+		var bannerScrollerButtons = document.querySelector("#bannerScrollerButtons");
+		var currentItemCaption = document.querySelector("#currentItemCaption");
+
+		currentItemCaption.addEventListener("webkitAnimationEnd", function (event) {
+			currentItemCaption.classList.remove("scroll-left");
+			currentItemCaption.classList.remove("scroll-right");
+		}, false);
+		
+		currentItemCaption.addEventListener("animationend", function (event) {
+			currentItemCaption.classList.remove("scroll-left");
+			currentItemCaption.classList.remove("scroll-right");
+		}, false);
+
+		var curidx = 0;
+		function moveScroller(idx){
+			bannerScroller.style.transform = "translateX(" + -30 * idx + "%)";
+
+			bannerScroller.querySelector(".scroll-item.active").classList.remove("active");
+			var currentSlide = bannerScroller.querySelectorAll(".scroll-item")[idx];
+			currentSlide.classList.add("active");
+			currentItemCaption.innerHTML = currentSlide.getAttribute("caption");
+
+			if(idx > curidx)
+				currentItemCaption.classList.add("scroll-left");
+			else
+				currentItemCaption.classList.add("scroll-right");
+
+			// SET ACTIVE BUTTON
+			bannerScrollerButtons.querySelector("button.active").classList.remove("active");
+			bannerScrollerButtons.querySelectorAll("#bannerScrollerButtons button")[idx].classList.add("active");
+
+			curidx = idx;
 		}
 	</script>
 </body>
