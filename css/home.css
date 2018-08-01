@@ -26,14 +26,15 @@ body {
 
 #banner h2{
 	font-family: SemiBold, sans-serif;
-	font-size: 2em;
-	margin-bottom: 0.6em;
+	font-size: 2.4em;
+	margin-bottom: 0.55em;
 	color: var(--accent-color)
 }
 
 #banner p{
-	max-width: 80%;
-	line-height: 1.5em;
+	max-width: 70%;
+	line-height: 1.6em;
+	font-size: 1.2em;
 }
 
 #bannerLink{
@@ -54,24 +55,26 @@ body {
 .scroll-item{
 	width: 53vh;
 	position: relative;
-	margin-right: -4%;
+	margin-right: -1.5%;
 }
 
 #bannerScroller .scroll-item::before{
 	content: attr(caption);
 	position: absolute;
-	top: 8%;
-	left: -57vw;
+	top: 10%;
+	left: -800px;
 	display: flex;
 	align-items: center;
 	width: 100%;
 	height: 100%;
 	max-width: 1400px;
-	color: rgba(107, 100, 91, 0.03);
-	font-size: 18em;
-	letter-spacing: -22px;
+	color: #aaa;
+	opacity: 0.025;
+	font-size: 24em;
+	letter-spacing: -26px;
 	z-index: 10;
 	pointer-events: none;
+	text-transform: lowercase;
 }
 
 #bannerScroller .scroll-item:not(.active)::before{
@@ -86,6 +89,15 @@ body {
 	height: 100%;
 	transform: skew(-8deg) scaleX(0.8) scaleY(0.65);
 	z-index: 1;
+	transition: transform 0.45s ease-out;
+}
+
+.scroll-item.active .image{
+	cursor: pointer;
+}
+
+.scroll-item.active .image:hover {
+	transform: skew(-8deg) scaleX(0.9) scaleY(0.7) translate3d(-4%, 2%, 0);
 }
 
 .scroll-item:not(.active) .image{
@@ -95,6 +107,11 @@ body {
 .scroll-item .image img{
 	object-fit: cover;
 	object-position: center;
+	transform: skew(8deg) scale(1.5);
+	transition: transform 0.45s ease-out;
+}
+
+.scroll-item.active .image:hover img {
 	transform: skew(8deg) scale(1.25);
 }
 
@@ -105,21 +122,41 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.8;
+	opacity: 0.7;
 	background: rgba(21, 19, 17, 0.96);
+	transition: opacity 0.45s ease-out;
+}
+
+#bannerScroller .scroll-item.active .image::after {
+	opacity: 0.4;
+}
+
+#bannerScroller .scroll-item.active:hover .image::after {
+	opacity: 0.15;
 }
 
 #bannerScroller .scroll-item-caption{
 	padding: 38% 0;
 	position: relative;
 	z-index: 1;
+	pointer-events: none;
+}
+
+#bannerScroller .scroll-item.active .scroll-item-caption {
+	transform: translateX(-32%)
 }
 
 #bannerScroller .scroll-item-caption h5 {
 	font-family: Black;
 	font-size: 1.8em;
 	color: #fff;
-	margin-bottom: 0.4em;
+	margin-bottom: 0.2em;
+	opacity: 0.8;
+}
+
+#bannerScroller .scroll-item.active .scroll-item-caption h5 {
+	transform: scale(1.2) translateX(13%);
+	opacity: 1;
 }
 
 #bannerScroller .scroll-item-caption button{
@@ -127,6 +164,22 @@ body {
 	color: #fff;
 	font-size: 0.85em;
 	letter-spacing: 1px;
+}
+
+#bannerScroller .scroll-item .scroll-item-caption button svg path{
+	transition: all 0.35s ease-out;
+}
+
+#bannerScroller .scroll-item:not(:hover) 
+.scroll-item-caption button svg path:last-child
+{
+	fill: transparent !important;
+}
+
+#bannerScroller .scroll-item:not(:hover) 
+.scroll-item-caption button svg path:first-child
+{
+	fill: #fff !important;
 }
 
 .scroll-item:not(.active) .scroll-item-caption button {
@@ -137,8 +190,8 @@ body {
 	width: 300px;
 	height: 200px;
 	position: absolute;
-	left: 20%;
-	bottom: 13%;
+	left: 28.2%;
+	bottom: 15%;
 	z-index: 20;
 }
 
@@ -183,7 +236,7 @@ body {
 	background: #ddd;
 }
 
-#sectionTeam .section-wrapper{
+#sectionTeam .section-wrapper > .layout{
 	margin: 0 -0.55em;
 }
 
@@ -424,12 +477,12 @@ body {
 	z-index: 1;
 	height: 350px;
 	margin-bottom: -5%;
-	margin-left: 10.5%;
+	margin-left: 28%;
 }
 
 #fitImages{
 	position: absolute;
-	left: 5%;
+	left: 15%;
 	top: 15%;
 	bottom: 0;
 	width: 100%;
