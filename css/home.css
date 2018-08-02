@@ -205,7 +205,7 @@ body {
 	height: 100%;
 	max-width: 1400px;
 	color: #aaa;
-	opacity: 0.025;
+	opacity: 0.1;
 	font-size: 24em;
 	letter-spacing: -16px;
 	z-index: 10;
@@ -320,9 +320,9 @@ body {
 
 #bannerScrollerArrows{
 	position: absolute;
-	left: 49.8%;
+	left: 50%;
 	top: 14%;
-	width: 500px;
+	width: 540px;
 	bottom: 0;
 	z-index: 20;
 	pointer-events: none;
@@ -351,11 +351,11 @@ body {
 
 #bannerScrollerArrows button:hover svg{
 	fill: var(--accent-color);
-	transform: translateX(6%);
+	transform: translateX(16%);
 }
 
 #bannerScrollerArrows button:first-child:hover svg{
-	transform: rotate(180deg) translateY(4%) translateX(14%);
+	transform: rotate(180deg) translateY(4%) translateX(18%);
 }
 
 #bannerScrollerButtons{
