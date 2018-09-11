@@ -194,12 +194,19 @@ footer #copyright{
 	color: #999;
 }
 
+footer #footerLocation svg{
+	width: 40px;
+	height: 40px;
+}
+
 footer #footerLocation{
-	line-height: 2em;
+	line-height: 1.6em;
 }
 
 footer #footerLocation a{
-	color: #ccc
+	padding-top: 0.2em;
+	color: #ccc;
+	display: block;
 }
 
 footer #copyright hr{

@@ -29,113 +29,55 @@
 
 		<nav class="layout center">
 			<a href="#" class="layout center-center active">Home</a>
-			<a href="somaapp.html" class="layout center-center">SomaApp</a>
-			<a href="somafit.html" class="layout center-center">SomaFit</a>
-			<a href="blog.html" class="layout center-center">Blog</a>
-			<a href="contacts.html" class="layout center-center">Contact Us</a>
+			<a href="#" class="layout center-center">SomaApp</a>
+			<a href="#" class="layout center-center">SomaFit</a>
+			<a href="#" class="layout center-center">Blog</a>
+			<a href="#" class="layout center-center">Contact Us</a>
 		</nav>
 	</header>
 
 	<main>
 		<div id="banner">
-			<div class="section-wrapper layout">
-				<div class="text layout start vertical justified">
-					<div>
-						<h2>Somaapps Technologies</h2>
-
-						<p>
-							A solution-centric company with our simple mission to 
-							create simple and smart solutions through mobile applications, 
-							digital technologies and the use <br> of the Internet platform.
-						</p>
+			<div id="bannerScroller" class="flex layout">
+				<div onmouseover="loadVideo(0)" onclick="playVideo(0)" class="scroll-item layout end" caption="SomaApp">
+					<div class="image">
+						<img src="img/somaapp.png" alt="">
 					</div>
-
-					<a href="#sectionEvAn" id="bannerLink" class="layout inline center-center">
-						<svg fill="#e65307" height="40" width="40" viewBox="0 0 480 480">
-							<path d="M 140,190 240,290 340,190 Z"/>
-						</svg>
-
-						Learn More
-					</a>
-				</div>
-
-				<div id="bannerScroller" class="flex layout">
-					<div onmouseover="loadVideo(0)" onclick="playVideo(0)" class="scroll-item active layout end" caption="SomaApp">
-						<div class="image">
-							<img src="img/somaapp.png" alt="">
-						</div>
-						<div class="scroll-item-caption">
-							<h5>SomaApp</h5>
-							<button class="layout center">
-								<svg width="40" height="40" viewBox="0 0 24 24">
-									<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-									<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-								</svg>
-								&nbsp; Play Video
-							</button>
-						</div>
-					</div>
-					<div onmouseover="loadVideo(1)" onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
-						<div class="image">
-							<img src="img/somafit.png" alt="">
-						</div>
-
-						<div class="scroll-item-caption">
-							<h5>SomaFit</h5>
-							<button class="layout center">
-								<svg width="40" height="40" viewBox="0 0 24 24">
-									<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-									<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-								</svg>
-								&nbsp; Play Video
-							</button>
-						</div>
-					</div>
-					
-					<div onmouseover="loadVideo(2)" onclick="playVideo(2)" class="scroll-item layout end" caption="SomaWese">
-						<div class="image">
-							<img src="img/somawese.jpg" alt="">
-						</div>
-
-						<div class="scroll-item-caption">
-							<h5>SomaWese</h5>
-							<button class="layout center">
-								<svg width="40" height="40" viewBox="0 0 24 24">
-									<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-									<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-								</svg>
-								&nbsp; Play Video
-							</button>
-						</div>
+					<div class="scroll-item-caption">
+						<h5>SomaApp</h5>
+						<button class="layout center">
+							<svg width="40" height="40" viewBox="0 0 24 24">
+								<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+								<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+							</svg>
+							&nbsp; Play Video
+						</button>
 					</div>
 				</div>
+				<div onmouseover="loadVideo(1)" onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
+					<div class="image">
+						<img src="img/watcher5.jpg" alt="">
+					</div>
 
-				<div id="currentItemCaption">
-					somaapp
+					<div class="scroll-item-caption">
+						<h5>SomaFit</h5>
+						<button class="layout center">
+							<svg width="40" height="40" viewBox="0 0 24 24">
+								<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+								<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+							</svg>
+							&nbsp; Play Video
+						</button>
+					</div>
 				</div>
-				
-				<div id="bannerScrollerArrows" class="layout center justified">
-					<button onclick="moveScroller(0)">
-						<svg viewbox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
-					</button>
-					<button onclick="moveScroller(1)">
-						<svg viewbox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
-					</button>
-				</div>
+			</div>
 
-				<div id="bannerScrollerButtons" class="layout center-center" style="height: 10px;">
-					<button class="active"></button>
-					<button></button>
-					<button></button>
-				</div>
-
-				<div id="bannerVideoPlayer" class="layout center-center">
-					<button id="closeVideoBtn" onclick="closeVideo()">
-						<svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
-					</button>
-					<img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
-					<iframe id="ytIframe" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-				</div>
+			<div id="bannerVideoPlayer" class="layout center-center">
+				<button id="closeVideoBtn" onclick="closeVideo()">
+					<svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+				</button>
+				<img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+				<iframe id="ytIframe" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			</div>
 		</div>
 	</main>
@@ -365,7 +307,7 @@
 				<div class="text flex layout vertical justified">
 					<div>
 						<div class="layout center">
-							<img src="img/ somaapp-logo.png" alt="Somafit logo"> 
+							<img src="img/somaapp-logo.png" alt="Somafit logo"> 
 							<h3>SomaApp</h3>
 						</div>
 
@@ -382,8 +324,8 @@
 				</div>
 
 				<div class="product-image layout end-justified">
-					<div id="appScreenMovers">
-						<div class="layout center-justified">
+					<div id="appScreenMovers" class="layout center-justified">
+						<div class="layout center-justified" style="width: 550px">
 							<button onmouseover="moveAppScreen(0)" class="active layout vertical center-center">
 								<img src="img/app/icon1.png" alt="">
 								<span>Conferences</span>
@@ -440,14 +382,28 @@
 
 				<div class="product-image layout center-center">
 					<div id="fitImages" class="layout center">
-						<img src="img/fit/1.png" alt="">
-						<img src="img/fit/2.png" alt="">
-						<img src="img/fit/3.png" alt="">
-						<img src="img/fit/4.png" alt="" style="opacity: 0;">
+						<div class="has-caption" caption="Burn Calories">
+							<img src="img/fit/1.png" alt="Burn Calories">
+						</div>
+						<div class="has-caption" caption="Quick Chat">
+							<img src="img/fit/2.png" alt="Quick Chat">
+						</div>
+						<div class="has-caption" caption="Keep Time">
+							<img src="img/fit/3.png" alt="Keep Time">
+						</div>
+						<div class="has-caption" caption="" style="opacity: 0; pointer-events: none">
+							<img src="img/fit/4.png" alt="" style="opacity: 0;">
+						</div>
 						<div style="min-width: 100px;"></div>
-						<img src="img/fit/5.png" alt="" styl="margin-left: 60px">
-						<img src="img/fit/6.png" alt="">
-						<img src="img/fit/7.png" alt="">
+						<div class="has-caption" caption="Capture It" style="margin-left: -20px">
+							<img src="img/fit/5.png" alt="Capture It">
+						</div>
+						<div class="has-caption" caption="Just Fuel">
+							<img src="img/fit/6.png" alt="Just Fuel">
+						</div>
+						<div class="has-caption" caption="Take Care">
+							<img src="img/fit/7.png" alt="Take Care">
+						</div>
 					</div>
 
 					<img src="img/watch.png" alt="" id="watchFace">
@@ -536,17 +492,17 @@
 					</div>
 				</div>
 				
-				<div class="a-testimonial active">
+				<div class="a-testimonial">
 					<svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
 
 					<div class="testimonial-user layout center">
 						<div class="image dp">
-							<img src="img/gray.jpeg" alt="Gray Image">
+							<img src="img/julliette.jpg" alt="Gray Image">
 						</div>
 						<div class="text">
-							<h6>Grayson Julius</h6>
-							<p>Operations Lead, iPF Softwares</p>
+							<h6>Miss Juliette</h6>
+							<p>Strategy Lead, Juliette & Sams</p>
 						</div>
 					</div>
 				</div>
@@ -557,11 +513,11 @@
 
 					<div class="testimonial-user layout center">
 						<div class="image dp">
-							<img src="img/gray.jpeg" alt="Gray Image">
+							<img src="img/jemimah.jpg" alt="Gray Image">
 						</div>
 						<div class="text">
-							<h6>Grayson Julius</h6>
-							<p>Operations Lead, iPF Softwares</p>
+							<h6>Jemimah Harris</h6>
+							<p>Organizer, Zanzibar Marathon</p>
 						</div>
 					</div>
 				</div>
@@ -569,9 +525,8 @@
 		</div>
 
 		<div id="quoteScrollButtons" class="layout center-center" style="height: 10px;">
-			<button class="active"></button>
-			<button></button>
-			<button></button>
+			<button class="active" onclick="scrollQuotes(0)"></button>
+			<button onclick="scrollQuotes(1)"></button>
 		</div>
 	</section>
 
@@ -601,7 +556,6 @@
 
 					<div>
 						Somaapps HQ <br>
-						Sinza Mori 2000 <br>
 						Dar Es Salaam, Tanzania <br>
 						<a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
 							View on Google Maps
@@ -614,78 +568,28 @@
 
 	<script>
 		var phoneScreenScroller = document.querySelector("#appScreenScroller");
-		// var phoneScreenScroller = document.querySelector("#appScreenScroller");
-
+		var quotesScroller = document.querySelector("#quotesScroller");
+		
 		function moveAppScreen(idx){
 			phoneScreenScroller.style.transform = "translateY("+(-300 + (100 * idx)) + "%)"; 
 
 			document.querySelector("#appScreenMovers button.active").classList.remove("active");
 			document.querySelectorAll("#appScreenMovers button")[idx].classList.add("active");
 		}
+		
+		function scrollQuotes(idx){
+			var len = document.querySelectorAll(".a-testimonial").length;
+			var delta = (len - (window.innerWidth / 546)) / len * 100;
+			quotesScroller.style.transform = "translateX("+ (-delta * idx) + "%)"; 
+
+			document.querySelector("#quoteScrollButtons button.active").classList.remove("active");
+			document.querySelectorAll("#quoteScrollButtons button")[idx].classList.add("active");
+		}
 
 		var bannerVideoPlayer = document.querySelector("#bannerVideoPlayer");
 		var videoBox = bannerVideoPlayer.getBoundingClientRect();
 		var ytIframe = document.querySelector("#ytIframe");
-
-		var bannerScroller = document.querySelector("#bannerScroller");
-		var bannerScrollerArrows = document.querySelector("#bannerScrollerArrows");
-		var bannerScrollerButtons = document.querySelector("#bannerScrollerButtons");
-		var currentItemCaption = document.querySelector("#currentItemCaption");
-
-		currentItemCaption.addEventListener("webkitAnimationEnd", function (event) {
-			currentItemCaption.classList.remove("scroll-left");
-			currentItemCaption.classList.remove("scroll-right");
-		}, false);
-		
-		currentItemCaption.addEventListener("animationend", function (event) {
-			currentItemCaption.classList.remove("scroll-left");
-			currentItemCaption.classList.remove("scroll-right");
-		}, false);
-
-		var curidx = 0;
-		function moveScroller(dir){
-			if(dir && curidx < 2){
-				idx = curidx + 1;
-			}
-			else if (!dir && curidx > 0) {
-				idx = curidx - 1;
-			}
-			else{
-				return;
-			}
-
-			bannerScroller.style.transform = "translateX(" + -33.333 * idx + "%)";
-
-			bannerScroller.querySelector(".scroll-item.active").classList.remove("active");
-			var currentSlide = bannerScroller.querySelectorAll(".scroll-item")[idx];
-			currentSlide.classList.add("active");
-			currentItemCaption.innerHTML = currentSlide.getAttribute("caption");
-
-			if(idx > curidx)
-				currentItemCaption.classList.add("scroll-left");
-			else
-				currentItemCaption.classList.add("scroll-right");
-
-			// SET ACTIVE BUTTON
-			bannerScrollerButtons.querySelector("button.active").classList.remove("active");
-			bannerScrollerButtons.querySelectorAll("#bannerScrollerButtons button")[idx].classList.add("active");
-
-			curidx = idx;
-
-			if(curidx == 2){
-				bannerScrollerArrows.querySelectorAll("button")[1].style.opacity = 0;
-			}else{
-				bannerScrollerArrows.querySelectorAll("button")[1].style.opacity = 1;
-			}
-
-
-			if (curidx == 0) {
-				bannerScrollerArrows.querySelectorAll("button")[0].style.opacity = 0;
-			}
-			else{
-				bannerScrollerArrows.querySelectorAll("button")[0].style.opacity = 1;
-			}
-		}
+		var videoPlaying = false;
 
 		var el,elImage, elbox;
 		var srcs = ["AxPcl1Ig8ZI", "tfm0-E6Y6vM", "ucj4upHiZcM"];
@@ -695,52 +599,12 @@
 			el = bannerScroller.querySelectorAll(".scroll-item")[idx];
 			elImage = el.querySelector(".image");
 			img = el.querySelector("img");
-			elbox = elImage.getBoundingClientRect();
-
-			var scale = "scale(" + (elbox.width * .8 / videoBox.width) + ", ";
-			scale += (elbox.height * .95 / videoBox.height) + ")";
 			
-			var scaleDown = "scale(" + (elbox.width * 0.88 / videoBox.width) + ", ";
-			scaleDown += (elbox.height / videoBox.height) + ")";
-			
-			var translate = "translate(" + (elbox.left - 400 - videoBox.left + (videoBox.width / 2)) + "px, ";
-			translate += (elbox.top - 45 - videoBox.top) + "px)";
-			
-			var translateDown = "translate(" + (elbox.left - (window.innerWidth / 2 / 3) - videoBox.left) + "px, ";
-			translateDown += (elbox.top - videoBox.top) + "px)";
+			bannerVideoPlayer.classList.add("open");
+			src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;loop=1&amp;controls=0&amp;showinfo=0loop=1;";
+			ytIframe.setAttribute("src", src += "&autoplay=1");
 
- 			transformDown = translateDown + " " + scaleDown + " skew(-8deg)";
-			var transform = translate + " " + scale + " skew(-20deg)";
-
-			bannerVideoPlayer.querySelector("img").src = img.getAttribute('src');
-			bannerVideoPlayer.style.opacity = 1;
-			bannerVideoPlayer.style.transformOrigin = "50% 50%";
-			
-			// bannerVideoPlayer.style.pointerEvents = "auto";
-			// bannerVideoPlayer.style.transform = translateDown;
-			// bannerVideoPlayer.style.transform = transformDown;
-			
-			// return console.log(transformDown);
-
-			var videoOpenAnimation = bannerVideoPlayer.animate([
-				{transform: transformDown},
-				{transform: "skew(-8deg)"}
-			], {duration: 300});
-
-			videoOpenAnimation.onfinish = function(){
-				console.log("Open animation finish!");
-			}
-			setTimeout(() => {
-				el = bannerScroller.querySelectorAll(".scroll-item")[idx];
-				img = el.querySelector("img");
-				bannerVideoPlayer.querySelector("img").src = img.getAttribute('src');
-
-				bannerVideoPlayer.classList.add("open");
-				src = "https://www.youtube.com/embed/"+srcs[idx]+"?rel=0&amp;loop=1&amp;controls=0&amp;showinfo=0loop=1;";
-				ytIframe.setAttribute("src", src += "&autoplay=1");
-			}, 180);
-			el.style.opacity = 0;
-
+			// el.style.opacity = 0;
 			videoPlaying = true;
 		}
 		
@@ -748,18 +612,6 @@
 			bannerVideoPlayer.classList.remove("open");
 			
 			ytIframe.setAttribute("src", "");
-
-			var videoCloseAnimation = bannerVideoPlayer.animate([
-				{ opacity: 1, transform: "skew(-8deg)" },
-				{ opacity: 1, transform: transformDown }
-			], { duration: 300 });
-
-			el.style.opacity = "";
-
-			videoCloseAnimation.onfinish = function () {
-				console.log("Open animation finish!");
-				bannerVideoPlayer.style.opacity = 0;
-			}
 
 			videoPlaying = false;
 		}
