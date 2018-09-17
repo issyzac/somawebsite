@@ -579,9 +579,6 @@ body {
 }
 
 #appScreenScroller {
-	/* height: 400%; */
-	/* width: 90%; */
-	background: #f00;
 	transform: translateY(-300%);
 	transition: 0.35s transform ease-out;
 }
