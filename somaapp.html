@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Somaapps Technologies</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="IFM Staff">
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/flexboxgrid.min.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/somaapp.css">
+    <link rel="icon" href="logo.png">
+</head>
+
+<body class="show-na">
+    <header class="layout vertical center">
+        <a id="logo" href="/" class="layout vertica center">
+            <img src="img/logo.png" alt="Somaapps Technologies" width="70px;" height="70px">
+        </a>
+
+        <nav class="layout center">
+            <a href="#" class="layout center-center active">Home</a>
+            <a href="somaapp.html" class="layout center-center">SomaApp</a>
+            <a href="somafit.html" class="layout center-center">SomaFit</a>
+            <a href="blog.html" class="layout center-center">Blog</a>
+            <a href="contacts.html" class="layout center-center">Contact Us</a>
+        </nav>
+    </header>
+
+
+    <!-- Main banner -->
+    <section id="somaapp-banner">
+        <div class="text start vertical center text-bold">
+            <h1 class="section-title center black">
+                Revolutionizing the scholarship ecosystem<br/> across Africa!
+
+            </h1>
+        </div>
+
+        <div class="banner-contents">
+            <div class="first-phone">
+
+            </div>
+            <div class="second-phone">
+
+            </div>
+            <div class="download-section">
+                <a href="#" target="_blank" class="google-play-btn">
+                    <img src="img/playstore.png" width="180">
+                </a>
+                <a href="#" class="ios-trigger"> I have an iOS device</a>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- Values section -->
+
+    <section id="values">
+        <div class="text start vertical center text-bold">
+            <h1 class="section-title center ">
+                We will help you sharpen up your skills <br/> and attain your career goals.
+
+            </h1>
+            <h2 class="section-sub-title center text-only">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis<br/> nostrud exercitation ullamco laboris
+            </h2>
+        </div>
+
+    </section>
+
+    <footer>
+        <div id=" ceoQuote " class="section-wrapper layout vertical center-center ">
+            <q>
+                Creativity is putting your imagination to work, and it's produced the most extraordinary results in human
+                culture.
+            </q>
+            <small class="text-accent ">
+                Isaya Yunge, CEO Somaapps Technologies
+            </small>
+        </div>
+
+        <div class="section-wrapper " style="max-width: 1300px !important; border-top: 1px solid #444 ">
+            <div id="copyright " class="section-wrapper layout start justified ">
+                <div class="layout center ">
+                    <img src="img/logo-wide.png " height="50px " alt="Somaapps wide logo "> &nbsp;&emsp;
+                    <hr>&emsp;&nbsp;
+                    <span>Copyright &copy; 2018 Somaapps Technologies</span>
+                </div>
+
+                <div id="footerLocation " class="layout ">
+                    <svg fill="#555 " width="60 " height="60 " viewBox="0 0 24 24 ">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z " />
+                        <path d="M0 0h24v24H0z " fill="none " />
+                    </svg> &emsp;
+
+                    <div>
+                        Somaapps HQ <br> Sinza Mori 2000 <br> Dar Es Salaam, Tanzania <br>
+                        <a target="_blank " href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371 ">
+                            View on Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js "></script>
+    <script src="js/TweenMax.min.js "></script>
+    <script src="js/sm.min.js "></script>
+    <script src="js/home.js "></script>
+    <script>
+        $('a[href*="# "]')
+            // Remove links that don't actually link to anything
+            .not('[href="# "]')
+            .not('[href="#0 "]')
+            .click(function(event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
+                    location.hostname === this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function() {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus ")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
+    </script>
+</body>
+
+</html>
