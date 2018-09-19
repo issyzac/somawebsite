@@ -78,3 +78,134 @@
     font-family: "Light";
     line-height: 1.3;
 }
+
+.values-items {
+    display: flex;
+    padding: 0 5% 20px;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.values-items>div {
+    width: 30%;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.values-items>div h1 {
+    line-height: 2;
+    font-family: Bold;
+    font-size: 1.6em;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+.values-items>div h2 {
+    line-height: 1.2;
+    font-family: Light;
+    font-size: 1.2em;
+}
+
+#map-countries {
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+    background-image: url(../img/countrymap.png);
+    background-color: #23428c;
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 100px;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+#map-countries>div {
+    /* width: 25%; */
+    display: flex;
+    color: #fff;
+}
+
+#map-countries>div h1 {
+    flex: 2;
+    font-family: Black;
+    font-size: 60px;
+    flex-grow: 0;
+}
+
+#map-countries>div h2 {
+    flex: 1;
+    line-height: 1.2;
+    align-self: center;
+    margin-left: 50px;
+    flex-grow: 0;
+}
+
+#features {
+    width: 100%;
+    padding: 100px 20% 30px;
+}
+
+#features>div {
+    width: 100%;
+    display: flex;
+    margin-bottom: 80px;
+    justify-content: space-between;
+}
+
+#features>div:after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 2px;
+    background: rgba(153, 153, 153, 0.274);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+#features>div h1 {
+    flex: 1;
+    max-width: 500px;
+    display: inline-block;
+}
+
+#features>div:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+#features .feature-title {
+    font-size: 2em;
+    font-family: Bold;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 50px;
+}
+
+#features .feature-title:after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 20%;
+    max-width: 200px;
+    height: 5px;
+    background-color: var(--main-color);
+}
+
+.feature-sub-title {
+    font-size: 1.2em;
+    font-family: Light;
+    line-height: 1.3;
+    display: block;
+}
+
+#features>div img {
+    /* flex: 2; */
+    align-self: center;
+    object-fit: contain;
+    object-position: center;
+}
