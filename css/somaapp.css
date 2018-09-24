@@ -1,7 +1,26 @@
 #somaapp-banner {
-    padding-top: 250px;
-    min-height: 100vh;
-    background: #ffffff;
+    padding-top: 220px;
+    padding-bottom: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+#somaapp-banner .decos{
+    position: absolute;
+    bottom: 1em;
+    left: -10%;
+    right: 0;
+    height: 90px;
+    width: 65%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-size: 160px;
+}
+
+.decos{
+    background-image: url(data:img/png;base64,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);
 }
 
 #somaapp-banner .section-title,
@@ -12,9 +31,14 @@
 }
 
 .banner-contents {
+    flex:1;
     display: flex;
     width: 100%;
-    padding: 100px 10% 0;
+    /* padding: 100px 10% 0; */
+    padding: 0 5%;
+    padding-top: 5%;
+    position: relative;
+    overflow: hidden;
 }
 
 .banner-contents>div {
@@ -60,7 +84,7 @@
 }
 
 #somaapp-banner:after {
-    content: "";
+    /* content: ""; */
     width: 50%;
     background: rgba(153, 153, 153, 0.274);
     margin: 0 auto 10px;
@@ -75,7 +99,7 @@
     font-size: 20px;
     font-weight: lighter;
     text-align: center;
-    font-family: "Light";
+    font-family: "Light", sans-serif;
     line-height: 1.3;
 }
 
@@ -95,7 +119,7 @@
 
 .values-items>div h1 {
     line-height: 2;
-    font-family: Bold;
+    font-family: Bold, sans-serif;
     font-size: 1.6em;
     margin-bottom: 18px;
     color: #333;
@@ -103,7 +127,7 @@
 
 .values-items>div h2 {
     line-height: 1.2;
-    font-family: Light;
+    font-family: Light, sans-serif;
     font-size: 1.2em;
 }
 
@@ -124,14 +148,17 @@
 }
 
 #map-countries > h2{
-    font-size: 3em;
+    font-size: 1.6em;
+    text-transform: uppercase;
     position: absolute;
-    top: 1.2em;
+    top: 2.5em;
     left: 0;
     right: 0;
     text-align: center;
     color: #738cc5;
     line-height: 1.1em;
+    letter-spacing: 0.0125em;
+    font-family: Light, sans-serif;
 }
 
 #map-countries>div {
@@ -142,7 +169,7 @@
 
 #map-countries>div h1 {
     flex: 2;
-    font-family: Black;
+    font-family: Black, sans-serif;
     font-size: 60px;
     flex-grow: 0;
 }
@@ -162,6 +189,8 @@
 
 #features>div {
     width: 100%;
+    max-height: 480px;
+    overflow: hidden;
     display: flex;
     margin-bottom: 80px;
     justify-content: space-between;
@@ -170,11 +199,11 @@
 #features>div:after {
     content: "";
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: 2px;
-    background: rgba(153, 153, 153, 0.274);
-    left: 50%;
-    transform: translateX(-50%);
+    background: rgba(153, 153, 153, 0.12);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     bottom: 0;
 }
 
@@ -182,6 +211,7 @@
     flex: 1;
     max-width: 500px;
     display: inline-block;
+    margin-top: 3em;
 }
 
 #features>div:nth-of-type(even) {
@@ -190,7 +220,7 @@
 
 #features .feature-title {
     font-size: 2em;
-    font-family: Bold;
+    font-family: Bold, sans-serif;
     line-height: 1.3;
     display: block;
     margin-bottom: 50px;
@@ -209,32 +239,33 @@
 
 .feature-sub-title {
     font-size: 1.2em;
-    font-family: Light;
+    font-family: Light, sans-serif;
     line-height: 1.3;
     display: block;
 }
 
 #features>div img {
     /* flex: 2; */
-    align-self: center;
+    align-self: flex-start;
     object-fit: contain;
     object-position: center;
 }
 
 #testimonials{
     margin-top: -5%;
+    margin-bottom: 5%;
 }
 
 #testimonials .section-title{
     color: #000;
     line-height: 1.5em;
-    margin-bottom: 3em;
 }
 
 #testimonials .section-wrapper > div{
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: -8%;
 }
 
 .testimonial{
