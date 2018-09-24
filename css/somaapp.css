@@ -123,6 +123,17 @@
     justify-content: space-evenly;
 }
 
+#map-countries > h2{
+    font-size: 3em;
+    position: absolute;
+    top: 1.2em;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #738cc5;
+    line-height: 1.1em;
+}
+
 #map-countries>div {
     /* width: 25%; */
     display: flex;
@@ -208,4 +219,97 @@
     align-self: center;
     object-fit: contain;
     object-position: center;
+}
+
+#testimonials{
+    margin-top: -5%;
+}
+
+#testimonials .section-title{
+    color: #000;
+    line-height: 1.5em;
+    margin-bottom: 3em;
+}
+
+#testimonials .section-wrapper > div{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.testimonial{
+    flex: 1;
+    flex-basis: 300px;
+    margin: 2em;
+    margin-top: 6em;
+    margin-bottom: 3em;
+}
+
+.testimonial:nth-child(1){
+    
+}
+
+.testimonial:nth-child(2){
+    margin-top: 0;
+    margin-right: 220px;
+}
+
+.testimonial:nth-child(4){
+    margin-left: 170px;
+}
+
+.testimonial:nth-child(5){
+    margin-top: -5em;
+    margin-right: 60px;
+}
+
+.testimonial img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-right: 1em;
+}
+
+.testimonial .text{
+    background: #fff;
+    margin-top: 0.7em;
+    border-radius: 20px;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.testimonial .text > h3,
+.testimonial .text > p{
+    margin: 1.5em;
+}
+
+.testimonial .text > h3{
+    margin: 1.5em;
+    margin-bottom: 0;
+}
+
+.testimonial .text > small{
+    display: block;
+    margin: 0.3em 1.9em;
+    font-size: 0.8em;
+    color: #555;
+}
+
+.testimonial .text > p{
+    margin-top: 1em;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    color: #555;
+}
+
+.testimonial .text div{
+    padding: 1.5em 1.9em;
+    background: #f58e95;
+    font-size: 0.8em;
+}
+
+.testimonial:nth-child(even) .text div{
+    background: #768394;
+    color: #fff;
 }
