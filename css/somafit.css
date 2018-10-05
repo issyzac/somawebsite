@@ -1,11 +1,33 @@
-#sectionScroller{
+header {
     position: fixed;
+    padding: 1.5em 0;
+}
+
+header nav {
+    height: 42px;
+}
+
+header #logo {
+    margin-bottom: 0.1em;
+}
+
+header nav a {
+    color: #505050;
+}
+
+#fullpage {
+    /* , #circlesSection{ */
+    /* display: none; */
+}
+
+#sectionScroller {
+    position: absolute;
     bottom: 3em;
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border: none;
     border-radius: 50%;
     display: flex;
@@ -18,100 +40,99 @@
     transition: all 0.15s ease-out;
 }
 
-.a-watch{
-    position: relative;
-    width: 309px;
-    height: 516px;
-    background-size: 309px 516px;
-    background-repeat: no-repeat;
-    background-image: url(../img/watch-out.png);
-}
-
-.a-watch.a-watch.face{
-    width: 509px;
-    height: 415px;
-    background-size: 509px 415px;
-    background-image: url(../img/watch-face.png);
-}
-
-.a-watch img{
-    position: absolute;
-    top: 90px;
-    left: 30px;
-    width: 151px;
-    height: 184px;
-}
-
-.a-watch.face img{
-    top: 60px;
-    left: 42px;
-    width: 189px;
-    height: 200px;
-}
-
-#sectionScroller:hover{
+#sectionScroller:hover {
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-#sectionScroller:hover svg{
+#sectionScroller:hover svg {
     fill: #444;
 }
 
-footer{
-    position: relative;
-    z-index: 11;
+body {
+    color: #333;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
-section:not(.no-pad){
+
+section:not(.no-pad) {
     padding: 0;
 }
-section{
+
+section {
     height: 100vh;
+    padding-top: 2vh !important;
     position: relative;
     overflow: hidden;
 }
 
-section h1{
-    font-size: 2.5em;
-    line-height: 1.2em;
-    margin-bottom: 0.2em;
+section.inversed .section-wrapper>.layout {
+    flex-direction: row-reverse;
 }
 
-section p{
+section .text {
+    flex-shrink: 0;
+    padding-bottom: 10vh;
+    margin-left: 13%;
+    margin-right: 8%;
+    width: 420px;
+    padding-top: 1vh;
+    transition: opacity 0.45s ease-in-out;
+}
+
+section .text:not(.visible) {
+    /* animation: fadeOut 0.1s ease-out; */
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+section.inversed .text {
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+section h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+section p {
     color: #444;
     font-size: 1.15em;
     line-height: 1.7em;
 }
 
-section .text{
-    padding-top: 20vh;
-    margin-left: 13%;
-    margin-right: 8%;
-    width: 420px;
+section a {
+    display: block;
+    margin-top: 2em;
+    color: #f35819;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.7rem;
+    max-width: 350px;
 }
 
-section .images{
+section .images {
     position: relative;
     width: 800px;
     margin-right: -200px;
     height: 100vh;
 }
 
-section:nth-child(even) .section-wrapper > .layout{
-    flex-direction: row-reverse;
-}
-
-section:nth-child(even) .text{
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-section:nth-child(even) .images{
+section.inversed .images {
     margin-left: -200px;
     margin-right: 0;
 }
 
-section .images:before,
-section .images .circle{
+section .images .circle {
     content: "";
     display: block;
     position: relative;
@@ -124,65 +145,240 @@ section .images .circle{
     top: 0;
     bottom: 0;
     margin: auto;
-}
-
-#somafitBanner{
-    padding-top: 8vh;
-}
-
-#somafitBanner .text{
-    padding-top: 33vh;
-}
-
-section .images .circle{
     overflow: hidden;
 }
 
-section .images .circle > div{
+section .images .circle>* {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transform-origin: center;
+}
+
+section .images .circle>*:not(.visible):not(.first) {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+section .images .circle>*.has-transition {
+    transition: opacity 0.35s ease-out, transform 0.7s ease-out;
+}
+
+section .images .circle>*:not(.visible):not(.first).has-transition {
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+#somafitBanner .text {
+    padding-top: 15vh;
+}
+
+#fitOptions {
+    margin-top: 2em;
+}
+
+.fit-option {
+    flex-basis: 33.333%;
+    margin-bottom: 1em;
+}
+
+.fit-option img {
+    display: inline-block;
+    margin: auto;
+    width: 65px;
+}
+
+.fit-option span {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#somafitColors .text {
+    padding-top: 10vh;
+}
+
+#lookMovers {
+    margin-top: 2em;
+}
+
+.look-mover {
+    cursor: pointer;
+    margin-right: 0.8em;
+    margin-bottom: 1em;
+    padding: 0.7em 1.4em;
+    border-radius: 3em;
+    border: 2px solid #555;
+}
+
+.look-mover.active {
+    background: #e8e8e8;
+}
+
+#circlesSection {
+    pointer-events: none;
+    position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#circlesSection section {
+    background: transparent;
+}
+
+#circlesSection section:last-child {
+    transform: translateY(-100%);
+}
+
+#circlesSection .circle {
+    transition: all 0.35s ease-out;
+}
+
+#circlesSection .circle:not(.visible) {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+#outFitImages {
+    transition: transform 0.35s ease-out;
+}
+
+#outFitImages img {
+    position: relative;
+    width: 100%;
     height: 100%;
-    background-color: #ef8804;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* Overwriting fullPage.js tooltip color
+* --------------------------------------- */
+
+#fp-nav {
+    padding: 0.8em 0;
+    border-radius: 1.5em;
+    background: rgba(246, 246, 246, 0.6901960784313725);
+}
+
+#fp-nav.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+#fp-nav:not(:hover) {
+    opacity: 0.2;
+}
+
+
+/* Overwriting fullPage.js tooltip color
+* --------------------------------------- */
+
+.fp-tooltip {
+    color: #AAA;
+}
+
+#fp-nav span,
+.fp-slidesNav span {
+    border-color: #AAA;
+}
+
+#fp-nav li .active span,
+.fp-slidesNav .active span {
+    background: #AAA;
+}
+
+
+/* CYLINDER IMAGES */
+
+#cylinderImages {
+    position: absolute;
+    /* margin: 20%; */
+    background: #f0f0f0;
     display: flex;
     align-items: center;
-    padding-top: 6em;
+    justify-content: center;
 }
 
-#somafitBanner .circle > div{
-    margin-left: -8%;
-    background: #fedf8e;
+#frame {
+    width: 245px;
+    height: 80%;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-30deg) rotateZ(5deg) translate3d(20%, 0, 50px)
 }
 
-#somafitBanner .circle .a-watch{
-    flex-shrink: 0;
-    flex-basis: 40.333%;
+.strip {
+    height: 80%;
+    width: 80%;
+    transform-style: preserve-3d;
+    animation: spin 25s infinite linear;
 }
 
-#somafitPhones .images .circle > div{
-    background: #efefef;
+.strip div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #f0f0f0;
+    height: 80%;
+    width: 127%;
 }
 
-#somafitPhones .a-watch{
-    transform: scale(1.3) translateX(20%);
+.strip .blue {
+    background: blue;
+    transform: translateZ(124px);
 }
 
-#somafitFeatures .images .circle > div{
-    background: #ffdcca;
+.strip .purple {
+    background: purple;
+    transform: rotateY(90deg) translateZ(124px);
 }
 
-#somafitFeatures .a-watch{
-    transform: scale(1.3) translateX(20%);
+.strip .red {
+    background: red;
+    transform: rotateY(180deg) translateZ(124px);
 }
 
-#somafitColors .circle > div{
-    margin-left: -8%;
-    background: #bc9f79;
+.strip .black {
+    background: #000;
+    transform: rotateY(270deg) translateZ(124px);
 }
 
-#somafitColors .circle .a-watch{
-    flex-shrink: 0;
-    flex-basis: 40.333%;
+@keyframes spin {
+    from {
+        transform: rotateY(0)
+    }
+    to {
+        transform: rotateY(-360deg)
+    }
+}
+
+#footerWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 12;
+    transform: translateY(-10px);
+}
+
+footer {
+    position: relative;
+    z-index: 11;
+}
+
+section:not(.no-pad) {
+    padding: 0;
+}
+
+section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }

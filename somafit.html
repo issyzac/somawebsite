@@ -13,228 +13,401 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="IFM Staff">
-
+    <link rel="icon" href="logo.png">
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/flexboxgrid.min.css">
     <link rel="stylesheet" href="css/flex.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
+
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
     <link rel="stylesheet" href="css/somafit.css">
-    <link rel="icon" href="logo.png">
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/fullpage.min.js"></script>
+
+    <script>
+        const WORKOUT_SECTION_INDEX = 1;
+        const SWIM_SECTION_INDEX = 3;
+        const PHONE_SECTION_INDEX = 3;
+        let workoutImage;
+
+        let maxTextIndex, sectionScroller, sections, navigation,
+            circlesSection, rightCircle, leftCircle,
+            rightImages, leftImages, diverVideo, diverActualVideo,
+            outFitImages;
+
+        function moveOutFitImages(el, index) {
+            const translation = 'translateX(' + (-index * 100) + '%)';
+            var slides = document.querySelector('#outFitImages');
+            slides.style.transform = translation;
+
+            $(el).closest('div').find('.active').removeClass('active');
+            $(el).addClass('active');
+        }
+
+        $(document).ready(function() {
+            sectionScroller = $("#sectionScroller");
+            sections = $('#fullpage section');
+            maxTextIndex = sections.length - 1;
+            circlesSection = $("#circlesSection");
+            rightCircle = $("#rightCircle");
+            leftCircle = $("#leftCircle");
+            rightImages = rightCircle.find('img, div');
+            leftImages = $('#leftCircle > img, #leftCircle > div');
+            diverVideo = $('#diverVideo');
+            diverActualVideo = diverVideo.get(0);
+            outFitImages = $('#outFitImages');
+
+            $("#diverPlayLink").click(function() {
+                if (!diverVideo.hasClass('visible')) {
+                    diverVideo.addClass('visible');
+                    diverActualVideo.play();
+                }
+            });
+
+            $('#fullpage').fullpage({
+                'verticalCentered': false,
+                'css3': true,
+                'navigation': false,
+                'navigationPosition': 'right',
+                'easingcss3': 'ease-out',
+                'scrollingSpeed': 700,
+                onLeave: function(index, newIndex, direction) {
+                    const thisSection = sections.eq(index - 1);
+                    const nextSection = sections.eq(newIndex - 1);
+
+                    if (index == 2) {
+                        if (newIndex === 3)
+                            rightImages.eq(1).addClass('visible');
+                        else
+                            rightImages.eq(1).removeClass('visible');
+                    } else if (index === 3) {
+                        if (diverVideo.hasClass('visible')) {
+                            diverActualVideo.pause();
+                            diverActualVideo.currentTime = 0;
+                            diverVideo.removeClass('visible');
+                        }
+
+                        if (newIndex === 4)
+                            rightImages.eq(2).addClass('visible has-transition');
+                        else if (newIndex === 2)
+                            leftImages.eq(2).removeClass('visible');
+                    } else if (index === 4) {
+                        if (newIndex === 3) {
+                            rightImages.eq(2).removeClass('visible');
+                            leftImages.eq(1).removeClass('visible');
+                        } else if (newIndex === 5)
+                            leftImages.eq(1).addClass('visible');
+                    } else if (index === 5) {
+                        if (newIndex === 6)
+                            leftImages.eq(2).addClass('visible has-transition');
+                    } else if (index === 6) {
+                        if (newIndex === 5)
+                            leftImages.eq(2).removeClass('visible');
+                    }
+
+                    // fade incoming text in and vice versa
+                    thisSection.find('.text').removeClass('visible');
+                    setTimeout(() => {
+                        nextSection.find('.text').addClass('visible');
+                    }, 200);
+
+
+                    //switch from left to right circles and vice versa
+                    if (!thisSection.hasClass('inversed') && nextSection.hasClass('inversed')) {
+                        rightCircle.removeClass('visible');
+
+                        setTimeout(() => {
+                            leftCircle.addClass('visible');
+                        }, 200);
+                    } else if (thisSection.hasClass('inversed') && !nextSection.hasClass('inversed')) {
+                        leftCircle.removeClass('visible');
+
+                        setTimeout(() => {
+                            rightCircle.addClass('visible');
+                        }, 200);
+                    }
+
+                    //hide and show circles and scroll pointer
+                    if (direction === 'up') {
+                        sectionScroller.show();
+                        circlesSection.show();
+                        navigation.removeClass('hidden');
+                    } else if (newIndex === $('#fullpage section').length + 1) {
+                        sectionScroller.hide();
+                        circlesSection.hide();
+                        navigation.addClass('hidden');
+                    }
+                },
+
+                /*
+                Needed to maintain the fixed position of the element
+                due to problems using translate3d and fixed elements.
+                */
+                afterRender: function() {
+                    $('#infoMenu').appendTo('body');
+                    navigation = $('#fp-nav');
+                }
+
+            });
+        });
+    </script>
 </head>
 
-<body class="show-na">
+<body>
     <header class="layout vertical center">
-        <a id="logo" href="index.html" class="layout center">
-            <img src="img/logo.png" alt="Somaapps Technologies" width="70px;" height="70px">
-        </a>
-
         <nav class="layout center">
             <a href="index.html" class="layout center-center">Home</a>
             <a href="somaapp.html" class="layout center-center">SomaApp</a>
-            <a href="#" class="layout center-center active">SomaFit</a>
-            <a href="blog.html" class="layout center-center">Blog</a>
-            <a href="contacts.html" class="layout center-center">Contact Us</a>
+            <!-- <a href="#" class="layout center-center active">SomaFit</a> -->
+            <a id="logo" href="#" class="layout center-center active">
+                <img src="img/somafit/logo.png" alt="Somaapps Technologies" width="50px;" height="50px">
+            </a>
+            <a href="#" class="layout center-center">Blog</a>
+            <a href="#" class="layout center-center">Contact Us</a>
         </nav>
     </header>
 
     <button id="sectionScroller">
-            <svg fill="#999" width="43" height="43" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+        <svg fill="#999" width="30" height="30" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
     </button>
 
-    <!-- Main banner -->
-    <section id="somafitBanner">
-        <div class="section-wrapper">
-            <div class="layout">
-                <div class="text">
-                    <h1>
-                        Not just for working out,<br> not just for staying fit
-                    </h1>
-                    <p>
-                        Somafit has been carefully desgined to enable you <br>
-                        to easily take back control of your daily life <br>
-                        and keep track of your personal health.
-                    </p>
-                </div>
-
-                <div class="images">
-                    <div class="circle layout center-center">
-                        <div class="layout">
-                            <div class="a-watch">
-                                <img src="img/watch-hearts.jpg" alt="">
-                            </div>
-                            <div class="a-watch">
-                                <img src="img/watch-target.jpg" alt="">
-                            </div>
-                            <div class="a-watch">
-                                <img src="img/watch-workout.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="somafitPhones">
-        <div class="section-wrapper">
-            <div class="layout">
-                <div class="text">
-                    <h1>
-                        Android &amp; IOS <br> compatible
-                    </h1>
-                    <p>
-                        We want all our users to quickly and easily integrate <br>
-                        SomaFit into their current workflows and schedules. <br>  
-                        To do that we have ensured that it is comptabile <br>
-                        with both Android and iOS smartphones.
-                    </p>
-                </div>
-
-                <div class="images">
-                    <div class="circle layout center-center">
-                        <div class="layout center-center">
-                            <div class="a-watch face">
-                                <img src="img/watch-hearts.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="somafitFeatures">
-        <div class="section-wrapper">
-            <div class="layout">
-                <div class="text">
-                    <h1>
-                        Feature Packed
-                    </h1>
-                    <p>
-                        Beyond just the cool looking watch face design, <br> 
-                        SomaFit comes with a lot of features to help you <br>
-                        with health and general life management.
-                    </p>
-                </div>
-
-                <div class="images">
+    <div id="circlesSection">
+        <section class="inversed">
+            <div class="section-wrapper">
+                <div class="layout">
+                    <div class="text">&nbsp;</div>
                     <div class="images">
-                        <div class="circle layout center-center">
-                            <div class="layout center-center">
-                                <div class="a-watch face">
-                                    <img src="img/watch-hearts.jpg" alt="">
+                        <div class="circle" id="leftCircle">
+                            <img class="first" src="img/somafit/phones.jpg" alt="">
+                            <div id="outFitImages" class="layout">
+                                <img src="img/somafit/withfriends.jpg" alt="">
+                                <img src="img/somafit/aroundtown.jpg" alt="">
+                                <img src="img/somafit/date.jpg" alt="">
+                                <img src="img/somafit/chilling.jpg" alt="">
+                            </div>
+                            <img src="img/somafit/together.jpg" alt="" style="object-position: righ">
+
+                            <div id="cylinderImages">
+                                <div id="frame">
+                                    <div class="strip">
+                                        <div class="blue"></div>
+                                        <div class="purple"></div>
+                                        <div class="red"></div>
+                                        <div class="black"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="somafitColors">
-        <div class="section-wrapper">
-            <div class="layout">
-                <div class="text">
-                    <h1>
-                        Style Adaptive
-                    </h1>
-                    <p>
-                        Who says you have to compromise your style? <br>
-                        SomaFit comes in multiple colors choices that will<br>
-                        blend perfectly into the outfit you have on.
-                    </p>
-                </div>
+        </section>
 
-                <div class="images">
-                    <div class="circle layout center-center">
-                        <div class="layout">
-                            <div class="a-watch">
-                                <img src="img/watch-hearts.jpg" alt="">
-                            </div>
-                            <div class="a-watch">
-                                <img src="img/watch-target.jpg" alt="">
-                            </div>
-                            <div class="a-watch">
-                                <img src="img/watch-workout.jpg" alt="">
-                            </div>
+        <section>
+            <div class="section-wrapper">
+                <div class="layout">
+                    <div class="text">&nbsp;</div>
+                    <div class="images">
+                        <div id="rightCircle" class="circle visible">
+                            <img class="first" src="img/somafit/workout2.jpg" alt="">
+                            <img src="img/somafit/water_resistant.jpg" alt="">
+                            <img src="img/somafit/driving.jpg" alt="">
+                            <video id="diverVideo" muted loop src="img/somafit/dive.mp4"></video>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <footer>
-        <div id="ceoQuote" class="section-wrapper layout vertical center-center ">
-            <q>
-                In the modern technology-driven world, the power lies not simply in the
-                acquisition of education, but in harnessing it to create solutions and opprotunities.
-            </q>
-            <small class="text-accent">
-                Isaiah Zachariah, &nbsp;&nbsp;CTO Somaapps Technologies
-            </small>
-        </div>
-
-        <div class="section-wrapper" style="max-width: 1300px !important; border-top: 1px solid #444">
-            <div id="copyright" class="section-wrapper layout start justified">
+    <div id="fullpage">
+        <section id="somafitBanner" class="section">
+            <div class="section-wrapper">
                 <div class="layout center">
-                    <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
-                    <hr>&emsp;&nbsp;
-                    <span>Copyright &copy; 2018 Somaapps Technologies</span>
-                </div>
+                    <div class="text visible">
+                        <h1>
+                            A workout partner <br> that you can rely on
+                        </h1>
+                        <p>
+                            Somafit has been desgined to enable you <br> to easily take back full control of your fitness life <br> by giving you information you can act on.
+                        </p>
 
-                <div id="footerLocation" class="layout">
-                    <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                    </svg> &emsp;
-
-                    <div>
-                        Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
-                        <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
-                            View on Google Maps
-                        </a>
+                        <div id="fitOptions" class="layout wrap">
+                            <div class="fit-option">
+                                <img src="img/fit/9.png" alt="">
+                                <span>Steps Taken</span>
+                            </div>
+                            <div class="fit-option"><img src="img/fit/1.png" alt="">
+                                <span>Calories Burnt</span>
+                            </div>
+                            <div class="fit-option">
+                                <img src="img/fit/4.png" alt="">
+                                <span>See Heartrate</span>
+                            </div>
+                            <div class="fit-option">
+                                <img src="img/fit/8.png" alt="">
+                                <span>Monitor Sleep</span>
+                            </div>
+                            <div class="fit-option"><img src="img/fit/7.png" alt="">
+                                <span>Wellbeing</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="images"></div>
                 </div>
             </div>
+        </section>
+
+        <section id="somafitPhones" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Works well on both <br> Android &amp; IOS phones
+                        </h1>
+                        <p>
+                            To help you easily adapt the SomaFit ecosystem,<br> we have ensured that it's comptabile with both<br> Android and iOS phones.
+                        </p>
+
+                        <a href="#">
+                            Learn how to connect your somafit 
+                            watch with your smartphone
+                        </a>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="somafitWaterResistant" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            It works just as well <br> when under water
+                        </h1>
+                        <p>
+                            A Somafit watch is also water resistant <br> which means it will still work properly <br> when you decide to take diving with you.
+
+                            <a id="diverPlayLink" href="#">
+                                Watch a Fahad, a somafit user from Zanzibar 
+                                take his watch diving
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="somafitNotifications" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Keep your phone away<br> until you need it.
+                        </h1>
+                        <p>
+                            A Somafit watch provides you with both <br> call and message notifications allowing <br> to rest easy knowing that you won't miss out.
+                        </p>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="somafitColors" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            A perfect compliment<br> to your perfect outfit.
+                        </h1>
+                        <p>
+                            Available in all your favorite colours, <br> a Somafit watch can serve as the perfect tool <br> to spice up your look.
+                        </p>
+
+                        <div id="lookMovers" class="layout wrap">
+                            <span onclick="moveOutFitImages(this, 0)" class="look-mover active">Out with friends</span>
+                            <span onclick="moveOutFitImages(this, 1)" class="look-mover">Around town</span>
+                            <span onclick="moveOutFitImages(this, 2)" class="look-mover">On the perfect date</span>
+                            <span onclick="moveOutFitImages(this, 3)" class="look-mover">Just chilling</span>
+                        </div>
+
+                        <a href="#">
+                            See all available watch colours.
+                        </a>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="somafitDownload" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Let's Somafit together
+                        </h1>
+                        <p>
+                            Get your very own Somafit and then tell a friend, <br> so you can all take back control of your fitness and better manage your personal lives.
+                        </p>
+
+                        <a href="#">
+                            Get your own somafit watch
+                        </a>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <div id="footerWrapper" class="section">
+            <footer>
+                <div id="ceoQuote" class="section-wrapper layout vertical center-center ">
+                    <q>
+                        In the modern technology-driven world, the power lies not simply in the
+                        acquisition of education, but in harnessing it to create solutions and opprotunities.
+                    </q>
+                    <small class="text-accent">
+                        Isaiah Zachariah, &nbsp;&nbsp;CTO Somaapps Technologies
+                    </small>
+                </div>
+
+                <div class="section-wrapper" style="max-width: 1300px !important; border-top: 1px solid #444">
+                    <div id="copyright" class="section-wrapper layout start justified">
+                        <div class="layout center">
+                            <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
+                            <hr>&emsp;&nbsp;
+                            <span>Copyright &copy; 2018 Somaapps Technologies</span>
+                        </div>
+
+                        <div id="footerLocation" class="layout">
+                            <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg> &emsp;
+
+                            <div>
+                                Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
+                                <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
+                                    View on Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </footer>
-
-    <script src="js/TweenMax.min.js "></script>
-    <script src="js/sm.min.js "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
-
-    <script>
-        var controller = new ScrollMagic.Controller();
-
-        new ScrollMagic.Scene({
-            triggerElement: '.banner-contents', triggerHook: 0.5, duration: window.innerHeight * 2
-        })
-        .setTween(TweenMax.to('.first-phone, .second-phone', 1, {rotation: 0, ease: Power0.easeNone}))
-        .addTo(controller);
-        
-        var features = document.querySelectorAll("#features > div");
-
-        for(i = 0; i < features.length; i++){
-            var feature = features[i];    
-            new ScrollMagic.Scene({
-                triggerElement: feature,
-                triggerHook: 1,
-                duration: window.innerHeight * 1.2
-            })
-            .setTween(TweenMax.from(feature.querySelector("img"), 1.6, {y: '30%', ease: Power0.easeNone}))
-            .addTo(controller);
-        }
-        
-        new ScrollMagic.Scene({
-            triggerElement: '#testimonials', triggerHook: 1, duration: window.innerHeight * 2
-        })
-        .setTween(TweenMax.from('.testimonial', 1, {y: '100%', ease: Power0.easeNone}))
-        .addTo(controller);
-    </script>
+    </div>
 </body>
 
 </html>
