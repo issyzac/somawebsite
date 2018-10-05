@@ -26,27 +26,70 @@
 	<script type="text/javascript" src="js/fullpage.min.js"></script>
 
 	<script>
+        let maxTextIndex, sectionScroller, sections, navigation, circlesSection, rightCircle, leftCircle;
+
 		$(document).ready(function() {
+            sectionScroller = $("#sectionScroller");
+            sections = $('#fullpage section');
+            maxTextIndex = sections.length - 1;
+            circlesSection = $("#circlesSection");
+            rightCircle = $("#rightCircle");
+            leftCircle = $("#leftCircle");
+
 			$('#fullpage').fullpage({
 				'verticalCentered': false,
 				'css3': true,
 				'sectionsColor': ['#fff', '#fff', '#fff'],
 				'navigation': true,
-				'navigationPosition': 'right',
+                'navigationPosition': 'right',
+                'scrollingSpeed': 800,
+                'easeing': 'easeOut',
 
 				afterLoad: function(anchorLink, index){
 					if(index == 2){
 						$('#iphone3, #iphone2, #iphone4').addClass('active');
 					}
 					$('#infoMenu').toggleClass('whiteLinks', index ==4);
-
 				},
 
 				onLeave: function(index, newIndex, direction){
-                    $('#staticImg').toggleClass('active', 
-                        (index == 2 && direction == 'down' ) || 
-                        (index == 4 && direction == 'up')
-                    );
+                    const thisSection = sections.eq(index - 1);
+                    const nextSection = sections.eq(newIndex - 1);
+
+                    thisSection.find('.text').removeClass('visible');
+                    console.log(rightCircle.get(0), leftCircle.get(0));
+                    
+                    if(!thisSection.hasClass('inversed') && nextSection.hasClass('inversed')){
+                        rightCircle.removeClass('visible');
+
+                        setTimeout(() => {
+                            leftCircle.addClass('visible');
+                        }, 200);
+                    }
+                    else if(thisSection.hasClass('inversed') && !nextSection.hasClass('inversed')){
+                        leftCircle.removeClass('visible');
+
+                        setTimeout(() => {
+                            rightCircle.addClass('visible');
+                        }, 200);
+                    }
+
+                    if(direction === 'up'){
+                        sectionScroller.show();
+                        circlesSection.show();
+                        navigation.removeClass('hidden');
+                    }
+                    else if(newIndex === $('#fullpage section').length + 1){
+                        sectionScroller.hide();
+                        circlesSection.hide();
+                        navigation.addClass('hidden');
+                    }
+
+                    if(direction === 'down' && index !== maxTextIndex){
+                        nextSection.find('.text').addClass('visible');
+                    }
+                    else if(direction === 'up' && index != 0)
+                        $('#fullpage section').eq(index - 1).find('.text').addClass('visible');
 				},
 
 				/*
@@ -54,7 +97,8 @@
 				due to problems using translate3d and fixed elements.
 				*/
 				afterRender: function(){
-					$('#infoMenu').appendTo('body');
+                    $('#infoMenu').appendTo('body');
+                    navigation = $('#fp-nav');
 				}
 
 			});
@@ -68,7 +112,7 @@
             <a href="somaapp.html" class="layout center-center">SomaApp</a>
             <!-- <a href="#" class="layout center-center active">SomaFit</a> -->
             <a id="logo" href="#" class="layout center-center active">
-                <img src="img/logo.png" alt="Somaapps Technologies" width="50px;" height="50px">
+                <img src="img/somafit/logo.png" alt="Somaapps Technologies" width="50px;" height="50px">
             </a>
             <a href="blog.html" class="layout center-center">Blog</a>
             <a href="contacts.html" class="layout center-center">Contact Us</a>
@@ -76,59 +120,88 @@
     </header>
 
     <button id="sectionScroller">
-            <svg fill="#999" width="30" height="30" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+        <svg fill="#999" width="30" height="30" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
     </button>
 
+    <div id="circlesSection">
+        <section><div class="section-wrapper"><div class="layout"><div class="text">&nbsp;</div>
+            <div class="images"><div id="rightCircle" class="circle visible">
+                <img class="visible" src="img/somafit/workout.jpg" alt="">
+                <img src="img/somafit/workout.jpg" alt="">
+            </div></div></div></div></section>
+        
+        <section class="inversed">
+            <div class="section-wrapper"><div class="layout"><div class="text">&nbsp;</div>
+                <div class="images"><div class="circle" id="leftCircle"><img src="img/somafit/water_resistant.jpg" alt=""></div></div></div>
+            </div>
+        </section>
+    </div>
+
     <div id="fullpage">
-        <div id="staticImg">
-            <div class="imgsContainer">
-                <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-green.png" alt="iphone" id="iphone-green" />
-            </div>
-        </div>
-
-        <div class="section" id="section1">
-            <div class="wrap">
-                <div class="imgsContainer">
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone2.png" alt="iphone" id="iphone2" />
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone3.png" alt="iphone" id="iphone3" />
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone4.png" alt="iphone" id="iphone4" />
-                </div>
-
-                <div class="box">
-                    <h2>A powerful plugin</h2>
-                    <strong>fullPage.js</strong>  callbacks allow you to create amazing dynamic sites with a bit of imagination. This example tries to reproduce the Apple iPhone-5c website animations as an example of what fullPage.js is capable of.
-                </div>
-            </div>
-        </div>
-
-        <div class="section moveDown" id="section2">
-            <div class="wrap">
-                <div class="imgsContainer">
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-yellow.png" alt="iphone" id="iphone-yellow" />
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-red.png" alt="iphone" id="iphone-red" />
-                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-blue.png" alt="iphone" id="iphone-blue" />
-                </div>
-
-                <div class="box">
-                    <h2>Amazing stuff</h2>
-                    Combining <strong>fullPage.js</strong> with your own CSS styles and animations, you will be able to create something remarkable.
+        <section id="somafitBanner" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            A workout companion <br>
+                            you can always rely on
+                        </h1>
+                        <p>
+                            Somafit has been desgined to enable you <br>
+                            to easily take back full control of your fitness life <br>
+                            by giving you information you can act on.
+                        </p>
+                    </div>
+    
+                    <div class="images"></div>
                 </div>
             </div>
-        </div>
+        </section>
+        
+        <section id="somafitWaterResistant" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            You could even take it<br>
+                            with you for a swim
+                        </h1>
+                        <p>
+                            A Somafit watch is also water resistant <br>
+                            which means it will still work properly <br> 
+                            when you decide to take diving with you.
 
-        <div class="section moveDown" id="section3">
-            <div class="wrap">
-                <div class="box">
-                    <h2>Just a demo</h2>
-                    This is, of course, just a demo. I didn't want to spend much time on it.
-                    Don't expect it to work perfectly in all kind of screens.
-                    It has been designed to work on 1180px width or over on modern browsers with CSS3.
+                            <a href="#">
+                                Watch a Fahad, a somafit user from Zanzibar 
+                                take hist somafit diving.
+                            </a>
+                        </p>
+                    </div>
+    
+                    <div class="images"></div>
                 </div>
             </div>
-            <div class="imgsContainer">
-                <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-two.png" alt="iphone" id="iphone-two" />
+        </section>
+
+        <section id="somafitPhones" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Works on both <br> Android &amp; IOS
+                        </h1>
+                        <p>
+                            We want you to quickly and easily<br>
+                            integrate SomaFit into your current workflow. <br>  
+                            So we have ensured that it's comptabile <br>
+                            with both Android and iOS smartphones.
+                        </p>
+                    </div>
+    
+                    <div class="images"></div>
+                </div>
             </div>
-        </div>
+        </section>
 
         <div id="footerWrapper" class="section">
             <footer>

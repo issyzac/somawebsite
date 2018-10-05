@@ -13,7 +13,7 @@ header nav a {
     color: #505050;
 }
 #sectionScroller{
-    position: fixed;
+    position: absolute;
     bottom: 3em;
     left: 0;
     right: 0;
@@ -46,262 +46,139 @@ body{
     font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
 
-/* Style for our header texts
-* --------------------------------------- */
-h1{
-    font-size: 5em;
-    font-family: arial,helvetica;
-    margin:0;
-    padding:0;
-}
-h2{
-    font-size: 2em;
-    margin: 0 0 18px 0;
-    font-family: arial,helvetica;
+section:not(.no-pad){
+    padding: 0;
 }
 
-/* Common styles
-* --------------------------------------- */
-img{
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
-    transition: all 0.7s ease-out;
-}
-.section{
-    text-align:center;
-    overflow:hidden;
-}
-.wrap{
-    width: 1180px;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
+section{
+    height: 100vh;
+    padding-top: 2vh !important;
     position: relative;
-}
-.box{
-    text-align: left;
-    color: #808080;
-    font-size: 1.2em;
-    line-height: 1.6em;
+    overflow: hidden;
 }
 
-/* Section 0
-* --------------------------------------- */
-#section0{
-    padding: 60px 0;
-}
-#section0 img{
-    height: 100%;
-    margin: 40px 0 0 0;
+section.inversed .section-wrapper > .layout{
+    flex-direction: row-reverse;
 }
 
-/* Section 1
-* --------------------------------------- */
-#section1 img{
-    position:absolute;
-    left: 40px;
-    top: 100px;
+section .text{
+    flex-shrink: 0;
+    padding-bottom: 10vh;
+    margin-left: 13%;
+    margin-right: 8%;
+    width: 420px;
+    padding-top: 1vh;
 }
 
-#section1 .box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -192px;
-    margin-left: 89px;
-    width: 395px;
-    z-index: 1;
+section.inversed .text{
+    margin-left: 8%;
+    margin-right: 13%;
 }
-#section1 .imgsContainer{
+
+section h1{
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+section p{
+    color: #444;
+    font-size: 1.15em;
+    line-height: 1.7em;
+}
+
+section a{
     display: block;
-    position: absolute;
-    z-index: 1;
-    top: 42%;
-    left: 58%;
-    margin-top: -325px;
-    margin-left: -747px;
+    margin-top: 2em;
+    color: #f35819;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.7rem;
+    max-width: 350px;
+}
+
+section .images{
+    position: relative;
     width: 800px;
-    height: 696px;
-}
-#section1 img{
-    height: 100%;
-}
-/*screen resolutions between 620px and 800px*/
-@media all and (min-width: 620px) and (max-width: 800px){
-    #section1 .imgsContainer{
-        margin-top: -278px;
-        margin-left: -685px;
-        width: 647px;
-        height: 563px;
-    }
+    margin-right: -200px;
+    height: 100vh;
 }
 
-/*screen resolutions lower than 620px*/
-@media all and (max-width: 620px){
-    #section1 .imgsContainer{
-        margin-top: -208px;
-        margin-left: -516px;
-        width: 534px;
-        height: 464px;
-    }
-}
-#iphone2{
-    z-index: 10;
-}
-#iphone2.active{
-    -webkit-transform: translate3d(-134px, 0px, 0px);
-    -moz-transform: translate3d(-134px, 0px, 0px);
-    -ms-transform:translate3d(-134px, 0px, 0px);
-    transform: translate3d(-134px, 0px, 0px);
+section.inversed .images{
+    margin-left: -200px;
+    margin-right: 0;
 }
 
-#iphone3{
-    z-index: 12;
-}
-#iphone3.active{
-    -webkit-transform: translate3d(213px, 0px, 0px);
-    -moz-transform: translate3d(213px, 0px, 0px);
-    -ms-transform:translate3d(213px, 0px, 0px);
-    transform: translate3d(213px, 0px, 0px);
-}
-
-#iphone4{
-    z-index: 11;
-    left: 140px;
-}
-
-#iphone4.active{
-    -webkit-transform: translate3d(548px, 0px, 0px);
-    -moz-transform: translate3d(548px, 0px, 0px);
-    -ms-transform:translate3d(548px, 0px, 0px);
-    transform: translate3d(548px, 0px, 0px);
-}
-
-
-
-
-/* Section 2
-* --------------------------------------- */
-#section2 img{
-    position:absolute;
-}
-#section2 .imgsContainer,
-#staticImg .imgsContainer,
-#section3 .imgsContainer{
-    position: absolute;
-    z-index: 1;
-    left: 50%;
+section .images .circle{
+    content: "";
     display: block;
-    margin-top: -288px;
-    margin-left: -636px;
-    width: 0;
+    position: relative;
+    width: 90%;
     height: 0;
-
-    -webkit-transition: all 1.2s ease-in-out;
-    -moz-transition: all 1.2s ease-in-out;
-    -o-transition: all 1.2s ease-in-out;
-    transition: all 1.2s ease-in-out;
-}
-
-#section2.moveUp .imgsContainer{
-    top: 50%;
-}
-
-#section2.moveDown .imgsContainer,
-#staticImg .imgsContainer{
-    top: 90%;
-}
-
-#section2.active .imgsContainer{
-    top: 50%;
-}
-
-#section2 .box{
-    top: 22%;
-    left: 42%;
+    padding-bottom: 90%;
+    background: #f0f0f0;
+    border-radius: 50%;
     position: absolute;
-    width: 582px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
 }
 
-#staticImg{
-    display: block;
+section .images .circle > img,
+section .images .circle > video{
     position: absolute;
-    z-index: 1;
-    top: 200%;
-    left: 0;
     width: 100%;
-    min-width: 980px;
     height: 100%;
-
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
-    transition: all 0.7s ease-out;
-
-    -webkit-backface-visibility: hidden;
-     -webkit-perspective: 1000;
-}
-#staticImg.moveDown{
--webkit-transform: translate3d(0, 100%, 0);
-  -ms-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-}
-#staticImg.moveUp{
-
--webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-}
-#staticImg.moveDown .imgsContainer{
-        top: 50%;
-}
-#staticImg.moveDown img{
-    top: 155px;
+    object-fit: cover;
+    transition: all 0.35s ease-out;
 }
 
-#staticImg.active .imgsContainer{
-    top: 50%;
+#circlesSection{
+    pointer-events: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
+#circlesSection section{
+    background: transparent;
+}
 
-#staticImg.active img{
-    top: 487px;
+#circlesSection section:last-child{
+    transform: translateY(-100%);
+}
+
+#circlesSection .circle{
+    transition: all 0.35s ease-out;
+}
+
+#circlesSection .circle:not(.visible){
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 
-
-
-
-/* Section 3
+/* Overwriting fullPage.js tooltip color
 * --------------------------------------- */
-#section3 .imgsContainer{
-    top: 50%;
+#fp-nav{
+    padding: 0.8em 0;
+    border-radius: 1.5em;
+    background: rgba(246, 246, 246, 0.6901960784313725);
 }
 
-#section3 img{
-    top: 155px;
-    left: 455px;
-    position: absolute;
-}
-#section3 .box{
-    text-align: center;
-    margin: 10% 0 0 0;
+#fp-nav.hidden{
+    opacity: 0 !important;
+    pointer-events: none;
 }
 
-
-
-/* Menu
-* --------------------------------------- */
-#infoMenu.whiteLinks li:nth-child(1) a,
-#infoMenu.whiteLinks li:nth-child(2) a,
-#infoMenu.whiteLinks li:nth-child(3) a{
-    color: #fff;
+#fp-nav:not(:hover){
+    opacity: 0.2;
 }
-#infoMenu{
-    font-family: arial, helvetica;
-}
-
 
 /* Overwriting fullPage.js tooltip color
 * --------------------------------------- */
@@ -316,15 +193,13 @@ img{
 }
 
 
-
-
-
-
 #footerWrapper{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    z-index: 1;
+    position: relative;
+    z-index: 12;
+    transform: translateY(-10px);
 }
 
 footer{
@@ -342,6 +217,6 @@ section{
     overflow: hidden;
 }
 
-section:nth-child(even){
+section.inversed{
     background: #000;
 }
