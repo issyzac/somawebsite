@@ -1,0 +1,359 @@
+header{
+    position: fixed;
+    padding: 1.5em 0;
+}
+header nav{
+    height: 42px;
+}
+header #logo {
+    margin-bottom: 0.1em;
+}
+header nav a {
+    color: #505050;
+}
+
+#fullpage{
+/* , #circlesSection{ */
+    /* display: none; */
+}
+
+#sectionScroller{
+    position: absolute;
+    bottom: 3em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    z-index: 10;
+    transition: all 0.15s ease-out;
+}
+
+#sectionScroller:hover{
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+#sectionScroller:hover svg{
+    fill: #444;
+}
+
+
+body{
+    color: #333;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+section:not(.no-pad){
+    padding: 0;
+}
+
+section{
+    height: 100vh;
+    padding-top: 2vh !important;
+    position: relative;
+    overflow: hidden;
+}
+
+section.inversed .section-wrapper > .layout{
+    flex-direction: row-reverse;
+}
+
+section .text{
+    flex-shrink: 0;
+    padding-bottom: 10vh;
+    margin-left: 13%;
+    margin-right: 8%;
+    width: 420px;
+    padding-top: 1vh;
+
+    transition: opacity 0.45s ease-in-out;
+}
+
+section .text:not(.visible){
+    /* animation: fadeOut 0.1s ease-out; */
+    opacity: 0;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+section.inversed .text{
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+section h1{
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+section p{
+    color: #444;
+    font-size: 1.15em;
+    line-height: 1.7em;
+}
+
+section a{
+    display: block;
+    margin-top: 2em;
+    color: #f35819;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.7rem;
+    max-width: 350px;
+}
+
+section .images{
+    position: relative;
+    width: 800px;
+    margin-right: -200px;
+    height: 100vh;
+}
+
+section.inversed .images{
+    margin-left: -200px;
+    margin-right: 0;
+}
+
+section .images .circle{
+    content: "";
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 0;
+    padding-bottom: 90%;
+    background: #f0f0f0;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+section .images .circle > *{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transform-origin: center;
+}
+
+section .images .circle > *:not(.visible):not(.first){
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+section .images .circle > *.has-transition{
+    transition: opacity 0.35s ease-out, transform 0.7s ease-out;
+}
+
+section .images .circle > *:not(.visible):not(.first).has-transition{
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+#somafitBanner .text{
+    padding-top: 15vh;
+}
+
+#fitOptions{
+    margin-top: 2em;
+}
+
+.fit-option{
+    flex-basis: 33.333%;
+    margin-bottom: 1em;
+}
+
+.fit-option img{
+    display: inline-block;
+    margin: auto;
+    width: 65px;
+}
+
+.fit-option span{
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#somafitColors .text{
+    padding-top: 10vh;
+}
+
+#lookMovers{
+    margin-top: 2em;
+}
+
+.look-mover{
+    margin-right: 0.8em;
+    margin-bottom: 1em;
+    padding: 0.7em 1.4em;
+    border-radius: 3em;
+    border: 2px solid #555;
+}
+
+.look-mover.active{
+    background: #ddd;
+}
+
+#circlesSection{
+    pointer-events: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#circlesSection section{
+    background: transparent;
+}
+
+#circlesSection section:last-child{
+    transform: translateY(-100%);
+}
+
+#circlesSection .circle{
+    transition: all 0.35s ease-out;
+}
+
+#circlesSection .circle:not(.visible){
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+
+/* Overwriting fullPage.js tooltip color
+* --------------------------------------- */
+#fp-nav{
+    padding: 0.8em 0;
+    border-radius: 1.5em;
+    background: rgba(246, 246, 246, 0.6901960784313725);
+}
+
+#fp-nav.hidden{
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+#fp-nav:not(:hover){
+    opacity: 0.2;
+}
+
+/* Overwriting fullPage.js tooltip color
+* --------------------------------------- */
+.fp-tooltip{
+    color: #AAA;
+}
+#fp-nav span, .fp-slidesNav span{
+    border-color: #AAA;
+}
+#fp-nav li .active span, .fp-slidesNav .active span{
+    background: #AAA;
+}
+
+
+
+/* CYLINDER IMAGES */
+#cylinderImages{
+    position: absolute;
+    /* margin: 20%; */
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#frame {
+    width: 245px;
+    height: 80%;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-30deg) rotateZ(5deg) translate3d(20%, 0, 50px)
+}
+	
+.strip {
+    height: 80%;
+    width: 80%;
+    transform-style: preserve-3d;
+    animation: spin 25s infinite linear;
+}
+
+.strip div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #f0f0f0;
+	height:80%;
+	width:127%;
+}
+
+.strip .blue {
+    background: blue;
+    transform: translateZ(124px);
+}
+.strip .purple {
+    background: purple;
+    transform: rotateY(90deg) translateZ(124px);
+}
+.strip .red {
+    background: red;
+    transform: rotateY(180deg) translateZ(124px);
+}
+.strip .black {
+    background: #000;
+    transform: rotateY(270deg) translateZ(124px);
+}
+
+@keyframes spin {
+ from { transform: rotateY(0)}
+ to   { transform: rotateY(-360deg)}}
+
+
+
+
+
+#footerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 12;
+    transform: translateY(-10px);
+}
+
+footer{
+    position: relative;
+    z-index: 11;
+}
+
+section:not(.no-pad){
+    padding: 0;
+}
+
+section{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
