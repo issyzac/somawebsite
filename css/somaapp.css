@@ -266,13 +266,11 @@
     align-items: flex-start;
     flex-wrap: wrap;
     margin-top: -8%;
-    position: relative;
 }
 
 .testimonial{
     flex: 1;
-    min-width: calc(33.333% - 80px - 4em);
-    max-width: calc(25% - 80px - 4em);
+    flex-basis: 300px;
     margin: 2em;
     margin-top: 6em;
     margin-bottom: 3em;
