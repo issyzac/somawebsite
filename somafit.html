@@ -26,7 +26,14 @@
 	<script type="text/javascript" src="js/fullpage.min.js"></script>
 
 	<script>
-        let maxTextIndex, sectionScroller, sections, navigation, circlesSection, rightCircle, leftCircle;
+        const WORKOUT_SECTION_INDEX = 1;
+        const SWIM_SECTION_INDEX = 3;
+        const PHONE_SECTION_INDEX = 3;
+        let workoutImage;
+
+        let maxTextIndex, sectionScroller, sections, navigation, 
+        circlesSection, rightCircle, leftCircle,
+        rightImages, leftImages, diverVideo, diverActualVideo;
 
 		$(document).ready(function() {
             sectionScroller = $("#sectionScroller");
@@ -35,30 +42,70 @@
             circlesSection = $("#circlesSection");
             rightCircle = $("#rightCircle");
             leftCircle = $("#leftCircle");
+            rightImages = rightCircle.find('img, div');
+            leftImages = $('#leftCircle > img, #leftCircle > div');
+            diverVideo = $('#diverVideo');
+            diverActualVideo = diverVideo.get(0);
 
-			$('#fullpage').fullpage({
-				'verticalCentered': false,
-				'css3': true,
-				'sectionsColor': ['#fff', '#fff', '#fff'],
-				'navigation': true,
-                'navigationPosition': 'right',
-                'scrollingSpeed': 800,
-                'easeing': 'easeOut',
+            $("#diverPlayLink").click(function(){
+                if(!diverVideo.hasClass('visible')){
+                    diverVideo.addClass('visible');
+                    diverActualVideo.play();
+                }
+            });
 
-				afterLoad: function(anchorLink, index){
-					if(index == 2){
-						$('#iphone3, #iphone2, #iphone4').addClass('active');
-					}
-					$('#infoMenu').toggleClass('whiteLinks', index ==4);
-				},
-
+            $('#fullpage').fullpage({'verticalCentered': false,'css3': true,'navigation': false,'navigationPosition': 'right','easingcss3': 'ease-out',
+                'scrollingSpeed': 700,
 				onLeave: function(index, newIndex, direction){
                     const thisSection = sections.eq(index - 1);
                     const nextSection = sections.eq(newIndex - 1);
-
-                    thisSection.find('.text').removeClass('visible');
-                    console.log(rightCircle.get(0), leftCircle.get(0));
                     
+                    if(index == 2){
+                        if(newIndex === 3)
+                            rightImages.eq(1).addClass('visible');
+                        else
+                            rightImages.eq(1).removeClass('visible');
+                    }
+
+                    else if(index === 3){
+                        if(diverVideo.hasClass('visible')){
+                            diverActualVideo.pause();
+                            diverActualVideo.currentTime = 0;
+                            diverVideo.removeClass('visible');
+                        }
+
+                        if(newIndex === 4)
+                            rightImages.eq(2).addClass('visible has-transition');
+                        else if(newIndex === 2)
+                            leftImages.eq(2).removeClass('visible');
+                    }
+                    
+                    else if(index === 4){
+                        if(newIndex === 3){
+                            rightImages.eq(2).removeClass('visible');
+                            leftImages.eq(1).removeClass('visible');
+                        }else if(newIndex === 5)
+                            leftImages.eq(1).addClass('visible');
+                    }
+                    
+                    else if(index === 5){
+                        if(newIndex === 6)
+                            leftImages.eq(2).addClass('visible has-transition');
+                    }
+                    
+                    else if(index === 6){
+                        if(newIndex === 5)
+                            leftImages.eq(2).removeClass('visible');
+                    }
+
+                    // fade incoming text in and vice versa
+                    thisSection.find('.text').removeClass('visible');
+                    setTimeout(() => {
+                        nextSection.find('.text').addClass('visible');
+                    }, 200);
+                    
+
+                    //switch from left to right circles and vice versa
                     if(!thisSection.hasClass('inversed') && nextSection.hasClass('inversed')){
                         rightCircle.removeClass('visible');
 
@@ -74,6 +121,7 @@
                         }, 200);
                     }
 
+                    //hide and show circles and scroll pointer
                     if(direction === 'up'){
                         sectionScroller.show();
                         circlesSection.show();
@@ -84,12 +132,6 @@
                         circlesSection.hide();
                         navigation.addClass('hidden');
                     }
-
-                    if(direction === 'down' && index !== maxTextIndex){
-                        nextSection.find('.text').addClass('visible');
-                    }
-                    else if(direction === 'up' && index != 0)
-                        $('#fullpage section').eq(index - 1).find('.text').addClass('visible');
 				},
 
 				/*
@@ -124,58 +166,60 @@
     </button>
 
     <div id="circlesSection">
-        <section><div class="section-wrapper"><div class="layout"><div class="text">&nbsp;</div>
-            <div class="images"><div id="rightCircle" class="circle visible">
-                <img class="visible" src="img/somafit/workout.jpg" alt="">
-                <img src="img/somafit/workout.jpg" alt="">
-            </div></div></div></div></section>
-        
         <section class="inversed">
             <div class="section-wrapper"><div class="layout"><div class="text">&nbsp;</div>
-                <div class="images"><div class="circle" id="leftCircle"><img src="img/somafit/water_resistant.jpg" alt=""></div></div></div>
+                <div class="images"><div class="circle" id="leftCircle">
+                    <img class="first" src="img/somafit/phones.jpg" alt="">
+                    <div class="layout">
+                        <img src="img/somafit/withfriends.jpg" alt="">
+                        <img src="img/somafit/aroundtown.jpg" alt="">
+                        <img src="img/somafit/date.jpg" alt="">
+                        <img src="img/somafit/chilling.jpg" alt="">
+                    </div>
+                    <img src="img/somafit/together.jpg" alt="" style="object-position: righ">
+
+                    <div id="cylinderImages">
+                        <div id="frame">
+                            <div class="strip">        
+                                <div class="blue"></div>
+                                <div class="purple"></div>
+                                <div class="red"></div>
+                                <div class="black"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div>
             </div>
         </section>
+
+        <section><div class="section-wrapper"><div class="layout"><div class="text">&nbsp;</div>
+            <div class="images"><div id="rightCircle" class="circle visible">
+                <img class="first" src="img/somafit/workout2.jpg" alt="">
+                <img src="img/somafit/water_resistant.jpg" alt="">
+                <img src="img/somafit/driving.jpg" alt="">
+                <video id="diverVideo" muted loop src="img/somafit/dive.mp4"></video>
+            </div></div></div></div></section>
     </div>
 
     <div id="fullpage">
         <section id="somafitBanner" class="section">
             <div class="section-wrapper">
                 <div class="layout center">
-                    <div class="text">
+                    <div class="text visible">
                         <h1>
-                            A workout companion <br>
-                            you can always rely on
+                            A workout partner <br>
+                            that you can rely on
                         </h1>
                         <p>
                             Somafit has been desgined to enable you <br>
                             to easily take back full control of your fitness life <br>
                             by giving you information you can act on.
                         </p>
-                    </div>
-    
-                    <div class="images"></div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="somafitWaterResistant" class="section">
-            <div class="section-wrapper">
-                <div class="layout center">
-                    <div class="text">
-                        <h1>
-                            You could even take it<br>
-                            with you for a swim
-                        </h1>
-                        <p>
-                            A Somafit watch is also water resistant <br>
-                            which means it will still work properly <br> 
-                            when you decide to take diving with you.
 
-                            <a href="#">
-                                Watch a Fahad, a somafit user from Zanzibar 
-                                take hist somafit diving.
-                            </a>
-                        </p>
+                        <a href="#">
+                            Find how making Somafit part of your workout
+                            can help make it efficient
+                        </a>
                     </div>
     
                     <div class="images"></div>
@@ -188,14 +232,110 @@
                 <div class="layout center">
                     <div class="text">
                         <h1>
-                            Works on both <br> Android &amp; IOS
+                            Works well on both <br> 
+                            Android &amp; IOS phones
                         </h1>
                         <p>
-                            We want you to quickly and easily<br>
-                            integrate SomaFit into your current workflow. <br>  
-                            So we have ensured that it's comptabile <br>
-                            with both Android and iOS smartphones.
+                            We want you to easily adapt SomaFit ecosystem<br>
+                            So we have ensured it's comptabile with either<br>
+                            your Android or iOS smartphone.
                         </p>
+
+                        <a href="#">
+                            Learn how to connect your somafit 
+                            watch with your phone.
+                        </a>
+                    </div>
+    
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="somafitWaterResistant" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            It works just as well <br>
+                            when under water
+                        </h1>
+                        <p>
+                            A Somafit watch is also water resistant <br>
+                            which means it will still work properly <br> 
+                            when you decide to take diving with you.
+
+                            <a id="diverPlayLink" href="#">
+                                Watch a Fahad, a somafit user from Zanzibar 
+                                take his watch diving.
+                            </a>
+                        </p>
+                    </div>
+    
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="somafitNotifications" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Keep your phone away<br>
+                            until you need it.
+                        </h1>
+                        <p>
+                            A Somafit watch is provides you with both  <br>
+                            call and message notifications allowing <br> 
+                            to rest easy knowing that you won't miss out.
+                        </p>
+                    </div>
+    
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="somafitColors" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            A perfect compliment<br>
+                            to your perfect outfit.
+                        </h1>
+                        <p>
+                            Available in all your favorite collours, <br> 
+                            a Somafit watch can serve to spice up your look.
+                        </p>
+
+                        <a href="#">
+                            See all available watch colours.
+                        </a>
+                    </div>
+    
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="somafitDownload" class="section inversed">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            Let's Somafit together
+                        </h1>
+                        <p>
+                            Get your very own Somafit and then tell a friend, <br> 
+                            so you can all take back control of your fitness
+                            and better manage your personal lives.
+                        </p>
+
+                        <a href="#">
+                            See all available watch colours.
+                        </a>
                     </div>
     
                     <div class="images"></div>

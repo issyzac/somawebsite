@@ -3,7 +3,6 @@ header{
     padding: 1.5em 0;
 }
 header nav{
-    background: rgba(255, 2555, 255, 0.8);
     height: 42px;
 }
 header #logo {
@@ -12,6 +11,12 @@ header #logo {
 header nav a {
     color: #505050;
 }
+
+#fullpage{
+/* , #circlesSection{ */
+    /* display: none; */
+}
+
 #sectionScroller{
     position: absolute;
     bottom: 3em;
@@ -68,6 +73,22 @@ section .text{
     margin-right: 8%;
     width: 420px;
     padding-top: 1vh;
+
+    transition: opacity 0.45s ease-in-out;
+}
+
+section .text:not(.visible){
+    /* animation: fadeOut 0.1s ease-out; */
+    opacity: 0;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 
 section.inversed .text{
@@ -126,13 +147,26 @@ section .images .circle{
     overflow: hidden;
 }
 
-section .images .circle > img,
-section .images .circle > video{
+section .images .circle > *{
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
-    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+section .images .circle > *:not(.visible):not(.first){
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+section .images .circle > *.has-transition{
+    transition: opacity 0.35s ease-out, transform 0.7s ease-out;
+}
+
+section .images .circle > *:not(.visible):not(.first).has-transition{
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
 #circlesSection{
@@ -193,6 +227,66 @@ section .images .circle > video{
 }
 
 
+
+/* CYLINDER IMAGES */
+#cylinderImages{
+    position: absolute;
+    /* margin: 20%; */
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#frame {
+    width: 245px;
+    height: 80%;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-30deg) rotateZ(5deg) translate3d(20%, 0, 50px)
+}
+	
+.strip {
+    height: 80%;
+    width: 80%;
+    transform-style: preserve-3d;
+    animation: spin 25s infinite linear;
+}
+
+.strip div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #f0f0f0;
+	height:80%;
+	width:127%;
+}
+
+.strip .blue {
+    background: blue;
+    transform: translateZ(124px);
+}
+.strip .purple {
+    background: purple;
+    transform: rotateY(90deg) translateZ(124px);
+}
+.strip .red {
+    background: red;
+    transform: rotateY(180deg) translateZ(124px);
+}
+.strip .black {
+    background: #000;
+    transform: rotateY(270deg) translateZ(124px);
+}
+
+@keyframes spin {
+ from { transform: rotateY(0)}
+ to   { transform: rotateY(-360deg)}}
+
+
+
+
+
 #footerWrapper{
     display: flex;
     flex-direction: column;
@@ -215,8 +309,4 @@ section{
     height: 100vh;
     position: relative;
     overflow: hidden;
-}
-
-section.inversed{
-    background: #000;
 }
