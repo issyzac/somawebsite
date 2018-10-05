@@ -1,234 +1,237 @@
-body{
+body {
     --accent-color: #f7921e;
     --accent-color2: #ffd707;
-	--main-color: #e65307;
-	--main-black: #231f21;
+    --main-color: #e65307;
+    --main-black: #231f21;
 }
 
 body.show-nav,
-body.locked{
+body.locked {
     overflow-y: hidden;
 }
 
-section{
-	min-height: 20vh;
-	background: #fff;
+section {
+    min-height: 20vh;
+    background: #fff;
 }
 
-section:not(.no-pad){
-	padding: 4em 0;
+section:not(.no-pad) {
+    padding: 4em 0;
 }
 
-.section-title ~ p{
-	line-height: 2em;
-	font-size: 0.95em;
-	margin-bottom: 0.8em;
+.section-title~p {
+    line-height: 2em;
+    font-size: 0.95em;
+    margin-bottom: 0.8em;
 }
 
-.section-title ~ p:nth-of-type(:last-child) {
-	margin-bottom: 0;
+.section-title~p:nth-of-type(:last-child) {
+    margin-bottom: 0;
 }
 
-.text-bold{
-	font-family: SemiBold, sans-serif;
+.text-bold {
+    font-family: SemiBold, sans-serif;
 }
 
-.text-primary{
-	color: var(--main-color)
+.text-primary {
+    color: var(--main-color)
 }
 
-.text-accent{
-	color: var(--accent-color)
+.text-accent {
+    color: var(--accent-color)
 }
 
-.section-wrapper{
-	max-width: 1400px;
-	padding: 0 3em;
-	margin: 0 auto;
+.section-wrapper {
+    max-width: 1400px;
+    padding: 0 3em;
+    margin: 0 auto;
 }
 
-header{
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 1em 0;
+header {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em 0;
 }
 
-header #logo{
+header #logo {
     z-index: 1;
     margin-bottom: 1.2em;
 }
 
-#logoImage{
-	width: 50px;
-	height: 50px;
-	padding: 10px;
-	border-radius: 50%;
-	background: #f0f0f0;
+#logoImage {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #f0f0f0;
 }
 
-#logoImage img{
-	width: 100% !important;
+#logoImage img {
+    width: 100% !important;
     height: auto !important;
 }
 
-nav{
+nav {
     height: 30px;
 }
 
-nav a{
-	padding: 0.9em 1.1em;
-	font-size: 1em;
+nav a {
+    padding: 0.9em 1.1em;
+    font-size: 1em;
     color: #aaa;
-	min-width: 110px;
-	position: relative;
+    min-width: 110px;
+    position: relative;
 }
 
-nav a.active:after{
-	content: '';
-	position: absolute;
-	bottom: 0px;
-	width: 5px;
-	height: 5px;
-	margin: 0 auto;
-	border-radius: 50%;
-	background: var(--accent-color2);
+nav a.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    width: 5px;
+    height: 5px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: var(--accent-color2);
 }
 
-.section-title{
-	font-family: Bold, sans-serif;
-	font-size: 1.7em;
-	display: inline-block;
-	position: relative;
-	margin-bottom: 0.8em;
-	color: var(--main-color);
+.section-title {
+    font-family: Bold, sans-serif;
+    font-size: 1.7em;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0.8em;
+    color: var(--main-color);
 }
 
-.section-title.for-dark{
+.section-title.for-dark {
     color: var(--accent-color);
 }
 
-.section-title.center{
-	width: 100%;
-	text-align: center;
-	font-family: Bold, sans-serif;
+.section-title.center {
+    width: 100%;
+    text-align: center;
+    font-family: Bold, sans-serif;
 }
 
-.section-title small{
-	font-family: Regular, sans-serif;
-	font-size: 18px;
-	color: #777;
-	display: block;
-	margin: 0.3em 0;
+.section-title small {
+    font-family: Regular, sans-serif;
+    font-size: 18px;
+    color: #777;
+    display: block;
+    margin: 0.3em 0;
 }
 
-.image{
-	overflow: hidden;
+.image {
+    overflow: hidden;
 }
 
-.image img{
-	width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	object-position: top;
+.image img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
-button{
-	border: none;
-	background: transparent;
-	outline: none;
+button {
+    border: none;
+    background: transparent;
+    outline: none;
 }
 
-.dp{
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+.dp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-.dp img{
-	object-fit: cover;
-	object-position: center;
+.dp img {
+    object-fit: cover;
+    object-position: center;
 }
 
-footer{
-	padding-top: 2em;
-	padding-bottom: 1em;
-	background: var(--main-black);
-	color: var(--footer-text-color);
+footer {
+    padding-top: 2em;
+    padding-bottom: 1em;
+    background: var(--main-black);
+    color: var(--footer-text-color);
 }
 
-footer .footer-section h5{
-	color: #e8ecf1;
-	font-size: 1.1em;
-	margin-bottom: 1.3em;
+footer .footer-section h5 {
+    color: #e8ecf1;
+    font-size: 1.1em;
+    margin-bottom: 1.3em;
 }
 
-footer #ceoQuote{
-	padding: 4em 2em;
-	text-align: center;
-	color: #fff;
+footer #ceoQuote {
+    padding: 4em 2em;
+    text-align: center;
+    color: #fff;
 }
 
-footer #ceoQuote q{
-	font-family: Light;
-	max-width: 800px;
-	font-size: 2em;
-	line-height: 1.3em;
-	margin-bottom: 0.6em;
-	quotes: "“" "”" "‘" "’";
+footer #ceoQuote q {
+    font-family: Light;
+    max-width: 800px;
+    font-size: 2em;
+    line-height: 1.3em;
+    margin-bottom: 0.6em;
+    quotes: "“" "”" "‘" "’";
 }
 
 q:before {
-	content: open-quote;
+    content: open-quote;
 }
 
 q:after {
-	content: close-quote;
+    content: close-quote;
 }
 
-footer #copyright{
-	font-size: 0.9em;
-	padding: 2em 0;
-	color: #999;
+footer #copyright {
+    font-size: 0.9em;
+    padding: 2em 0;
+    color: #999;
 }
 
-footer #footerLocation svg{
-	width: 40px;
-	height: 40px;
+footer #footerLocation svg {
+    width: 40px;
+    height: 40px;
 }
 
-footer #footerLocation{
-	line-height: 1.6em;
+footer #footerLocation {
+    line-height: 1.6em;
 }
 
-footer #footerLocation a{
-	padding-top: 0.2em;
-	color: #ccc;
-	display: block;
+footer #footerLocation a {
+    padding-top: 0.2em;
+    color: #ccc;
+    display: block;
 }
 
-footer #copyright hr{
-	width: 0; height: 30px; 
-	border-color: transparent; 
-	border-left-color: #999;
+footer #copyright hr {
+    width: 0;
+    height: 30px;
+    border-color: transparent;
+    border-left-color: #999;
 }
+
 
 /*MEDIA QUERIES*/
-@media screen and (min-width: 521px){
-    .for-mob{
+
+@media screen and (min-width: 521px) {
+    .for-mob {
         display: none;
     }
 }
 
-@media screen and (max-width: 520px){
-    .section-wrapper{
-        padding-left:20px;
-        padding-right:20px;
+@media screen and (max-width: 520px) {
+    .section-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
     }
-
-    .for-lg, .for-md{
+    .for-lg,
+    .for-md {
         display: none !important;
     }
 }
