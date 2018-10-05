@@ -169,6 +169,53 @@ section .images .circle > *:not(.visible):not(.first).has-transition{
     transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
+#somafitBanner .text{
+    padding-top: 15vh;
+}
+
+#fitOptions{
+    margin-top: 2em;
+}
+
+.fit-option{
+    flex-basis: 33.333%;
+    margin-bottom: 1em;
+}
+
+.fit-option img{
+    display: inline-block;
+    margin: auto;
+    width: 65px;
+}
+
+.fit-option span{
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#somafitColors .text{
+    padding-top: 10vh;
+}
+
+#lookMovers{
+    margin-top: 2em;
+}
+
+.look-mover{
+    margin-right: 0.8em;
+    margin-bottom: 1em;
+    padding: 0.7em 1.4em;
+    border-radius: 3em;
+    border: 2px solid #555;
+}
+
+.look-mover.active{
+    background: #ddd;
+}
+
 #circlesSection{
     pointer-events: none;
     position: fixed;
