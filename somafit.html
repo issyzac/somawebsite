@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Somaapps Technologies | SomaFit</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="IFM Staff">
+    <link rel="icon" href="logo.png">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <link rel="stylesheet" href="css/somafit.css">
+
+	<script src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="js/fullpage.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				'verticalCentered': false,
+				'css3': true,
+				'sectionsColor': ['#fff', '#fff', '#fff'],
+				'navigation': true,
+				'navigationPosition': 'right',
+
+				afterLoad: function(anchorLink, index){
+					if(index == 2){
+						$('#iphone3, #iphone2, #iphone4').addClass('active');
+					}
+					$('#infoMenu').toggleClass('whiteLinks', index ==4);
+
+				},
+
+				onLeave: function(index, newIndex, direction){
+                    $('#staticImg').toggleClass('active', 
+                        (index == 2 && direction == 'down' ) || 
+                        (index == 4 && direction == 'up')
+                    );
+				},
+
+				/*
+				Needed to maintain the fixed position of the element
+				due to problems using translate3d and fixed elements.
+				*/
+				afterRender: function(){
+					$('#infoMenu').appendTo('body');
+				}
+
+			});
+		});
+	</script>
+</head>
+<body>
+    <header class="layout vertical center">
+        <nav class="layout center">
+            <a href="index.html" class="layout center-center">Home</a>
+            <a href="somaapp.html" class="layout center-center">SomaApp</a>
+            <!-- <a href="#" class="layout center-center active">SomaFit</a> -->
+            <a id="logo" href="#" class="layout center-center active">
+                <img src="img/logo.png" alt="Somaapps Technologies" width="50px;" height="50px">
+            </a>
+            <a href="blog.html" class="layout center-center">Blog</a>
+            <a href="contacts.html" class="layout center-center">Contact Us</a>
+        </nav>
+    </header>
+
+    <button id="sectionScroller">
+            <svg fill="#999" width="30" height="30" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+    </button>
+
+    <div id="fullpage">
+        <div id="staticImg">
+            <div class="imgsContainer">
+                <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-green.png" alt="iphone" id="iphone-green" />
+            </div>
+        </div>
+
+        <div class="section" id="section1">
+            <div class="wrap">
+                <div class="imgsContainer">
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone2.png" alt="iphone" id="iphone2" />
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone3.png" alt="iphone" id="iphone3" />
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone4.png" alt="iphone" id="iphone4" />
+                </div>
+
+                <div class="box">
+                    <h2>A powerful plugin</h2>
+                    <strong>fullPage.js</strong>  callbacks allow you to create amazing dynamic sites with a bit of imagination. This example tries to reproduce the Apple iPhone-5c website animations as an example of what fullPage.js is capable of.
+                </div>
+            </div>
+        </div>
+
+        <div class="section moveDown" id="section2">
+            <div class="wrap">
+                <div class="imgsContainer">
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-yellow.png" alt="iphone" id="iphone-yellow" />
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-red.png" alt="iphone" id="iphone-red" />
+                    <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-blue.png" alt="iphone" id="iphone-blue" />
+                </div>
+
+                <div class="box">
+                    <h2>Amazing stuff</h2>
+                    Combining <strong>fullPage.js</strong> with your own CSS styles and animations, you will be able to create something remarkable.
+                </div>
+            </div>
+        </div>
+
+        <div class="section moveDown" id="section3">
+            <div class="wrap">
+                <div class="box">
+                    <h2>Just a demo</h2>
+                    This is, of course, just a demo. I didn't want to spend much time on it.
+                    Don't expect it to work perfectly in all kind of screens.
+                    It has been designed to work on 1180px width or over on modern browsers with CSS3.
+                </div>
+            </div>
+            <div class="imgsContainer">
+                <img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/iphone-two.png" alt="iphone" id="iphone-two" />
+            </div>
+        </div>
+
+        <div id="footerWrapper" class="section">
+            <footer>
+                <div id="ceoQuote" class="section-wrapper layout vertical center-center ">
+                    <q>
+                        In the modern technology-driven world, the power lies not simply in the
+                        acquisition of education, but in harnessing it to create solutions and opprotunities.
+                    </q>
+                    <small class="text-accent">
+                        Isaiah Zachariah, &nbsp;&nbsp;CTO Somaapps Technologies
+                    </small>
+                </div>
+        
+                <div class="section-wrapper" style="max-width: 1300px !important; border-top: 1px solid #444">
+                    <div id="copyright" class="section-wrapper layout start justified">
+                        <div class="layout center">
+                            <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
+                            <hr>&emsp;&nbsp;
+                            <span>Copyright &copy; 2018 Somaapps Technologies</span>
+                        </div>
+        
+                        <div id="footerLocation" class="layout">
+                            <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg> &emsp;
+        
+                            <div>
+                                Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
+                                <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
+                                    View on Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
