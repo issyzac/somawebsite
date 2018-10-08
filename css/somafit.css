@@ -1,23 +1,26 @@
-header{
+header {
     position: fixed;
     padding: 1.5em 0;
 }
-header nav{
+
+header nav {
     height: 42px;
 }
+
 header #logo {
     margin-bottom: 0.1em;
 }
+
 header nav a {
     color: #505050;
 }
 
-#fullpage{
-/* , #circlesSection{ */
+#fullpage {
+    /* , #circlesSection{ */
     /* display: none; */
 }
 
-#sectionScroller{
+#sectionScroller {
     position: absolute;
     bottom: 3em;
     left: 0;
@@ -37,78 +40,76 @@ header nav a {
     transition: all 0.15s ease-out;
 }
 
-#sectionScroller:hover{
+#sectionScroller:hover {
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-#sectionScroller:hover svg{
+#sectionScroller:hover svg {
     fill: #444;
 }
 
-
-body{
+body {
     color: #333;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
 
-section:not(.no-pad){
+section:not(.no-pad) {
     padding: 0;
 }
 
-section{
+section {
     height: 100vh;
     padding-top: 2vh !important;
     position: relative;
     overflow: hidden;
 }
 
-section.inversed .section-wrapper > .layout{
+section.inversed .section-wrapper>.layout {
     flex-direction: row-reverse;
 }
 
-section .text{
+section .text {
     flex-shrink: 0;
-    padding-bottom: 10vh;
-    margin-left: 13%;
+    /* padding-bottom: 10vh; */
+    margin-left: 4%;
     margin-right: 8%;
     width: 420px;
     padding-top: 1vh;
-
     transition: opacity 0.45s ease-in-out;
 }
 
-section .text:not(.visible){
+section .text:not(.visible) {
     /* animation: fadeOut 0.1s ease-out; */
     opacity: 0;
 }
 
-@keyframes fadeOut{
-    from{
+@keyframes fadeOut {
+    from {
         opacity: 1;
     }
-    to{
+    to {
         opacity: 0;
     }
 }
 
-section.inversed .text{
+section.inversed .text {
     margin-left: 8%;
-    margin-right: 13%;
+    /* margin-right: 13%; */
 }
 
-section h1{
+section h1 {
     font-size: 2.5em;
     line-height: 1.2em;
     margin-bottom: 0.5em;
 }
 
-section p{
+section p {
     color: #444;
     font-size: 1.15em;
     line-height: 1.7em;
 }
 
-section a{
+section a {
     display: block;
     margin-top: 2em;
     color: #f35819;
@@ -119,19 +120,19 @@ section a{
     max-width: 350px;
 }
 
-section .images{
+section .images {
     position: relative;
     width: 800px;
-    margin-right: -200px;
+    /* margin-right: -200px; */
     height: 100vh;
 }
 
-section.inversed .images{
-    margin-left: -200px;
+section.inversed .images {
+    /* margin-left: -200px; */
     margin-right: 0;
 }
 
-section .images .circle{
+section .images .circle {
     content: "";
     display: block;
     position: relative;
@@ -147,7 +148,7 @@ section .images .circle{
     overflow: hidden;
 }
 
-section .images .circle > *{
+section .images .circle>* {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -156,39 +157,39 @@ section .images .circle > *{
     transform-origin: center;
 }
 
-section .images .circle > *:not(.visible):not(.first){
+section .images .circle>*:not(.visible):not(.first) {
     opacity: 0;
     transform: scale(0.9);
 }
 
-section .images .circle > *.has-transition{
+section .images .circle>*.has-transition {
     transition: opacity 0.35s ease-out, transform 0.7s ease-out;
 }
 
-section .images .circle > *:not(.visible):not(.first).has-transition{
+section .images .circle>*:not(.visible):not(.first).has-transition {
     transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
-#somafitBanner .text{
-    padding-top: 15vh;
+#somafitBanner .text {
+    /* padding-top: 15vh; */
 }
 
-#fitOptions{
+#fitOptions {
     margin-top: 2em;
 }
 
-.fit-option{
+.fit-option {
     flex-basis: 33.333%;
     margin-bottom: 1em;
 }
 
-.fit-option img{
+.fit-option img {
     display: inline-block;
     margin: auto;
     width: 65px;
 }
 
-.fit-option span{
+.fit-option span {
     display: block;
     margin-top: 0.2em;
     font-size: 0.75em;
@@ -196,27 +197,28 @@ section .images .circle > *:not(.visible):not(.first).has-transition{
     letter-spacing: 0.05em;
 }
 
-#somafitColors .text{
-    padding-top: 10vh;
+#somafitColors .text {
+    /* padding-top: 10vh; */
 }
 
-#lookMovers{
+#lookMovers {
     margin-top: 2em;
 }
 
-.look-mover{
+.look-mover {
+    cursor: pointer;
     margin-right: 0.8em;
     margin-bottom: 1em;
     padding: 0.7em 1.4em;
     border-radius: 3em;
-    border: 2px solid #555;
+    border: 2px solid #d4cecb;
 }
 
-.look-mover.active{
-    background: #ddd;
+.look-mover.active {
+    background: #e8e8e8;
 }
 
-#circlesSection{
+#circlesSection {
     pointer-events: none;
     position: fixed;
     z-index: 10;
@@ -226,77 +228,115 @@ section .images .circle > *:not(.visible):not(.first).has-transition{
     height: 100vh;
 }
 
-#circlesSection section{
+#circlesSection section {
     background: transparent;
 }
 
-#circlesSection section:last-child{
+#circlesSection section:last-child {
     transform: translateY(-100%);
 }
 
-#circlesSection .circle{
+#circlesSection .circle {
     transition: all 0.35s ease-out;
 }
 
-#circlesSection .circle:not(.visible){
+#circlesSection .circle:not(.visible) {
     opacity: 0;
     transform: scale(0.8);
+}
+
+#outFitImages {
+    transition: transform 0.35s ease-out;
+}
+
+#outFitImages img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 
 /* Overwriting fullPage.js tooltip color
 * --------------------------------------- */
-#fp-nav{
+
+#fp-nav {
+    display: none;
     padding: 0.8em 0;
     border-radius: 1.5em;
     background: rgba(246, 246, 246, 0.6901960784313725);
 }
 
-#fp-nav.hidden{
+#fp-nav.hidden {
     opacity: 0 !important;
     pointer-events: none;
 }
 
-#fp-nav:not(:hover){
+#fp-nav:not(:hover) {
     opacity: 0.2;
 }
 
+
 /* Overwriting fullPage.js tooltip color
 * --------------------------------------- */
-.fp-tooltip{
+
+.fp-tooltip {
     color: #AAA;
 }
-#fp-nav span, .fp-slidesNav span{
+
+#fp-nav span,
+.fp-slidesNav span {
     border-color: #AAA;
 }
-#fp-nav li .active span, .fp-slidesNav .active span{
+
+#fp-nav li .active span,
+.fp-slidesNav .active span {
     background: #AAA;
 }
 
 
-
 /* CYLINDER IMAGES */
-#cylinderImages{
+
+#cylinderImages {
     position: absolute;
-    /* margin: 20%; */
     background: #f0f0f0;
+    background: rgba(244, 221, 213, 0.94);
     display: flex;
     align-items: center;
     justify-content: center;
+    left: -2%;
+    top: -2%;
+    width: 104%;
+    height: 104%;
+}
+
+#cylinderImages:after{
+    content: '';
+    position: absolute;
+    bottom: 6%;
+    width: 45%;
+    height: 80px;
+    background: #70574e;
+    filter: blur(30px);
+    opacity: 0.8;
 }
 
 #frame {
+    z-index: 20;
+    backface-visibility: hidden;
     width: 245px;
-    height: 80%;
+    height: 90%;
     transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(-30deg) rotateZ(5deg) translate3d(20%, 0, 50px)
+    transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg) translate3d(3%, 8.5%, 50px)
 }
-	
+
 .strip {
     height: 80%;
     width: 80%;
     transform-style: preserve-3d;
     animation: spin 25s infinite linear;
+    backface-visibility: hidden;
 }
 
 .strip div {
@@ -305,36 +345,68 @@ section .images .circle > *:not(.visible):not(.first).has-transition{
     bottom: 0;
     margin: auto;
     background: #f0f0f0;
-	height:80%;
-	width:127%;
+    height: 80%;
+    width: 127%;
+}
+
+.strip div > div{
+    position: relative;
+    top: -20px;
+    bottom: 0;
+    /* background: #000; */
+    /* background: rgba(0, 0, 0, 0.98); */
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.strip div > div:after{
+    content: attr(color);
+    position: absolute;
+    bottom: 4%;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8em;
+}
+
+#frame img{
+    /* width: 100%; */
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: hidden;
 }
 
 .strip .blue {
-    background: blue;
+    background: #2f8eca;
+    background: #0099cb;
     transform: translateZ(124px);
 }
+
 .strip .purple {
-    background: purple;
+    background: #b768a2;
     transform: rotateY(90deg) translateZ(124px);
 }
+
 .strip .red {
-    background: red;
+    background: #960018;
     transform: rotateY(180deg) translateZ(124px);
 }
+
 .strip .black {
     background: #000;
     transform: rotateY(270deg) translateZ(124px);
 }
 
 @keyframes spin {
- from { transform: rotateY(0)}
- to   { transform: rotateY(-360deg)}}
+    from {
+        transform: rotateY(0)
+    }
+    to {
+        transform: rotateY(-360deg)
+    }
+}
 
-
-
-
-
-#footerWrapper{
+#footerWrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -343,16 +415,21 @@ section .images .circle > *:not(.visible):not(.first).has-transition{
     transform: translateY(-10px);
 }
 
-footer{
+#ceoQuote{
+    display: none;
+}
+
+footer {
+    padding-top: 1em;
     position: relative;
     z-index: 11;
 }
 
-section:not(.no-pad){
+section:not(.no-pad) {
     padding: 0;
 }
 
-section{
+section {
     height: 100vh;
     position: relative;
     overflow: hidden;
