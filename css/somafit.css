@@ -357,3 +357,16 @@ section{
     position: relative;
     overflow: hidden;
 }
+
+@media screen and (max-height: 800px){
+    section .images .circle{
+        padding-bottom: 0;
+        width: 80vh;
+        height: 80vh;
+    }
+
+    section.inversed .images {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

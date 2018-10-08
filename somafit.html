@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="IFM Staff">
+    <meta name="author" content="iPF Softwares">
     <link rel="icon" href="logo.png">
 
     <link rel="stylesheet" href="css/reset.css">
@@ -52,9 +52,14 @@
                     diverVideo.addClass('visible');
                     diverActualVideo.play();
                 }
+            });          
+            
+            $("#sectionScroller").click(function(){
+                navigation.find('li').has('.active')
+                    .next().find('a').trigger('click');
             });
-
-            $('#fullpage').fullpage({'verticalCentered': false,'css3': true,'navigation': false,'navigationPosition': 'right','easingcss3': 'ease-out',
+            
+            $('#fullpage').fullpage({'verticalCentered': false,'css3': true,'navigation': true,'navigationPosition': 'right','easingcss3': 'ease-out',
                 'scrollingSpeed': 700,
 				onLeave: function(index, newIndex, direction){
                     const thisSection = sections.eq(index - 1);
@@ -257,10 +262,18 @@
                             Android and iOS phones.
                         </p>
 
-                        <a href="#">
+                        <div class="layout center" style="margin-top: -1em">
+                            <a href="#">
+                                <img height="150px" src="img/somafit/ios-download.png" alt="">
+                            </a>&emsp;&nbsp;
+                            <a href="#">
+                                <img height="150px" src="img/somafit/android-download.png" alt="">
+                            </a>
+                        </div>
+                        <!-- <a href="#">
                             Learn how to connect your somafit 
                             watch with your smartphone
-                        </a>
+                        </a> -->
                     </div>
     
                     <div class="images"></div>
@@ -305,7 +318,22 @@
                             A Somafit watch provides you with both  <br>
                             call and message notifications allowing <br> 
                             to rest easy knowing that you won't miss out.
-                        </p>
+                        </p> <br><br>
+
+                        <div id="notificationOptions" class="layout wrap">
+                            <div class="fit-option">
+                                <img src="img/fit/3.png" alt="">
+                                <span>Incoming Calls</span>
+                            </div>
+                            <div class="fit-option">
+                                <img src="img/fit/2.png" alt="">
+                                <span>New Texts</span>
+                            </div>
+                            <div class="fit-option">
+                                <img src="img/fit/5.png" alt="">
+                                <span>Take Selfies</span>
+                            </div>
+                        </div>
                     </div>
     
                     <div class="images"></div>
