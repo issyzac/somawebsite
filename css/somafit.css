@@ -311,6 +311,11 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
     height: 104%;
 }
 
+#cylinderImages.visible,
+#cylinderImages.visible > *{
+    pointer-events: auto;
+}
+
 #cylinderImages:after{
     content: '';
     position: absolute;
@@ -335,8 +340,12 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
     height: 80%;
     width: 80%;
     transform-style: preserve-3d;
-    animation: spin 25s infinite linear;
     backface-visibility: hidden;
+    animation: spin 25s infinite linear;
+}
+
+#cylinderImages:hover .strip{
+    animation-play-state: paused;
 }
 
 .strip div {
@@ -406,13 +415,21 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
     }
 }
 
+#buyWatch h1{
+    font-size: 2em;
+}
+
 #footerWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     position: relative;
     z-index: 12;
-    transform: translateY(-10px);
+}
+
+#footerWrapper > .section-wrapper{
+    display: flex;
+    padding-top: 16vh;
+    flex: 1;
 }
 
 #ceoQuote{

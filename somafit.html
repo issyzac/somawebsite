@@ -141,7 +141,7 @@
                         sectionScroller.show();
                         circlesSection.show();
                         navigation.removeClass('hidden');
-                    } else if (newIndex === $('#fullpage section').length + 1) {
+                    } else if (newIndex === $('#fullpage .section').length) {
                         sectionScroller.hide();
                         circlesSection.hide();
                         navigation.addClass('hidden');
@@ -419,7 +419,11 @@
             </div>
         </section>
 
-        <div id="footerWrapper" class="section">
+        <section id="footerWrapper" class="section">
+            <div id="buyWatch" class="section-wrapper">
+                <h1>Order a SomaFit watch</h1>
+            </div>
+        
             <footer>
                 <div id="ceoQuote" class="section-wrapper layout vertical center-center ">
                     <q>
@@ -455,7 +459,7 @@
                     </div>
                 </div>
             </footer>
-        </div>
+        </section>
     </div>
 </body>
 
