@@ -1,0 +1,61 @@
+main{
+    padding-top: 16vh;
+    min-height: 60vh;
+}
+
+#orderForm form:after,
+#orderForm form #loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+#orderForm form:not(.loading):after,
+#orderForm form:not(.loading) #loader{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#orderForm form:after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: 'SENDING ORDER...';
+    background: rgba(246, 246, 246, 0.7);
+    padding-top: 120px;
+}
+
+#orderForm form #loader{
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+}
+
+#orderForm span{
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+#orderForm input{
+    width: 100%;
+    display: block;
+    font-size: 1em;
+    padding: 0.8em 0.8em;
+    margin-bottom: 0.5em;
+}
+
+#orderForm button{
+    width: 100%;
+    padding: 1em 1em;
+    background: #000;
+    color: #fff;
+    font-size: 0.95em;
+    border: none;
+}
