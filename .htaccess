@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteRule ^somaapp/?$ somaapp.html 
+RewriteRule ^somafiti/?$ somafit.html 
+RewriteRule ^contacts/?$ contacts.html
+RewriteRule ^blog/?$ blog.html
+
+RewriteRule ^$ index.html

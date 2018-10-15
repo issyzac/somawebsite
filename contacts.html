@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Somaapps Technologies</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="theme-color" content="#003a75">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="iPF Softwares">
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="icon" href="logo.png">
+</head>
+
+<body class="show-na">
+    <header class="layout vertical center">
+        <a id="logo" href="/" class="layout vertica center">
+            <img src="img/logo.png" alt="Somaapps Technologies" width="70px;" height="70px">
+        </a>
+
+        <nav class="layout center">
+            <a href="/" class="layout center-center">Home</a>
+            <a href="/somaapp" class="layout center-center">SomaApp</a>
+            <a href="/somafiti" class="layout center-center">SomaFit</a>
+            <a href="/blog" class="layout center-center">Blog</a>
+            <a href="#" class="active layout center-center">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-wrapper">
+                <div id="orderForm">
+                    <form action="" onsubmit="submitOrder(event, this)">
+                        <img id="loader" src="img/loading.gif" alt="">
+                        <span>Phone Number</span>
+                        <input type="phone" required placeholder="E.g. 0712 34 56 78">
+                        <br>
+        
+                        <span>Email</span>
+                        <input type="email" required placeholder="E.g. chausiku@gmail.com">
+        
+                        <br>
+                        <button type="submit">SEND ORDER</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="ceoQuote" class="section-wrapper layout vertical center-center">
+            <q>
+				In the modern technology-driven world, the power lies not simply in the
+                acquisition of education, but in harnessing it to create solutions and opprotunities.
+			</q>
+            <small class="text-accent">
+				Isaya Yunge, CEO Somaapps Technologies
+			</small>
+        </div>
+
+        <div class="section-wrapper" style="max-width: 1300px !important; border-top: 1px solid #444">
+            <div id="copyright" class="section-wrapper layout start justified">
+                <div class="layout center">
+                    <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
+                    <hr>&emsp;&nbsp;
+                    <span>Copyright &copy; 2018 Somaapps Technologies</span>
+                </div>
+
+                <div id="footerLocation" class="layout">
+                    <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg> &emsp;
+
+                    <div>
+                        Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
+                        <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
+							View on Google Maps
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function submitOrder(e, form) {
+            e.preventDefault();
+
+            form.addClass('loading');
+
+            setTimeout(() => {
+                form.removeClass('loading');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

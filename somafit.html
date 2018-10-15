@@ -30,11 +30,13 @@
         const SWIM_SECTION_INDEX = 3;
         const PHONE_SECTION_INDEX = 3;
         let workoutImage;
+        const watchImageSrcs = ['watch-blue.png', 'watch-purple.png', 'watch-black.png', 'watch-blue.png'];
+        const watchNames = ['Cerulean Blue', 'Palatinate Purple', 'Mahogany Dark', 'Carmine Red'];
 
         let maxTextIndex, sectionScroller, sections, navigation,
             circlesSection, rightCircle, leftCircle,
             rightImages, leftImages, diverVideo, diverActualVideo,
-            outFitImages, cylinderImages;
+            outFitImages, cylinderImages, orderItems, orderForm;
 
         function moveOutFitImages(el, index) {
             cylinderImages.removeClass('visible');
@@ -48,6 +50,21 @@
         
         function showColorsOptions() {
             cylinderImages.addClass('visible');
+        }
+        
+        function changeCurrentOrderWatch(index) {
+            orderItems.addClass('hidden')
+            
+            const idx = index < 2 ? 0 : 3;
+            const currentItem = orderItems.eq(idx);
+            currentItem.removeClass('hidden');
+            currentItem.find('img').get(0).src = "img/somafit/" + watchImageSrcs[index];
+            currentItem.find('span').text(watchNames[index]);
+        }
+        
+        function showOrderForm(index) {
+            changeCurrentOrderWatch(index);
+            orderForm.addClass('visible');
         }
 
         $(document).ready(function() {
@@ -63,6 +80,8 @@
             diverActualVideo = diverVideo.get(0);
             outFitImages = $('#outFitImages');
             cylinderImages = $('#cylinderImages');
+            orderItems = $('.order-item');
+            orderForm = $('#orderForm form');
 
             $("#diverPlayLink").click(function() {
                 if (!diverVideo.hasClass('visible')) {
@@ -159,20 +178,29 @@
 
             });
         });
+
+        function submitOrder(e, form) {
+            e.preventDefault();
+
+            orderForm.addClass('loading');
+
+            setTimeout(() => {
+                orderForm.removeClass('loading');
+            }, 2000);
+        }
     </script>
 </head>
 
 <body>
     <header class="layout vertical center">
         <nav class="layout center">
-            <a href="index.html" class="layout center-center">Home</a>
-            <a href="somaapp.html" class="layout center-center">SomaApp</a>
-            <!-- <a href="#" class="layout center-center active">SomaFit</a> -->
+            <a href="/" class="layout center-center">Home</a>
+            <a href="/somaapp" class="layout center-center">SomaApp</a>
             <a id="logo" href="#" class="layout center-center active">
                 <img src="img/somafit/logo.png" alt="Somaapps Technologies" width="50px;" height="50px">
             </a>
-            <a href="#" class="layout center-center">Blog</a>
-            <a href="#" class="layout center-center">Contact Us</a>
+            <a href="/blog" class="layout center-center">Blog</a>
+            <a href="/contacts" class="layout center-center">Contact Us</a>
         </nav>
     </header>
 
@@ -200,23 +228,23 @@
                                 <div id="frame">
                                     <div class="strip">
                                         <div class="blue">
-                                            <div class="layout center-center" color="Pacific Blue">
-                                                <img src="img/somafit/hor-watch.png" alt="">
+                                            <div class="layout center-center" color="Cerulean Blue">
+                                                <img src="img/somafit/watch-blues.png" alt="">
                                             </div>
                                         </div>
                                         <div class="purple">
-                                            <div class="layout center-center" color="Pearly Purple">
-                                                <img src="img/somafit/hor-watch.png" alt="">
+                                            <div class="layout center-center" color="Palatinate Purple">
+                                                <img src="img/somafit/watch-purples.png" alt="">
                                             </div>
                                         </div>
                                         <div class="red">
                                             <div class="layout center-center" color="Carmine Red">
-                                                <img src="img/somafit/hor-watch.png" alt="">
+                                                <img src="img/somafit/watch-blacks.png" alt="">
                                             </div>
                                         </div>
                                         <div class="black">
                                             <div class="layout center-center" color="Mahogany Dark">
-                                                <img src="img/somafit/hor-watch.png" alt="">
+                                                <img src="img/somafit/watch-blacks.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -420,8 +448,93 @@
         </section>
 
         <section id="footerWrapper" class="section">
-            <div id="buyWatch" class="section-wrapper">
+            <div id="orderWatch" class="section-wrapper layout vertical center-center">
                 <h1>Order a SomaFit watch</h1>
+
+                <div id="orderForm">
+                    <form action="#" class="visibl" onsubmit="submitOrder(event, this)">
+                        <img id="loader" src="img/loading.gif" alt="">
+                        <span>Colour</span>
+                        
+                        <div id="colorOptions" class="layout center">
+                            <input checked id="colorblue" type="radio" name="color" value="blue"/>
+                            <label class="layout center-center" for="colorblue"
+                                onclick="changeCurrentOrderWatch(0)"></label>
+                            
+                            <input id="colorpurple" type="radio" name="color" value="purple"/>
+                            <label class="layout center-center" for="colorpurple"
+                                onclick="changeCurrentOrderWatch(1)"></label>
+                            
+                            <input id="colorblack" type="radio" name="color" value="black"/>
+                            <label class="layout center-center" for="colorblack"
+                                onclick="changeCurrentOrderWatch(2)"></label>
+                            
+                            <input id="colorred" type="radio" name="color" value="red"/>
+                            <label class="layout center-center" for="colorred"
+                                onclick="changeCurrentOrderWatch(3)"></label>
+                        </div>
+                        <br><br>
+                        
+                        <span>Quantity</span>
+                        
+                        <div id="quantityOptions" class="layout center">
+                            <input checked id="quantity1" type="radio" name="quantity" value="1"/>
+                            <label class="layout center-center" for="quantity1">1</label>
+                            
+                            <input id="quantity2" type="radio" name="quantity" value="2"/>
+                            <label class="layout center-center" for="quantity2">2</label>
+                            
+                            <input id="quantity3" type="radio" name="quantity" value="3"/>
+                            <label class="layout center-center" for="quantity3">3</label>
+                            
+                            <input id="quantity4" type="radio" name="quantity" value="4"/>
+                            <label class="layout center-center" for="quantity4">4</label>
+                            
+                            <input id="quantity5" type="radio" name="quantity" value="5"/>
+                            <label class="layout center-center" for="quantity5">5</label>
+                            
+                            <input id="quantityMore" type="radio" name="quantity" value="more"/>
+                            <label class="layout center-center" for="quantityMore">More</label>
+                        </div>
+                        <br><br>
+
+                        <span>Phone Number</span>
+                        <input type="phone" required placeholder="E.g. 0712 34 56 78">
+                        <br>
+
+                        <span>Email</span>
+                        <input type="email" required placeholder="E.g. chausiku@gmail.com">
+
+                        <br>
+                        <button type="submit">SEND ORDER</button>
+                    </form>
+                    <div class="layout">
+                        <div class="flex order-item layout vertical center-center">
+                            <img src="img/somafit/watch-blue.png" alt="">
+                            <span>Cerulean Blue</span>
+                            <strong>Tshs. 99,000/-</strong>
+                            <a href="#" onclick="showOrderForm(0)">ORDER NOW</a>
+                        </div>
+                        <div class="flex order-item layout vertical center-center">
+                            <img src="img/somafit/watch-purple.png" alt="">
+                            <span>Palatinate Purple.</span>
+                            <strong>Tshs. 99,000/-</strong>
+                            <a href="#" onclick="showOrderForm(1)">ORDER NOW</a>
+                        </div>
+                        <div class="flex order-item layout vertical center-center">
+                            <img src="img/somafit/watch-black.png" alt="">
+                            <span>Mahogany Dark</span>
+                            <strong>Tshs. 99,000/-</strong>
+                            <a href="#" onclick="showOrderForm(2)">ORDER NOW</a>
+                        </div>
+                        <div class="flex order-item layout vertical center-center">
+                            <img src="img/somafit/watch-blue.png" alt="">
+                            <span>Carmine Red</span>
+                            <strong>Tshs. 99,000/-</strong>
+                            <a href="#" onclick="showOrderForm(3)">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         
             <footer>

@@ -300,8 +300,7 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
 
 #cylinderImages {
     position: absolute;
-    background: #f0f0f0;
-    background: rgba(244, 221, 213, 0.94);
+    background: rgba(244, 221, 213, 1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,10 +340,13 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
     width: 80%;
     transform-style: preserve-3d;
     backface-visibility: hidden;
+}
+
+#cylinderImages.visible .strip{
     animation: spin 25s infinite linear;
 }
 
-#cylinderImages:hover .strip{
+#cylinderImages.visible:hover .strip{
     animation-play-state: paused;
 }
 
@@ -360,22 +362,27 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
 
 .strip div > div{
     position: relative;
-    top: -20px;
+    top: 0;
     bottom: 0;
     /* background: #000; */
     /* background: rgba(0, 0, 0, 0.98); */
     height: 100%;
     width: 100%;
     border: 1px solid #ddd;
+    padding-bottom: 30px;
 }
 
 .strip div > div:after{
     content: attr(color);
     position: absolute;
-    bottom: 4%;
+    bottom: 6.5%;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 0.8em;
+    padding: 0.6em 0.1em;
+    border: solid #ccc;
+    border-width: 1px 0 1px 0;
+    color: #555;
 }
 
 #frame img{
@@ -386,23 +393,18 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
 }
 
 .strip .blue {
-    background: #2f8eca;
-    background: #0099cb;
     transform: translateZ(124px);
 }
 
 .strip .purple {
-    background: #b768a2;
     transform: rotateY(90deg) translateZ(124px);
 }
 
 .strip .red {
-    background: #960018;
     transform: rotateY(180deg) translateZ(124px);
 }
 
 .strip .black {
-    background: #000;
     transform: rotateY(270deg) translateZ(124px);
 }
 
@@ -415,8 +417,235 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
     }
 }
 
-#buyWatch h1{
-    font-size: 2em;
+#orderWatch h1{
+    font-size: 1.7em;
+    margin-bottom: 1.4em;
+}
+
+#orderForm{
+    background: #000;
+    width: 85vw;
+    max-width: 1000px;
+    min-height: 400px;
+    border: 2px solid #e5e5e5;
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); */
+}
+
+.order-item{
+    padding: 2em 0;
+    min-height: 500px;
+    background: #f0f0f0;
+}
+
+.order-item .image-scroller{
+    justify-self: flex-start;
+    width: 200%;
+    /* max-height: 270px; */
+}
+
+.order-item .image{
+    position: relative;
+    padding: 0 5%;
+    width: 50%;
+    margin-right: 0.5em;
+    background: #00f;
+}
+
+.order-item:not(:last-child){
+    border-right: 2px solid #e3e3e3;
+}
+
+.order-item > *{
+    transition: opacity 0.25s ease-out;
+}
+
+.order-item.hidden{
+    background: #fbfbfb;
+    pointer-events: none;
+}
+
+.order-item.hidden > *{
+    opacity: 0.2;
+}
+
+.order-item img{
+    display: block;
+    max-width: 60%;
+    max-height: 270px;
+    margin-bottom: 2em;
+}
+
+.order-item strong{
+    display: block;
+    margin-top: 0.7em;
+}
+
+.order-item span{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+}
+
+.order-item a{
+    font-size: 0.9em;
+    margin-top: 0.7em;
+    margin-bottom: 0;
+    letter-spacing: 0.04em;
+}
+
+#orderForm form{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    height: 100%;
+    width: 50%;
+    background: #f8f8f8;
+    /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); */
+    border: solid #ddd;
+    border-width: 0 2px 0 2px;
+    padding: 5%;
+    padding-top: 4.5%;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#orderForm form:after,
+#orderForm form #loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+#orderForm form:not(.loading):after,
+#orderForm form:not(.loading) #loader{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#orderForm form:after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: 'SENDING ORDER...';
+    background: rgba(246, 246, 246, 0.7);
+    padding-top: 120px;
+}
+
+#orderForm form #loader{
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+}
+
+#orderForm form.visible{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#orderForm form.visible + div .order-item{
+    border: none;
+}
+
+#orderForm form.visible + div .order-item a{
+    display: none;
+}
+
+#orderForm input[type="radio"]{
+    display: none;
+}
+
+#orderForm span{
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+#orderForm label{
+    height: 40px;
+    min-width: 40px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    margin-right: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+#quantityOptions label:nth-of-type(6){
+    height: 35px;
+    min-width: 80px;
+    font-size: 0.8em;
+}
+
+#quantityOptions label:hover{
+    background: #eee;
+}
+
+#quantityOptions input[type="radio"]:checked + label{
+    background: #777;
+    color: #fff;
+}
+
+#orderForm input:not([type="radio"]){
+    width: 100%;
+    display: block;
+    font-size: 1em;
+    padding: 0.8em 0.8em;
+    margin-bottom: 0.5em;
+}
+
+#colorOptions{
+    opacity: 0.6;
+}
+
+#colorOptions label{
+    opacity: 0.3;
+}
+
+#colorOptions label:hover{
+    opacity: 0.65;
+}
+
+#colorOptions input[type="radio"]:checked + label{
+    opacity: 1;
+    pointer-events: none;
+}
+
+#colorOptions #colorblue + label{
+    background: #102767;
+}
+
+#colorOptions #colorpurple + label{
+    background: #641f5d;
+}
+
+#colorOptions #colorred + label{
+    background: #960018;
+}
+
+#colorOptions #colorblack + label{
+    background: #000;
+}
+
+#orderForm button{
+    width: 100%;
+    padding: 1em 1em;
+    background: #000;
+    color: #fff;
+    font-size: 0.95em;
+    border: none;
 }
 
 #footerWrapper {
@@ -427,8 +656,7 @@ section .images .circle>*:not(.visible):not(.first).has-transition {
 }
 
 #footerWrapper > .section-wrapper{
-    display: flex;
-    padding-top: 16vh;
+    padding-top: 4vh;
     flex: 1;
 }
 
@@ -440,6 +668,15 @@ footer {
     padding-top: 1em;
     position: relative;
     z-index: 11;
+}
+
+footer #copyright {
+    padding: 0.8em 0;
+}
+
+footer #footerLocation a {
+    padding-top: 0.2em;
+    margin-top: 0.8em;
 }
 
 section:not(.no-pad) {
