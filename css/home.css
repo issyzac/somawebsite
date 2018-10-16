@@ -2,6 +2,10 @@ body {
 	--main-black: #000;
 }
 
+nav a {
+    color: #ddd;
+}
+
 #banner{
 	background: var(--main-black);
 	margin-bottom: 2.5em;

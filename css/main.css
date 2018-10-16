@@ -1,6 +1,6 @@
 body {
     --accent-color: #f7921e;
-    --accent-color2: #ffd707;
+    --accent-color2: #f1cd0b;
     --main-color: #e65307;
     --main-black: #231f21;
 }
@@ -81,7 +81,7 @@ nav {
 nav a {
     padding: 0.9em 1.1em;
     font-size: 1em;
-    color: #aaa;
+    color: #505050;
     min-width: 110px;
     position: relative;
 }

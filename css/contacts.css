@@ -3,6 +3,96 @@ main{
     min-height: 60vh;
 }
 
+.section-wrapper{
+    max-width: 1200px;
+    padding-top: 1em;
+    padding-bottom: 2.5em;
+}
+
+#contactDetails{
+    width: 400px;
+    margin-left: 150px;
+}
+
+#contactDetails h3{
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+#contactDetails h3:first-child{
+    margin-bottom: 0.7em;
+}
+
+#contactDetails h5{
+    text-transform: uppercase;
+    font-size: 0.85em;
+    margin-bottom: 0.25em;
+    letter-spacing: 0.05em;
+    color: #777;
+}
+
+#contactDetails strong{
+    display: block;
+    margin-bottom: 1.3em;
+    font-size: 1.2em;
+}
+
+#contactDetails .social-icon{
+    margin-right: 20px;
+    margin-bottom: 1em;
+    min-width: 160px;
+}
+
+#contactDetails .social-icon:first-of-type{
+    margin-top: 0.5em;
+}
+
+#contactDetails .social-icon:nth-of-type(1) i{
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, rgba(0, 0, 0, 0)), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+#contactDetails .social-icon:nth-of-type(2) i{
+    background: #1da1f2;
+}
+
+#contactDetails .social-icon:nth-of-type(2) svg{
+    width: 18px;
+    height: 18px;
+}
+
+#contactDetails .social-icon:nth-of-type(3) i{
+    background: #3B5998;
+}
+
+#contactDetails .social-icon:nth-of-type(3) svg{
+    width: 24px;
+    height: 24px;
+}
+
+#contactDetails .social-icon:first-of-type{
+    margin-top: 0.5em;
+}
+
+#contactDetails .social-icon i{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-right: 0.5em;
+}
+
+#contactDetails .social-icon svg{
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: #fff;
+}
+
+#orderForm h1{
+    font-size: 2em;
+    margin-bottom: 0.8em;
+}
+
 #orderForm form:after,
 #orderForm form #loader{
     position: absolute;
@@ -43,19 +133,23 @@ main{
     margin-bottom: 0.5em;
 }
 
-#orderForm input{
+#orderForm input,
+#orderForm textarea{
     width: 100%;
     display: block;
     font-size: 1em;
     padding: 0.8em 0.8em;
     margin-bottom: 0.5em;
+    resize: none;
+    border: 1px solid #999;
 }
 
 #orderForm button{
-    width: 100%;
+    min-width: 180px;
+    border-radius: 3px;
     padding: 1em 1em;
     background: #000;
     color: #fff;
-    font-size: 0.95em;
+    font-size: 0.9em;
     border: none;
 }
