@@ -337,8 +337,8 @@ section .images .circle>*.has-transition {
     justify-content: center;
     left: -2%;
     top: -2%;
-    width: 104%;
-    height: 104%;
+    width: 104% !important;
+    height: 104% !important;
 }
 
 #cylinderImages.visible,
@@ -388,7 +388,8 @@ section .images .circle>*.has-transition {
     margin: auto;
     background: #f0f0f0;
     height: 80%;
-    width: 127%;
+    /* width: 127%; */
+    width: 93%;
 }
 
 .strip div > div{
@@ -427,16 +428,20 @@ section .images .circle>*.has-transition {
     transform: translateZ(124px);
 }
 
+.strip .darkblue {
+    transform: rotateY(72deg) translateZ(124px);
+}
+
 .strip .purple {
-    transform: rotateY(90deg) translateZ(124px);
+    transform: rotateY(144deg) translateZ(124px);
 }
 
 .strip .red {
-    transform: rotateY(180deg) translateZ(124px);
+    transform: rotateY(216deg) translateZ(124px);
 }
 
 .strip .black {
-    transform: rotateY(270deg) translateZ(124px);
+    transform: rotateY(288deg) translateZ(124px);
 }
 
 @keyframes spin {
