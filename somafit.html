@@ -74,7 +74,8 @@
             circlesSection = $("#circlesSection");
             rightCircle = $("#rightCircle");
             leftCircle = $("#leftCircle");
-            rightImages = rightCircle.find('img, div');
+            // rightImages = rightCircle.find('img, div');
+            rightImages = $('#rightCircle > img, #rightCircle > div');
             leftImages = $('#leftCircle > img, #leftCircle > div');
             diverVideo = $('#diverVideo');
             diverActualVideo = diverVideo.get(0);
@@ -103,35 +104,89 @@
 
                     cylinderImages.removeClass('visible');
 
-                    if (index == 2) {
-                        if (newIndex === 3)
-                            rightImages.eq(1).addClass('visible');
-                        else
-                            rightImages.eq(1).removeClass('visible');
-                    } else if (index === 3) {
-                        if (diverVideo.hasClass('visible')) {
-                            diverActualVideo.pause();
-                            diverActualVideo.currentTime = 0;
-                            diverVideo.removeClass('visible');
-                        }
-
-                        if (newIndex === 4)
-                            rightImages.eq(2).addClass('visible has-transition');
-                        else if (newIndex === 2)
-                            leftImages.eq(2).removeClass('visible');
-                    } else if (index === 4) {
-                        if (newIndex === 3) {
-                            rightImages.eq(2).removeClass('visible');
-                            leftImages.eq(1).removeClass('visible');
-                        } else if (newIndex === 5)
-                            leftImages.eq(1).addClass('visible');
-                    } else if (index === 5) {
-                        if (newIndex === 6)
-                            leftImages.eq(2).addClass('visible has-transition');
-                    } else if (index === 6) {
-                        if (newIndex === 5)
-                            leftImages.eq(2).removeClass('visible');
+                    if (index === 3 && diverVideo.hasClass('visible')) {
+                        diverActualVideo.pause();
+                        diverActualVideo.currentTime = 0;
+                        diverVideo.removeClass('visible');
                     }
+
+                    if (newIndex === 1){
+                        rightImages.eq(1).removeClass('visible');
+                    }
+
+                    if (newIndex === 2)
+                        leftImages.eq(1).removeClass('visible');
+                    
+                    if (newIndex === 3){
+                        if(index === 4){
+                            rightCircle.addClass('dunk');
+
+                            setTimeout(() => {
+                                rightImages.eq(2).removeClass('visible');
+                                rightImages.eq(1).addClass('visible');
+                            }, 300);
+
+                            setTimeout(() => {
+                                rightCircle.removeClass('dunk');
+                            }, 700);
+                        }
+                        else{
+                            rightImages.eq(1).addClass('visible');
+                        }
+                    }else if(index !== 3){
+                        rightImages.eq(1).removeClass('visible');
+                    }
+                    
+                    if (newIndex === 4){
+                        rightImages.eq(3).removeClass('visible');
+                        if(index === 3){
+                            rightCircle.addClass('dunk');
+
+                            setTimeout(() => {
+                                rightImages.eq(2).addClass('visible');
+                            }, 300);
+                            
+                            setTimeout(() => {
+                                rightCircle.removeClass('dunk');
+                            }, 700);
+                        }else{
+                            // rightImages.eq(1).addClass('visible');
+                            rightImages.eq(2).addClass('visible');
+                        }
+                    }
+
+                    if (newIndex === 5){
+                        leftImages.eq(1).addClass('visible');
+                        // leftImages.eq(2).removeClass('visible');
+                    }
+                    
+                    if (newIndex === 6){
+                        setTimeout(() => {
+                            rightCircle.addClass('visible');
+                        }, 400);
+                        rightImages.eq(3).addClass('visible');
+                        // if(index === 5){
+                        //     leftImages.eq(1).addClass('has-transition').removeClass('visible');
+                        // }
+                        // leftImages.eq(2).addClass('visible has-transition');
+                    }
+                    
+                    if (newIndex === 7){
+                        rightCircle.removeClass('visible');
+                    }
+                    // else if (index === 4) {
+                    //     if (newIndex === 3) {
+                    //         rightImages.eq(2).removeClass('visible');
+                    //         leftImages.eq(1).removeClass('visible');
+                    //     } else if (newIndex === 5)
+                    //         leftImages.eq(1).addClass('visible');
+                    // } else if (index === 5) {
+                    //     if (newIndex === 6)
+                    //         leftImages.eq(2).addClass('visible has-transition');
+                    // } else if (index === 6) {
+                    //     if (newIndex === 5)
+                    //         leftImages.eq(2).removeClass('visible');
+                    // }
 
                     // fade incoming text in and vice versa
                     thisSection.find('.text').removeClass('visible');
@@ -266,6 +321,37 @@
                             <img src="img/somafit/water_resistant.jpg" alt="">
                             <img src="img/somafit/driving.jpg" alt="">
                             <video id="diverVideo" muted loop src="img/somafit/dive.mp4"></video>
+
+                            <div id="otherOptions" class="layout center-justified wrap">
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/18.png" alt="">
+                                    <span>Digital Watch</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/13.png" alt="">
+                                    <span>Alarm Clock</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/14.png" alt="">
+                                    <span>Gps Tracking</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/15.png" alt="">
+                                    <span>Multi Language</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/16.png" alt="">
+                                    <span>Shake To Snap</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/17.png" alt="">
+                                    <span>USB Charging</span>
+                                </div>
+                                <div class="fit-option layout vertical center">
+                                    <img src="img/fit/19.png" alt="">
+                                    <span>Writst-Up Light</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -353,11 +439,11 @@
                             It works just as well <br> when under water
                         </h1>
                         <p>
-                            A Somafit watch is also water resistant <br> which means it will still work properly <br> when you decide to take diving with you.
+                            A Somafit bracelet is also water resistant <br> which means it will still work properly <br> when you decide to take diving with you.
 
                             <a id="diverPlayLink" href="#">
                                 Watch a Fahad, a somafit user from Zanzibar 
-                                take his watch diving
+                                take his bracelet diving
                             </a>
                         </p>
                     </div>
@@ -375,23 +461,27 @@
                             Keep your phone away<br> until you need it.
                         </h1>
                         <p>
-                            A Somafit watch provides you with both  <br>
+                            A Somafit bracelet provides you with both  <br>
                             call and message notifications allowing <br> 
                             to rest easy knowing that you won't miss out.
                         </p> <br><br>
 
                         <div id="notificationOptions" class="layout wrap">
                             <div class="fit-option">
-                                <img src="img/fit/3.png" alt="">
-                                <span>See Calls</span>
-                            </div>
-                            <div class="fit-option">
                                 <img src="img/fit/2.png" alt="">
                                 <span>New Texts</span>
                             </div>
                             <div class="fit-option">
+                                <img src="img/fit/11.png" alt="">
+                                <span>See Calls</span>
+                            </div>
+                            <div class="fit-option">
+                                <img src="img/fit/12.png" alt="">
+                                <span>Reject a Call</span>
+                            </div>
+                            <div class="fit-option">
                                 <img src="img/fit/5.png" alt="">
-                                <span>Shake to snap</span>
+                                <span>Social Alerts</span>
                             </div>
                         </div>
                     </div>
@@ -409,7 +499,7 @@
                             A perfect compliment<br> to your perfect outfit.
                         </h1>
                         <p>
-                            Available in all your favorite colours, <br> a Somafit watch can serve as the perfect tool <br> to spice up your look.
+                            Available in all your favorite colours, <br> a Somafit bracelet can serve as the perfect tool <br> to spice up your look.
                         </p>
 
                         <div id="lookMovers" class="layout wrap">
@@ -420,7 +510,7 @@
                         </div>
 
                         <a href="#" onclick="showColorsOptions()">
-                            See all available watch colours
+                            See all available bracelet colours
                         </a>
                     </div>
 
@@ -429,7 +519,7 @@
             </div>
         </section>
 
-        <section id="somafitDownload" class="section inversed">
+        <!-- <section id="somafitDownload" class="section inversed" style="display: none;">
             <div class="section-wrapper">
                 <div class="layout center">
                     <div class="text">
@@ -441,7 +531,30 @@
                         </p>
 
                         <a id="getYourWatchAnchor" href="#">
-                            Get your own somafit watch
+                            Get your own somafit bracelet
+                        </a>
+                    </div>
+
+                    <div class="images"></div>
+                </div>
+            </div>
+        </section> -->
+        
+        <section id="somafitMoreFeatures" class="section">
+            <div class="section-wrapper">
+                <div class="layout center">
+                    <div class="text">
+                        <h1>
+                            And that's not all
+                        </h1>
+                        <p>
+                            Together with the above mentioned features, 
+                            Somafiti also provides you with alot more features 
+                            to give you a first class experience.
+                        </p>
+
+                        <a id="getYourWatchAnchor" href="#">
+                            Get your own somafit bracelet
                         </a>
                     </div>
 
@@ -452,7 +565,7 @@
 
         <section id="footerWrapper" class="section">
             <div id="orderWatch" class="section-wrapper layout vertical center-center">
-                <h1>Order a SomaFit watch</h1>
+                <h1>Order a SomaFit bracelet</h1>
 
                 <div id="orderForm">
                     <form action="#" class="visibl" onsubmit="submitOrder(event, this)">
