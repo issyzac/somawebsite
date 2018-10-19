@@ -3,27 +3,68 @@ main{
     min-height: 60vh;
 }
 
+main section{
+    padding-top: 8vh !important;
+    padding-bottom: 2.5vh !important;
+    background-color: #f7f7f7;
+    margin-top: 2vh;
+}
+
 .section-wrapper{
-    max-width: 1200px;
+    max-width: 1300px;
     padding-top: 1em;
     padding-bottom: 2.5em;
 }
 
+#pageTitle h1{
+    font-size: 2.3em;
+    font-family: Regular;
+    margin-bottom: 0.6em;
+}
+
+#pageTitle p{
+    font-size: 1.1em;
+    line-height: 2em;
+    margin-bottom: 2em;
+    color: #555;
+}
+
+#quickContacts{
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+#quickContacts svg{
+    width: 20px;
+    height: 20px;
+    fill: #f2782b;
+    fill: #999;
+    /* margin-right: 0.8em; */
+}
+
+#quickContacts strong{
+    display: block;
+    font-size: 1.2em;
+}
+
 #contactDetails{
-    width: 400px;
+    width: 550px;
     margin-left: 150px;
 }
 
-#contactDetails h3{
+h3{
     font-size: 1.4em;
+    font-size: 1.2em !important;
+    font-family: Regular;
     margin-bottom: 0.5em;
+    font-family: Regular !important;
 }
 
-#contactDetails h3:first-child{
+h3:first-child{
     margin-bottom: 0.7em;
 }
 
-#contactDetails h5{
+h5{
     text-transform: uppercase;
     font-size: 0.85em;
     margin-bottom: 0.25em;
@@ -31,66 +72,69 @@ main{
     color: #777;
 }
 
-#contactDetails strong{
-    display: block;
-    margin-bottom: 1.3em;
-    font-size: 1.2em;
-}
-
-#contactDetails .social-icon{
+.social-icon{
     margin-right: 20px;
     margin-bottom: 1em;
     min-width: 160px;
 }
 
-#contactDetails .social-icon:first-of-type{
+.social-icon span{
+    /* text-decoration: underline; */
+    letter-spacing: 0.01em;
+    font-size: 1.2em;
+    color: #555;
+    padding-bottom: 0.2em;
+}
+
+.social-icon:first-of-type{
     margin-top: 0.5em;
 }
 
-#contactDetails .social-icon:nth-of-type(1) i{
+.social-icon:nth-of-type(1) i{
     background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, rgba(0, 0, 0, 0)), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
 }
 
-#contactDetails .social-icon:nth-of-type(2) i{
+.social-icon:nth-of-type(2) i{
     background: #1da1f2;
 }
 
-#contactDetails .social-icon:nth-of-type(2) svg{
+.social-icon:nth-of-type(2) svg{
     width: 18px;
     height: 18px;
 }
 
-#contactDetails .social-icon:nth-of-type(3) i{
+.social-icon:nth-of-type(3) i{
     background: #3B5998;
 }
 
-#contactDetails .social-icon:nth-of-type(3) svg{
+.social-icon:nth-of-type(3) svg{
     width: 24px;
     height: 24px;
 }
 
-#contactDetails .social-icon:first-of-type{
+.social-icon:first-of-type{
     margin-top: 0.5em;
 }
 
-#contactDetails .social-icon i{
-    width: 35px;
-    height: 35px;
+.social-icon i{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #ddd;
     margin-right: 0.5em;
 }
 
-#contactDetails .social-icon svg{
+.social-icon svg{
     width: 18px;
     height: 18px;
     display: block;
     fill: #fff;
 }
 
-#orderForm h1{
-    font-size: 2em;
-    margin-bottom: 0.8em;
+#orderForm h3{
+    font-size: 1.55em !important;
+    font-family: Regular;
+    margin-bottom: 1.25em !important;
 }
 
 #orderForm form:after,
@@ -129,7 +173,7 @@ main{
     display: block;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.75em;
+    font-size: 0.9em;
     margin-bottom: 0.5em;
 }
 
@@ -141,7 +185,8 @@ main{
     padding: 0.8em 0.8em;
     margin-bottom: 0.5em;
     resize: none;
-    border: 1px solid #999;
+    border: 1px solid #e5e1e1;
+    outline-color: #f2cab1;
 }
 
 #orderForm button{
@@ -152,4 +197,33 @@ main{
     color: #fff;
     font-size: 0.9em;
     border: none;
+}
+
+
+#ceoQuote{
+    display: none;
+}
+
+footer {
+    padding-top: 1em;
+    position: relative;
+    z-index: 11;
+}
+
+footer #copyright {
+    padding: 0.8em 0;
+}
+
+footer #footerLocation a {
+    padding-top: 0.2em;
+    margin-top: 0.8em;
+}
+
+footer .section-wrapper{
+    padding-top: 1em;
+    padding-bottom: 0;
+}
+
+section:not(.no-pad) {
+    padding: 0;
 }
