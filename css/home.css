@@ -33,7 +33,6 @@ nav a {
 }
 
 #banner h2{
-	font-family: SemiBold, sans-serif;
 	font-size: 2.4em;
 	margin-bottom: 0.55em;
 	color: var(--accent-color)
@@ -137,7 +136,7 @@ nav a {
 }
 
 #bannerScroller .scroll-item-caption h5 {
-	font-family: SemiBold, sans-serif;
+	font-weight: bold;
 	font-size: 1.8em;
 	color: #fff;
 	margin-bottom: 0.2em;
@@ -495,9 +494,8 @@ nav a {
 
 .product-item p,
 .product-item a{
-	font-family: Light, sans-serif;
 	font-size: 0.95em;
-	line-height: 1.2em;
+	line-height: 1.8em;
 }
 
 .product-item .product-image{
@@ -525,7 +523,7 @@ nav a {
 
 #appScreenMovers button.active span{
 	color: var(--accent-color);
-	font-family: Bold, sans-serif;
+	font-weight: bold;
 }
 
 #appScreenMovers button img{

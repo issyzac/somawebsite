@@ -50,7 +50,7 @@ header nav a {
 
 body {
     color: #333;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+    /* font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; */
 }
 
 section:not(.no-pad) {
@@ -98,7 +98,7 @@ section.inversed .text {
 }
 
 section h1 {
-    font-size: 2.5em;
+    font-size: 2.3em;
     line-height: 1.2em;
     margin-bottom: 0.5em;
 }
@@ -115,7 +115,7 @@ section a {
     color: #f35819;
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: bold;
     line-height: 1.7rem;
     max-width: 350px;
 }

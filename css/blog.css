@@ -1,63 +1,118 @@
 main{
-    padding-top: 16vh;
-    min-height: 84vh;
+    padding-top:11em;
+    min-height: 85vh;
 }
 
-#orderForm form:after,
-#orderForm form #loader{
+.section-wrapper{
+    max-width: 1180px;
+}
+
+#blogHeader{
+    position: relative;
+    height: 450px;
+    background: #fb8300;
+    margin-bottom: 3em;
+    margin-left: -45px;
+    width: calc(100% + 90px);
+}
+
+#blogHeader img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    mix-blend-mode: multiply;
+}
+
+#blogHeader #text{
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    margin: auto;
     z-index: 1;
-}
-
-#orderForm form:not(.loading):after,
-#orderForm form:not(.loading) #loader{
-    opacity: 0;
-    pointer-events: none;
-}
-
-#orderForm form:after{
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    content: 'SENDING ORDER...';
-    background: rgba(246, 246, 246, 0.7);
-    padding-top: 120px;
+    align-items: flex-start;
+    padding: 0 3.5em;
 }
 
-#orderForm form #loader{
-    width: 60px;
-    height: 60px;
-    z-index: 2;
-}
-
-#orderForm span{
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.75em;
-    margin-bottom: 0.5em;
-}
-
-#orderForm input{
-    width: 100%;
-    display: block;
-    font-size: 1em;
-    padding: 0.8em 0.8em;
-    margin-bottom: 0.5em;
-}
-
-#orderForm button{
-    width: 100%;
-    padding: 1em 1em;
-    background: #000;
+#blogHeader h1{
+    font-size: 2.5em;
     color: #fff;
-    font-size: 0.95em;
-    border: none;
+    max-width: 600px;
+    margin-bottom: 0.5em;
+}
+
+#blogHeader p{
+    font-size: 1.1em;
+    line-height: 1.5em;
+    color: #ddd;
+    max-width: 600px;
+    margin-bottom: 1.5em;
+}
+
+#blogHeader a{
+    padding: 0.8em 1em;
+    background: #fff;
+    color: #000;
+    font-size: 0.8em;
+    border: 2px solid #999;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+}
+
+.blog-item{
+    margin-bottom: 1.5em;
+    padding-top: 0.5em;
+    display: flex;
+    position: relative;
+}
+
+.blog-item:last-of-type{
+    margin-bottom: 3em;
+}
+
+.blog-item img{
+    width: 250px;
+    height: 150px;
+    margin-right: 2em;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-item .text{
+    flex: 1;
+}
+
+.blog-item .date{
+    position: absolute;
+    top: 1em;
+    right: 0;
+    font-size: 1em;
+}
+
+.blog-item:not(:last-of-type) .text{
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-item h3{
+    font-size: 1.4em;
+    font-weight: 500;
+    line-height: 1.3em;
+    color: #000;
+    max-width: 550px;
+    margin-bottom: 0.2em;
+}
+
+.blog-item p{
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #666666;
+    max-width: 600px;
+    margin-bottom: 1.5em;
 }
 
 #ceoQuote{

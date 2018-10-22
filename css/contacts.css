@@ -1,13 +1,12 @@
 main{
-    padding-top: 16vh;
+    padding-top: 10em;
     min-height: 60vh;
 }
 
 main section{
-    padding-top: 8vh !important;
-    padding-bottom: 2.5vh !important;
+    padding-top: 4em !important;
     background-color: #f7f7f7;
-    margin-top: 2vh;
+    margin-top: 1em;
 }
 
 .section-wrapper{
@@ -17,13 +16,13 @@ main section{
 }
 
 #pageTitle h1{
-    font-size: 2.3em;
-    font-family: Regular;
+    font-size: 2em;
+    font-weight: normal;
     margin-bottom: 0.6em;
 }
 
 #pageTitle p{
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 2em;
     margin-bottom: 2em;
     color: #555;
@@ -44,7 +43,7 @@ main section{
 
 #quickContacts strong{
     display: block;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 #contactDetails{
@@ -55,9 +54,8 @@ main section{
 h3{
     font-size: 1.4em;
     font-size: 1.2em !important;
-    font-family: Regular;
+    font-weight: normal;
     margin-bottom: 0.5em;
-    font-family: Regular !important;
 }
 
 h3:first-child{
@@ -133,7 +131,7 @@ h5{
 
 #orderForm h3{
     font-size: 1.55em !important;
-    font-family: Regular;
+    font-weight: normal;
     margin-bottom: 1.25em !important;
 }
 

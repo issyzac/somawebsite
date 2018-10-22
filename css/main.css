@@ -30,7 +30,7 @@ section:not(.no-pad) {
 }
 
 .text-bold {
-    font-family: SemiBold, sans-serif;
+    font-weight: bold;
 }
 
 .text-primary {
@@ -98,7 +98,7 @@ nav a.active:after {
 }
 
 .section-title {
-    font-family: Bold, sans-serif;
+    font-weight: bold;
     font-size: 1.7em;
     display: inline-block;
     position: relative;
@@ -113,11 +113,11 @@ nav a.active:after {
 .section-title.center {
     width: 100%;
     text-align: center;
-    font-family: Bold, sans-serif;
+    font-weight: bold;
 }
 
 .section-title small {
-    font-family: Regular, sans-serif;
+    font-weight: normal;
     font-size: 18px;
     color: #777;
     display: block;
@@ -172,7 +172,7 @@ footer #ceoQuote {
 }
 
 footer #ceoQuote q {
-    font-family: Light;
+    font-weight: 100;
     max-width: 800px;
     font-size: 2em;
     line-height: 1.3em;
