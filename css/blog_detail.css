@@ -38,6 +38,11 @@ main{
     margin-bottom: 1.5em;
 }
 
+#blogDate small{
+    font-weight: 100;
+    color: #555;
+}
+
 #blogContent{
     margin-bottom: 4em;
 }
@@ -82,32 +87,51 @@ main{
     font-weight: 100;
 }
 
+#shareOptions small{
+    display: inline-block;
+    font-weight: 100;
+    font-size: 0.95em;
+    letter-spacing: 0.1em;
+    margin-right: 1.3em;
+}
+
+#shareOptions a{
+    display: block;
+    margin-right: 1.3em;
+}
+
+#shareOptions svg{
+    
+}
+
 #relatedArticles{
     margin-top: 6em;
+    margin-bottom: 2em;
 }
 
 #relatedArticles h2{
     font-size: 0.95em;
     letter-spacing: 0.1em;
     font-weight: normal;
-    margin-bottom: 0.5em;
-    color: #555;
+    margin-bottom: 1em;
+    color: #777;
 }
 
 #relatedArticles .section-wrapper{
-    max-width: 1280px;
+    max-width: 980px;
+    padding: 0;
 }
 
 .blog-item{
-    margin-right: 1.5em;
-    padding-top: 1em;
-    padding-bottom: 1.5em;
-    display: flex;
-    position: relative;
+    width: 49%;
+    border: 1px solid #e5e5e5;
+    padding: 1.2em;
+    border-radius: 2px;
 }
 
-.blog-item:not(:last-of-type){
-    border-right: 1px solid #ddd;
+.blog-item > div{
+    display: flex;
+    position: relative;
 }
 
 .blog-item img{
@@ -120,7 +144,7 @@ main{
 
 .blog-item .text{
     flex: 1;
-    padding-right: 0.7em;
+    padding-right: 0.5em;
 }
 
 .blog-item h3{
@@ -148,7 +172,7 @@ footer #copyright {
 
 footer #footerLocation a {
     padding-top: 0.2em;
-    margin-top: 0.8em;
+    /* margin-top: 0.8em; */
 }
 
 footer .section-wrapper{

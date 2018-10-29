@@ -131,7 +131,7 @@ footer #copyright {
 
 footer #footerLocation a {
     padding-top: 0.2em;
-    margin-top: 0.8em;
+    /* margin-top: 0.8em; */
 }
 
 footer .section-wrapper{

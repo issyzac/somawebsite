@@ -59,7 +59,16 @@
                 <a href="https://play.google.com/store/apps/details?id=com.apps.soma.soma&hl=en" target="_blank" class="google-play-btn">
                     <img src="img/playstore.png" width="180">
                 </a>
-                <a href="#" class="ios-trigger"> I have an iOS device</a>
+                <input type="checkbox" id="iosTrigger">
+                <label for="iosTrigger" class="ios-trigger"> I have an iOS device</label>
+
+                <div id="iosPopup">
+                    <div id="iosForm">
+                        <p>Enter your email below and we'll notify you when the iOS app is ready.</p>
+                        <input type="email" placeholder="E.g. john.doe@example.com">
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -71,30 +80,32 @@
     <section id="values">
         <div class="text start vertical center text-bold">
             <h1 class="section-title center ">
-                We will make your dreams come true.
+                We can make your dreams come true.
             </h1>
             <h2 class="section-sub-title center text-only">
-                SomaApp is a revolutionary product that matches you with opportunities that are perfect for you.<br /> Gain access to fully funded scholarships, conferences, and internships, all at your fingertips.
+                SomaApp is a revolutionary product that matches you with opportunities that are perfect for you. <br> Gain access to fully funded scholarships, conferences, and internships, all at your fingertips.
             </h2>
         </div>
         <div class="values-items">
-
             <div>
-                <img src="img/scholarship.svg" />
-                <h1>Scholarship</h1>
-                <h2>Finances should not be a limiting factor in attaining your educational goals. We have curated hundreds of scholarships just for you.
+                <img src="img/somaapp-page/scholarships-icon.png" />
+                <h1>Scholarships</h1>
+                <h2>
+                        Finances should not be a limiting factor in attaining your educational goals. We have curated hundreds of scholarships just for you.
                 </h2>
             </div>
             <div>
-                <img src="img/scholarship.svg" />
-                <h1>Internship</h1>
-                <h2>Take the next big step in your career. Our strong partnerships with companies across the globe help you find the perfect opportunity for you.
+                <img src="img/somaapp-page/Internship-icon.png" />
+                <h1>Internships</h1>
+                <h2>
+                    Take the next big step in your career. Our strong partnerships with companies across the globe help you find the perfect opportunity for you.
                 </h2>
             </div>
             <div>
-                <img src="img/scholarship.svg" />
+                <img src="img/somaapp-page/conference-icon.png" />
                 <h1>Conferences</h1>
-                <h2>A lot of learning happens outside the classroom. This is why we showcase fully funded conferences happening all around the world, all free, all for you.
+                <h2>
+                    A lot of learning happens outside the classroom. This is why we showcase fully funded conferences happening all around the world, all free, all for you.
                 </h2>
             </div>
         </div>
@@ -105,7 +116,7 @@
     <!-- Numbers section -->
 
     <section id="map-countries">
-        <h2>From Africa and unto the whole world.</h2>
+        <!-- <h2>From Africa and unto the whole world.</h2> -->
         <div>
             <h1>7,000</h1>
             <h2>
@@ -139,31 +150,17 @@
     <!-- Features section -->
     <section id="features">
         <div>
-            <h1>
-                <span class="feature-title">
-                    How to apply for<br/>
-                    scholarship.
-                </span>
-                <span class="feature-sub-title">
-                    SomaApp gives you hundreds of brilliantly crafted sample essays from our essay experts that will assist you when
-                    applying for a scholarship.
-                </span>
-            </h1>
-            <img src="img/somaappphone.png" width="400">
-        </div>
-
-        <div>
             <h1 style="margin-left: 5em">
                 <span class="feature-title">
                     Your Perfect Scholarship
                 </span>
                 <span class="feature-sub-title">
-                    Our smart algorithms work hard to ensure you don't have to. Enter your personal details on your profile, and then tap
-                    "Filter" to find your perfect match. It's that easy.
-
+                    Our smart algorithms work hard to ensure you don't have to. 
+                    Enter your personal details on your profile, and then tap "Filter" to find your perfect match. 
+                    It's that easy.
                 </span>
             </h1>
-            <img src="img/somaappphone.png" width="400">
+            <img src="img/somaapp-page/app-scholarships.png" width="400">
         </div>
 
         <div>
@@ -173,15 +170,26 @@
                     Exclusive Internships
                 </span>
                 <span class="feature-sub-title">
-                Finding an internship is a breeze through our app. We find you the best opportunities so you can concentrate on getting
-                the work done.
-                A World of Conferences: Whether it's a conference on microbiology or a conference on conferences, we've got you
-                covered. And best yet, it's just a swipe away.
-
+                    Finding an internship is a breeze through our app. 
+                    We find you the best opportunities so you can concentrate on getting the work done.
                 </span>
             </h1>
-            <img src="img/somaappphone.png" width="400">
+            <img src="img/somaapp-page/app-internship.png" width="400">
         </div>
+
+        <div>
+            <h1>
+                <span class="feature-title">
+                    A World of Conferences
+                </span>
+                <span class="feature-sub-title">
+                    Whether it's a conference on microbiology or a conference on conferences, we've got you covered. And best yet, it's just a swipe away.
+                    Access Winning Essays, Instantly: We've got advice on how to write that award winning essay so that you can ensure you give it your best shot, with over hundreds of brilliantly crafted sample essays, right from our expert essay writing desk.                        
+                </span>
+            </h1>
+            <img src="img/somaapp-page/app-conferences.png" width="400">
+        </div>
+
         <div>
 
             <h1 style="margin-left: 5em">
@@ -189,20 +197,18 @@
                 Access Winning Essays, Instantly
                 </span>
                 <span class="feature-sub-title">
-                We've got advice on how to write that award winning essay so that you can ensure you give it your best shot, with over
-                hundreds of brilliantly crafted sample essays, right from our expert essay writing desk.
-
-
+                    We've got advice on how to write that award winning essay so that you can ensure you give it your best shot, with over
+                    hundreds of brilliantly crafted sample essays, right from our expert essay writing desk.
                 </span>
             </h1>
-            <img src="img/somaappphone.png" width="400">
+            <img src="img/somaapp-page/app-resources.png" width="400">
         </div>
 
     </section>
 
     <section id="testimonials">
         <h1 class="section-title center ">
-            We have heard inspiring stories from Somaapp users. <br> Here are a few that'll get you excited.
+            We have heard inspiring stories from SomaApp users. <br> Here are a few that'll get you excited.
         </h1>
 
         <div class="section-wrapper">
@@ -315,7 +321,7 @@
                     </svg> &emsp;
 
                     <div>
-                        Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
+                        Somaapps HQ Dar Es Salaam, Tanzania <br>
                         <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
                             View on Google Maps
                         </a>

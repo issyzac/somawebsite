@@ -30,13 +30,13 @@
         const SWIM_SECTION_INDEX = 3;
         const PHONE_SECTION_INDEX = 3;
         let workoutImage;
-        const watchImageSrcs = ['watch-blue.png', 'watch-purple.png', 'watch-black.png', 'watch-blue.png'];
-        const watchNames = ['Cerulean Blue', 'Palatinate Purple', 'Mahogany Dark', 'Carmine Red'];
+        const watchImageSrcs = ['watch-blue.png', 'watch-dark-blue.png', 'watch-purple.png', 'watch-black.png', 'watch-blue.png'];
+        const watchNames = ['Cerulean Blue', 'Dark Blue', 'Palatinate Purple', 'Mahogany Dark', 'Carmine Red'];
 
         let maxTextIndex, sectionScroller, sections, navigation,
             circlesSection, rightCircle, leftCircle,
             rightImages, leftImages, diverVideo, diverActualVideo,
-            outFitImages, cylinderImages, orderItems, orderForm;
+            outFitImages, cylinderImages, orderItems, currentOrderItem, orderForm;
 
         function moveOutFitImages(el, index) {
             cylinderImages.removeClass('visible');
@@ -54,12 +54,16 @@
         
         function changeCurrentOrderWatch(index) {
             orderItems.addClass('hidden')
-            
-            const idx = index < 2 ? 0 : 3;
-            const currentItem = orderItems.eq(idx);
-            currentItem.removeClass('hidden');
-            currentItem.find('img').get(0).src = "img/somafit/" + watchImageSrcs[index];
-            currentItem.find('span').text(watchNames[index]);
+            currentOrderItem = orderItems.eq(index);
+            currentOrderItem.removeClass('hidden');
+
+            changeCurrentOrderColor(0);
+            $('#colorOptions').find('label').eq(0).trigger('click');
+        }
+        
+        function changeCurrentOrderColor(index) {
+            currentOrderItem.find('img').get(0).src = "img/somafit/" + watchImageSrcs[index];
+            currentOrderItem.find('span').text(watchNames[index]);
         }
         
         function showOrderForm(index) {
@@ -83,6 +87,7 @@
             cylinderImages = $('#cylinderImages');
             orderItems = $('.order-item');
             orderForm = $('#orderForm form');
+            currentOrderItem = orderItems.eq(0);
 
             $("#diverPlayLink").click(function() {
                 if (!diverVideo.hasClass('visible')) {
@@ -270,7 +275,7 @@
                     <div class="text">&nbsp;</div>
                     <div class="images layout center-justified">
                         <div class="circle" id="leftCircle">
-                            <img class="first" src="img/somafit/phones.jpg" alt="">
+                            <img class="first" src="img/somafit-page/somafiti-app.png" alt="">
                             <div id="outFitImages" class="layout">
                                 <img src="img/somafit/withfriends.jpg" alt="">
                                 <img src="img/somafit/aroundtown.jpg" alt="">
@@ -289,7 +294,7 @@
                                         </div>
                                         <div class="darkblue">
                                             <div class="layout center-center" color="Dark Blue">
-                                                <img src="img/somafit/watch-blues.png" alt="">
+                                                <img src="img/somafit/watch-dark-blues.png" alt="">
                                             </div>
                                         </div>
                                         <div class="purple">
@@ -322,8 +327,8 @@
                     <div class="text">&nbsp;</div>
                     <div class="images layout center-justified">
                         <div id="rightCircle" class="circle visible">
-                            <img class="first" src="img/somafit/workout2.jpg" alt="">
-                            <img src="img/somafit/water_resistant.jpg" alt="">
+                            <img class="first" src="img/somafit-page/gym.jpg" alt="">
+                            <img src="img/somafit-page/swimmer.jpg" alt="">
                             <img src="img/somafit/driving.jpg" alt="">
                             <video id="diverVideo" muted loop src="img/somafit/dive.mp4"></video>
 
@@ -573,62 +578,6 @@
                 <h1>Order a SomaFiti bracelet</h1>
 
                 <div id="orderForm">
-                    <form action="#" class="visibl" onsubmit="submitOrder(event, this)">
-                        <img id="loader" src="img/loading.gif" alt="">
-                        <span>Colour</span>
-                        
-                        <div id="colorOptions" class="layout center">
-                            <input checked id="colorblue" type="radio" name="color" value="blue"/>
-                            <label class="layout center-center" for="colorblue"
-                                onclick="changeCurrentOrderWatch(0)"></label>
-                            
-                            <input id="colorpurple" type="radio" name="color" value="purple"/>
-                            <label class="layout center-center" for="colorpurple"
-                                onclick="changeCurrentOrderWatch(1)"></label>
-                            
-                            <input id="colorblack" type="radio" name="color" value="black"/>
-                            <label class="layout center-center" for="colorblack"
-                                onclick="changeCurrentOrderWatch(2)"></label>
-                            
-                            <input id="colorred" type="radio" name="color" value="red"/>
-                            <label class="layout center-center" for="colorred"
-                                onclick="changeCurrentOrderWatch(3)"></label>
-                        </div>
-                        <br><br>
-                        
-                        <span>Quantity</span>
-                        
-                        <div id="quantityOptions" class="layout center">
-                            <input checked id="quantity1" type="radio" name="quantity" value="1"/>
-                            <label class="layout center-center" for="quantity1">1</label>
-                            
-                            <input id="quantity2" type="radio" name="quantity" value="2"/>
-                            <label class="layout center-center" for="quantity2">2</label>
-                            
-                            <input id="quantity3" type="radio" name="quantity" value="3"/>
-                            <label class="layout center-center" for="quantity3">3</label>
-                            
-                            <input id="quantity4" type="radio" name="quantity" value="4"/>
-                            <label class="layout center-center" for="quantity4">4</label>
-                            
-                            <input id="quantity5" type="radio" name="quantity" value="5"/>
-                            <label class="layout center-center" for="quantity5">5</label>
-                            
-                            <input id="quantityMore" type="radio" name="quantity" value="more"/>
-                            <label class="layout center-center" for="quantityMore">More</label>
-                        </div>
-                        <br><br>
-
-                        <span>Phone Number</span>
-                        <input type="phone" required placeholder="E.g. 0712 34 56 78">
-                        <br>
-
-                        <span>Email</span>
-                        <input type="email" required placeholder="E.g. chausiku@gmail.com">
-
-                        <br>
-                        <button type="submit">SEND ORDER</button>
-                    </form>
                     <div class="layout">
                         <div class="flex order-item layout vertical center-center">
                             <img src="img/somafit/watch-blue.png" alt="">
@@ -636,19 +585,84 @@
                             <strong>Tshs. 99,000/-</strong>
                             <a href="#" onclick="showOrderForm(0)">ORDER NOW</a>
                         </div>
-                        <div class="flex order-item layout vertical center-center">
-                            <img src="img/somafit/watch-purple.png" alt="">
-                            <span>Palatinate Purple.</span>
-                            <strong>Tshs. 99,000/-</strong>
-                            <a href="#" onclick="showOrderForm(1)">ORDER NOW</a>
-                        </div>
-                        <div class="flex order-item layout vertical center-center">
-                            <img src="img/somafit/watch-black.png" alt="">
-                            <span>Mahogany Dark</span>
-                            <strong>Tshs. 99,000/-</strong>
-                            <a href="#" onclick="showOrderForm(2)">ORDER NOW</a>
-                        </div>
-                        <div class="flex order-item layout vertical center-center">
+
+                        <form action="#" class="visible" onsubmit="submitOrder(event, this)">
+                            <img id="loader" src="img/loading.gif" alt="">
+    
+                            <span>Screen Type</span>
+                            <div id="typeOptions" class="layout center">
+                                <input checked id="blackAndWhite" type="radio" name="type" value="1"/>
+                                <label onclick="changeCurrentOrderWatch(0)" class="layout center-center" for="blackAndWhite">
+                                    Black & White
+                                </label>
+                                
+                                <input id="colored" type="radio" name="type" value="2"/>
+                                <label onclick="changeCurrentOrderWatch(1)" class="layout center-center" for="colored">
+                                    Coloured
+                                </label>
+                            </div>
+                            <br><br>
+    
+                            <span>Strap Colour</span>
+                            
+                            <div id="colorOptions" class="layout center">
+                                <input checked id="colorblue" type="radio" name="color" value="blue"/>
+                                <label class="layout center-center" for="colorblue"
+                                    onclick="changeCurrentOrderColor(0)"></label>
+                                
+                                <input id="colordarkblue" type="radio" name="color" value="darkblue"/>
+                                <label class="layout center-center" for="colordarkblue"
+                                    onclick="changeCurrentOrderColor(1)"></label>
+                                
+                                <input id="colorpurple" type="radio" name="color" value="purple"/>
+                                <label class="layout center-center" for="colorpurple"
+                                    onclick="changeCurrentOrderColor(2)"></label>
+                                
+                                <input id="colorblack" type="radio" name="color" value="black"/>
+                                <label class="layout center-center" for="colorblack"
+                                    onclick="changeCurrentOrderColor(3)"></label>
+                                
+                                <input id="colorred" type="radio" name="color" value="red"/>
+                                <label class="layout center-center" for="colorred"
+                                    onclick="changeCurrentOrderColor(4)"></label>
+                            </div>
+                            <br><br>
+                            
+                            <span>Quantity</span>
+                            
+                            <div id="quantityOptions" class="layout center">
+                                <input checked id="quantity1" type="radio" name="quantity" value="1"/>
+                                <label class="layout center-center" for="quantity1">1</label>
+                                
+                                <input id="quantity2" type="radio" name="quantity" value="2"/>
+                                <label class="layout center-center" for="quantity2">2</label>
+                                
+                                <input id="quantity3" type="radio" name="quantity" value="3"/>
+                                <label class="layout center-center" for="quantity3">3</label>
+                                
+                                <input id="quantity4" type="radio" name="quantity" value="4"/>
+                                <label class="layout center-center" for="quantity4">4</label>
+                                
+                                <input id="quantity5" type="radio" name="quantity" value="5"/>
+                                <label class="layout center-center" for="quantity5">5</label>
+                                
+                                <input id="quantityMore" type="radio" name="quantity" value="more"/>
+                                <label class="layout center-center" for="quantityMore">More</label>
+                            </div>
+                            <br><br>
+    
+                            <span>Phone Number</span>
+                            <input type="phone" required placeholder="E.g. 0712 34 56 78">
+                            <br>
+    
+                            <!-- <span>Email</span>
+                            <input type="email" required placeholder="E.g. chausiku@gmail.com">
+    
+                            <br> -->
+                            <button type="submit">SEND ORDER</button>
+                        </form>
+                        
+                        <div class="flex order-item hidden layout vertical center-center">
                             <img src="img/somafit/watch-blue.png" alt="">
                             <span>Carmine Red</span>
                             <strong>Tshs. 99,000/-</strong>
@@ -684,8 +698,8 @@
                             </svg> &emsp;
 
                             <div>
-                                Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
-                                <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
+                                Somaapps HQ Dar Es Salaam, Tanzania <br>
+                                <a id="footerA" target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
                                     View on Google Maps
                                 </a>
                             </div>

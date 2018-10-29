@@ -29,7 +29,7 @@
         </a>
 
         <nav class="layout center">
-            <a href="#" class="layout center-center active">Home</a>
+            <a href="#" class="layout for-lg center-center active">Home</a>
             <a href="/somaapp" class="layout center-center">SomaApp</a>
             <a href="/somafiti" class="layout center-center">SomaFiti</a>
             <a href="/blog" class="layout center-center">Blog</a>
@@ -37,66 +37,61 @@
         </nav>
     </header>
 
-    <main>
-        <div id="banner">
-            <div id="bannerScroller" class="flex layout">
-                <div onmouseover="loadVideo(0)" onclick="playVideo(0)" class="scroll-item layout end" caption="SomaApp">
-                    <div class="image">
-                        <img src="img/somaapp.png" alt="">
-                    </div>
-                    <div class="scroll-item-caption">
-                        <h5>SomaApp</h5>
-                        <button class="layout center">
-							<svg width="40" height="40" viewBox="0 0 24 24">
-								<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-								<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-							</svg>
-							&nbsp; Play Video
-						</button>
-                    </div>
+    <div id="banner">
+        <div id="bannerScroller" class="flex layout">
+            <div onmouseover="loadVideo(0)" onclick="playVideo(0)" class="scroll-item layout end" caption="SomaApp">
+                <div class="image">
+                    <img src="img/home/somaapp.jpg" alt="">
                 </div>
-                <div onmouseover="loadVideo(1)" onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
-                    <div class="image">
-                        <img src="img/watcher5.jpg" alt="">
-                    </div>
-
-                    <div class="scroll-item-caption">
-                        <h5>SomaFit</h5>
-                        <button class="layout center">
-							<svg width="40" height="40" viewBox="0 0 24 24">
-								<path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-								<path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-							</svg>
-							&nbsp; Play Video
-						</button>
-                    </div>
+                <div class="scroll-item-caption">
+                    <h5>SomaApp</h5>
+                    <button class="layout center">
+                        <svg width="40" height="40" viewBox="0 0 24 24">
+                            <path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+                        </svg><span>&nbsp; Play Video</span>
+                    </button>
                 </div>
             </div>
+            <div onmouseover="loadVideo(1)" onclick="playVideo(1)" class="scroll-item layout end" caption="SomaFit">
+                <div class="image">
+                    <img src="img/home/somafit.png" alt="">
+                </div>
 
-            <div id="bannerVideoPlayer" class="layout center-center">
-                <button id="closeVideoBtn" onclick="closeVideo()">
-					<svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
-				</button>
-                <img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
-                <iframe id="ytIframe" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="scroll-item-caption">
+                    <h5>SomaFit</h5>
+                    <button class="layout center">
+                        <svg width="40" height="40" viewBox="0 0 24 24">
+                            <path fill="#e65307" d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#fff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+                        </svg><span>&nbsp; Play Video</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </main>
+
+        <div id="bannerVideoPlayer" class="layout center-center">
+            <button id="closeVideoBtn" onclick="closeVideo()">
+                <svg fill="#fff" viewbox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+            </button>
+            <img src="" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+            <iframe id="ytIframe" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <section id="sectionAbout">
         <div class="section-wrapper layout">
             <div>
                 <h2 class="section-title">
-                    An innovative, award winning <br> startup based in Tanzania.
+                    We are Somaapps
                 </h2>
-                <p>
-                    Somaapps Technologies Company Limited was created as a solution-centric company with the mission: "To create simple and smart solutions through mobile applications, digital technologies and the use of the internet platform." Today, we are researching
-                    and leveraging cutting-edge technologies in mobile software, AI and IoT to solve problems faced by people all over Africa. Technology runs through our blood and we love developing simple solutions to complex problems. We are committed
-                    to level the playing field by equipping the next generation of Africans with the necessary tools and knowledge required to build a better future for our home. We are Somaapps. This is our journey.
-
+                <p style="line-height: 2.4em">
+                    Somaapps Technologies Company Limited was created as a solution-centric company with the mission: "To create simple and smart solutions through mobile applications, digital technologies and the use of the internet platform." Today, we are researching and leveraging cutting-edge technologies in mobile software, AI and IoT to solve problems faced by people all over Africa.
+                    Technology runs through our blood and we love developing simple solutions to complex problems. We are committed to level the playing field by equipping the next generation of Africans with the necessary tools and knowledge required to build a better future for our home.
+                    We are Somaapps. This is our journey.
                 </p>
             </div>
-            <div id="aboutImage" class="image">
+            <div id="aboutImage" class="image for-lg">
                 <img src="img/Award.jpg" alt="">
             </div>
         </div>
@@ -104,6 +99,10 @@
 
     <section id="sectionTeam">
         <div class="section-wrapper">
+            <h2 class="section-title text-primary text-bold">Our Team</h2> 
+            <div id="mobTeamTitle" class="for-mob">
+                is made up of brilliant, result-oriented people who are passionate about making the world a better place. We are not an office; we are a collective of bright superstars with stellar ideas from all walks of life. Our employees revel in collaborating to build great solutions in a highly motivated environment, utilizing the very best tools for the job. It's therefore no surprise how we build the things we do.
+            </div>
             <div class="layout wrap">
                 <div class="team-item">
                     <div class="image">
@@ -113,15 +112,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -139,15 +138,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -165,15 +164,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -184,9 +183,9 @@
                     </div>
                 </div>
 
-                <div class="team-item text-only">
-                    <span style="font-size: 1.25em" class="text-primary text-bold">The Somaapps Team</span> is united by an unwavering passion for quality and problem solving. We focus on strategy, design and development as we passionately pursue the
-                    simplicity, solution-centric, cutting edge of mobile apps. Within our walls you'll find magical solutions that aspire to delight the world and our customers.
+                <div class="team-item text-only for-lg">
+                    <span style="font-size: 1.25em" class="text-primary text-bold">Our Team</span> 
+                    is made up of brilliant, result-oriented people who are passionate about making the world a better place. We are not an office; we are a collective of bright superstars with stellar ideas from all walks of life. Our employees revel in collaborating to build great solutions in a highly motivated environment, utilizing the very best tools for the job. It's therefore no surprise how we build the things we do.
                 </div>
 
                 <div class="team-item">
@@ -197,15 +196,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -223,15 +222,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -249,15 +248,15 @@
                         <div class="social-media flex layout center-center">
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" width="24" height="24">
-									<path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
-									/>
-								</svg>
+                                    <path d="m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35"
+                                    />
+                                </svg>
                             </a>
                             <a href="#" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
-									/>
-								</svg>
+                                    <path d="M19,19H16V13.7C16,12.87 15.33,12.2 14.5,12.2C13.67,12.2 13,12.87 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,9.8 15.5,9.8C17.43,9.8 19,11.37 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5C4.69,5.5 5.5,4.69 6.5,4.69C7.5,4.69 8.31,5.5 8.31,6.5C8.31,7.5 7.5,8.31 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.89 21.1,2 20,2Z"
+                                    />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
@@ -267,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="team-item">
+                <div class="team-item for-lg">
                     <div class="image">
                         <img src="img/coolcat.png" alt="New Team Member">
                     </div>
@@ -275,18 +274,23 @@
                         <div class="social-media flex layout center-center">
                             <a href="mailto:jobs@somaaps.com" class="layout center-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-									<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-								</svg>
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
                             </a>
                         </div>
                         <div class="text">
-                            <h5>Hey there cool cat!</h5>
                             <p>
-                                Wanna join us? We'd love to have you onboard. You can reach us using the email below or by clicking the icon above.
+                                All our employees enjoy an open, state-of-the-art workplace with free coffee and a casual dress code, and go home each day knowing they made the world that much better. We are always looking for talent, so if you believe you have a unique outlook do reach out to us.
                             </p>
                             <small>jobs@somaaps.com</small>
                         </div>
                     </div>
+                </div>
+
+                <div class="for-mob flex layout center-justified">
+                    <a href="mailto:jobs@somaaps.com" id="joinBtn">
+                        JOIN SOMAAPPS
+                    </a>
                 </div>
             </div>
         </div>
@@ -302,37 +306,36 @@
                 <div class="text flex layout vertical justified">
                     <div>
                         <div class="layout center">
-                            <img src="img/somaapp-logo.png" alt="Somafit logo">
+                            <img src="img/home/somaapp-icon.png" alt="Somaapp icon">
                             <h3>SomaApp</h3>
                         </div>
 
                         <h5>
-                            Revolutionizing the scholarships ecosystem across Africa!
+                            Revolutionizing the scholarship ecosystem across Africa!
                         </h5>
                         <p>
-                            SomaApp is a product that helps you find opportunities. Using our smart algorithms, we match you with hundreds of fully funded opportunities worldwide relevant to you, right at the tip of your fingers. Whether you're looking to study, attend a conference,
-                            or get your foot in the door, we've got you covered.
+                            SomaApp is a product that helps you find opportunities. Using our smart algorithms, we match you with hundreds of fully funded opportunities worldwide relevant to you, right at the tip of your fingers. Whether you're looking to study, attend a conference, or get your foot in the door, we've got you covered.
                         </p>
                     </div>
 
-                    <a href="#">Learn More&nbsp; <span class="text-primary">>></span></a>
+                    <a href="/somaapp">Learn More&nbsp; <span class="text-primary">>></span></a>
                 </div>
 
                 <div class="product-image layout end-justified">
                     <div id="appScreenMovers" class="layout center-justified">
                         <div class="layout center-justified" style="width: 550px">
                             <button onmouseover="moveAppScreen(0)" class="active layout vertical center-center">
-								<img src="img/app/icon1.png" alt="">
-								<span>Conferences</span>
-							</button>
+                                <img src="img/app/icon1.png" alt="">
+                                <span>Conferences</span>
+                            </button>
                             <button onmouseover="moveAppScreen(1)" class="layout vertical center-center">
-								<img src="img/app/icon2.png" alt="">
-								<span>Internships</span>
-							</button>
+                                <img src="img/app/icon2.png" alt="">
+                                <span>Internships</span>
+                            </button>
                             <button onmouseover="moveAppScreen(2)" class="layout vertical center-center">
-								<img src="img/app/icon3.png" alt="">
-								<span>Scholarships</span>
-							</button>
+                                <img src="img/app/icon3.png" alt="">
+                                <span>Scholarships</span>
+                            </button>
                         </div>
                     </div>
                     <div class="phone">
@@ -359,21 +362,19 @@
                 <div class="text flex layout vertical justified">
                     <div>
                         <div class="layout center">
-                            <img src="img/somafit-logo.png" alt="Somafit logo">
-                            <h3>SomaFit</h3>
+                            <img src="img/home/somafit-icon.png" alt="Somafit icon">
+                            <h3>SomaFiti</h3>
                         </div>
 
                         <h5>
-                            Focus on health and the Future!
+                            Focus on the Health and Future!
                         </h5>
                         <p>
-                            SomaFiti is a revolutionary device that tracks your every movement. Track your pulse rate in real time while working out and on your evening walk about town, every single step of the way. Stay connected to your friends and family with Care, monitoring
-                            your loved ones' vitals and activity levels. All while never missing a single notification.
-
+                            SomaFiti is a revolutionary device that tracks your every movement. Track your pulse rate in real time while working out and on your evening walk about town, every single step of the way. Stay connected to your friends and family with Care, monitoring your loved ones' vitals and activity levels. All while never missing a single notification.
                         </p>
                     </div>
 
-                    <a href="#" style="display: block; margin-bottom: 5em">Learn More&nbsp; <span class="text-primary">>></span></a>
+                    <a href="/somafiti" style="display: block; margin-bottom: 5em">Learn More&nbsp; <span class="text-primary">>></span></a>
                 </div>
 
                 <div class="product-image layout center-center">
@@ -410,13 +411,13 @@
 
     <section id="sectionAwards">
         <div class="section-wrapper">
-            <h2 class="section-title center">
+            <h2 class="section-title center" style="margin-bottom: 1.6em;">
                 We are winners
 
                 <small>
-					Here are some of the awards that we have has won.
+                    Here are some of the awards that we have won.
 
-				</small>
+                </small>
             </h2>
 
             <div class="layout center-center wrap featured-images">
@@ -432,13 +433,11 @@
     <section id="sectionFeatured">
         <div class="section-wrapper">
             <h2 class="section-title center">
-                What people have to say about us
-
-
+                Who's talking about us
 
                 <small>
-					Here are some of the publications that have featured us
-				</small>
+                    Here are some of the publications that have featured us
+                </small>
             </h2>
 
             <div class="layout center-center wrap featured-images">
@@ -453,82 +452,83 @@
     </section>
 
     <section id="sectionTestimonials">
-        <div class="section-wrapper">
-            <div class="section-title center">
-                Good words about us
-            </div>
-        </div>
-
-        <div id="quotesScroller">
-            <div class="layout center">
-                <div class="a-testimonial">
-                    <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
-
-                    <div class="testimonial-user layout center">
-                        <div class="image dp">
-                            <img src="img/gray.jpeg" alt="Gray Image">
-                        </div>
-                        <div class="text">
-                            <h6>Grayson Julius</h6>
-                            <p>Operations Lead, iPF Softwares</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="a-testimonial">
-                    <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
-
-                    <div class="testimonial-user layout center">
-                        <div class="image dp">
-                            <img src="img/gray.jpeg" alt="Gray Image">
-                        </div>
-                        <div class="text">
-                            <h6>Grayson Julius</h6>
-                            <p>Operations Lead, iPF Softwares</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="a-testimonial">
-                    <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
-
-                    <div class="testimonial-user layout center">
-                        <div class="image dp">
-                            <img src="img/julliette.jpg" alt="Gray Image">
-                        </div>
-                        <div class="text">
-                            <h6>Miss Juliette</h6>
-                            <p>Strategy Lead, Juliette & Sams</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="a-testimonial">
-                    <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
-
-                    <div class="testimonial-user layout center">
-                        <div class="image dp">
-                            <img src="img/jemimah.jpg" alt="Gray Image">
-                        </div>
-                        <div class="text">
-                            <h6>Jemimah Harris</h6>
-                            <p>Organizer, Zanzibar Marathon</p>
-                        </div>
-                    </div>
+            <div class="section-wrapper">
+                <div class="section-title center">
+                    What people have to say about us
                 </div>
             </div>
-        </div>
 
-        <div id="quoteScrollButtons" class="layout center-center" style="height: 10px;">
-            <button class="active" onclick="scrollQuotes(0)"></button>
-            <button onclick="scrollQuotes(1)"></button>
-        </div>
-    </section>
+            <div id="quotesScroller">
+                <div class="layout center">
+                    <div class="a-testimonial">
+                        <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
 
+                        <div class="testimonial-user layout center">
+                            <div class="image dp">
+                                <img src="img/gray.jpeg" alt="Gray Image">
+                            </div>
+                            <div class="text">
+                                <h6>Grayson Julius</h6>
+                                <p>Operations Lead, iPF Softwares</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="a-testimonial">
+                        <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
+
+                        <div class="testimonial-user layout center">
+                            <div class="image dp">
+                                <img src="img/gray.jpeg" alt="Gray Image">
+                            </div>
+                            <div class="text">
+                                <h6>Grayson Julius</h6>
+                                <p>Operations Lead, iPF Softwares</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="a-testimonial">
+                        <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
+
+                        <div class="testimonial-user layout center">
+                            <div class="image dp">
+                                <img src="img/julliette.jpg" alt="Gray Image">
+                            </div>
+                            <div class="text">
+                                <h6>Miss Juliette</h6>
+                                <p>Strategy Lead, Juliette & Sams</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="a-testimonial">
+                        <svg viewBox="0 0 89.99 56.33"><path d="M94.8,57.3A18.12,18.12,0,0,0,77.7,42c2.1-7.8,7.2-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-1-6.2s-0.1-.5-0.9-0.4C68.3,24.3,53.8,40.6,56.5,60.4,59,74.1,69.7,79.4,79.6,78A18.23,18.23,0,0,0,94.8,57.3h0ZM26.5,42c2-7.8,7.3-10.9,13.4-12.7a0.72,0.72,0,0,0,.5-0.8l-0.9-6.2s-0.1-.5-0.9-0.4C17.2,24.2,2.8,40.5,5.3,60.3,7.9,74.1,18.7,79.4,28.5,78A18.09,18.09,0,0,0,43.6,57.3,17.85,17.85,0,0,0,26.5,42Z" transform="translate(-5.02 -21.89)"/></svg>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus velit architecto iste cupiditate in blanditiis. Praesentium, dolore quae dicta laborum doloribus recusandae fugiat tempora.</p>
+
+                        <div class="testimonial-user layout center">
+                            <div class="image dp">
+                                <img src="img/jemimah.jpg" alt="Gray Image">
+                            </div>
+                            <div class="text">
+                                <h6>Jemimah Harris</h6>
+                                <p>Organizer, Zanzibar Marathon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quoteScrollButtons" class="layout center-center" style="height: 10px;">
+                <button class="active" onclick="scrollQuotes(0)"></button>
+                <button onclick="scrollQuotes(1)"></button>
+                <button class="for-mob" onclick="scrollQuotes(2)"></button>
+                <button class="for-mob" onclick="scrollQuotes(3)"></button>
+            </div>
+        </section>
     <footer>
         <div id="ceoQuote" class="section-wrapper layout vertical center-center">
             <q>
@@ -554,7 +554,7 @@
 					</svg> &emsp;
 
                     <div>
-                        Somaapps HQ <br> Dar Es Salaam, Tanzania <br>
+                        Somaapps HQ Dar Es Salaam, Tanzania <br>
                         <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
 							View on Google Maps
 						</a>
@@ -578,6 +578,10 @@
         function scrollQuotes(idx) {
             var len = document.querySelectorAll(".a-testimonial").length;
             var delta = (len - (window.innerWidth / 546)) / len * 100;
+            
+            if(window.innerWidth < 546){
+                delta = (window.innerWidth * 0.265);
+            }
             quotesScroller.style.transform = "translateX(" + (-delta * idx) + "%)";
 
             document.querySelector("#quoteScrollButtons button.active").classList.remove("active");
@@ -590,7 +594,7 @@
         var videoPlaying = false;
 
         var el, elImage, elbox;
-        var srcs = ["AxPcl1Ig8ZI", "tfm0-E6Y6vM", "ucj4upHiZcM"];
+        var srcs = ["AxPcl1Ig8ZI", "qQ3mvk0vYjs", "ucj4upHiZcM"];
         var src;
 
         function playVideo(idx) {

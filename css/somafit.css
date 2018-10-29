@@ -109,7 +109,7 @@ section p {
     line-height: 1.7em;
 }
 
-section a {
+section a:not(#footerA) {
     display: block;
     margin-top: 2em;
     color: #f35819;
@@ -527,24 +527,26 @@ section .images .circle>*.has-transition {
     margin-top: 0.7em;
     margin-bottom: 0;
     letter-spacing: 0.04em;
+    display: none !important;
 }
 
 #orderForm form{
-    position: absolute;
+    /* position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto; */
     z-index: 1;
     height: 100%;
     width: 50%;
     background: #f8f8f8;
     /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); */
-    border: solid #ddd;
-    border-width: 0 2px 0 2px;
+    /* border: solid #ddd; */
+    /* border-width: 0 2px 0 2px; */
+    border-right: 2px solid #e3e3e3;
     padding: 5%;
-    padding-top: 4.5%;
+    /* padding-top: 4.5%; */
     opacity: 0;
     pointer-events: none;
     overflow: hidden;
@@ -642,6 +644,18 @@ section .images .circle>*.has-transition {
     margin-bottom: 0.5em;
 }
 
+#typeOptions label{
+    font-size: 0.7em;
+    height: auto;
+    padding: 0.9em 1.2em;
+    margin-right: 0.7em;
+}
+
+#typeOptions input[type="radio"]:checked + label{
+    background: #ddd;
+    color: #555;
+}
+
 #colorOptions{
     opacity: 0.6;
 }
@@ -660,6 +674,10 @@ section .images .circle>*.has-transition {
 }
 
 #colorOptions #colorblue + label{
+    background: #486dd4;
+}
+
+#colorOptions #colordarkblue + label{
     background: #102767;
 }
 
@@ -712,7 +730,7 @@ footer #copyright {
 
 footer #footerLocation a {
     padding-top: 0.2em;
-    margin-top: 0.8em;
+    /* margin-top: 0.8em; */
 }
 
 section:not(.no-pad) {

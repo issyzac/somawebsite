@@ -495,7 +495,13 @@ nav a {
 .product-item p,
 .product-item a{
 	font-size: 0.95em;
-	line-height: 1.8em;
+	line-height: 2.1em;
+}
+
+.product-item a{
+	display: block;
+	margin-top: 2em;
+	opacity: 0.7;
 }
 
 .product-item .product-image{
@@ -775,6 +781,10 @@ nav a {
 	color: #444;
 }
 
+footer #ceoQuote q {
+	max-width: 880px;
+}
+
 /*MEDIA QUERIES*/
 @media screen and (min-width: 521px){
     
@@ -783,5 +793,205 @@ nav a {
 @media screen and (max-width: 520px){
     #upcomingEvents .row{
 		flex-wrap: wrap;
+	}
+
+	#banner{
+		margin-bottom: 0;
+	}
+
+	#banner, #bannerScroller {
+		height: 60vw;
+		max-height: 350px;
+	}
+
+	#bannerScroller {
+		position: relative;
+		margin-left: -5vw;
+		overflow: hidden;
+		transition: transform .7s;
+	}
+
+	#bannerScroller .scroll-item-caption {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		padding: 0 !important;
+		padding-bottom: 1.2em !important;
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		pointer-events: none;
+		transform: skew(8deg);
+		transition: transform 0.45s ease-out;
+	}
+
+	#bannerScroller .scroll-item-caption button {
+		padding: 0.5em 0.4em;
+		color: #fff;
+		font-size: 0.85em;
+		letter-spacing: 1px;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 0.3em;
+	}
+
+	#bannerScroller .scroll-item-caption button span{
+		display: block;
+		margin-top: 0.3em;
+		font-size: 0.8em;
+	}
+
+	#bannerScroller .scroll-item-caption h5 {
+		font-weight: normal;
+		font-size: 1.5em;
+		color: #fff;
+		margin-top: 0.25em;
+		margin-bottom: 0.2em;
+		transform: none !important;
+		transition: all 0.45s ease-out;
+	}
+
+	#sectionAbout{
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	#mobTeamTitle{
+		line-height: 2.1em;
+		font-size: 0.95em;
+		color: #333;
+	}
+
+	.team-item {
+		display: flex;
+		margin: 0.5em 0;
+		flex-basis: 100%;
+		min-height: 0;
+		text-align: left;
+		border-radius: 0;
+	}
+
+	.team-item:first-child{
+		margin-top: 1em;
+	}
+	
+	.team-item:larst-child{
+		margin-bottom: 1em;
+	}
+
+	.team-item:not(:nth-child(4)) {
+		background: #fff;
+	}
+
+	.team-item .image {
+		width: 30%;
+		height: auto;
+		position: relative;
+		border-radius: 5px;
+	}
+
+	.team-item .team-member-caption {
+		width: 70%;
+		height: auto;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	.team-item .team-member-caption .text{
+		padding: 0;
+		padding-left: 1em;
+	}
+	
+	.team-member-caption > .social-media {
+		display: none;
+	}
+
+	.team-item:not(:hover) .team-member-caption .text {
+		transform: none;
+	}
+
+	.team-item:not(.text-only) .team-member-caption h5 {
+		font-size: 1em;
+		margin-bottom: 0.3em;
+		font-weight: normal;
+	}
+
+	.team-item .team-member-caption small {
+		display: block;
+		color: #555;
+		font-size: 0.8em;
+	}
+	
+	.team-item .team-member-caption p {
+		font-size: 0.7em;
+		margin-bottom: 0.6em;
+		color: #555 !important;
+	}
+
+	#joinBtn{
+		padding: 1.3em 1em;
+		border: 1px solid #ddd;
+		color: #444;
+		display: block;
+		margin: 1.2em 0;
+		font-size: 0.85em;
+		letter-spacing: 0.12em;
+		line-height: 0;
+	}
+
+	#sectionProducts .product-image{
+		display: none;
+	}
+
+	#sectionProducts h2{
+		text-align: left;
+		margin-top: 1.3em;
+	}
+
+	.product-item:first-of-type {
+		margin-top: 1em;
+	}
+	
+	.product-item:not(:last-of-type) {
+		margin-bottom: 2em;
+	}
+
+	.product-item h5{
+		line-height: 1.5em;
+		max-width: 300px;
+	}
+	
+	.product-item a{
+		margin-bottom: 0 !important;
+	}
+
+	.layout.featured-images{
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		overflow-x: auto;
+	}
+
+	#sectionTestimonials .section-title{
+		margin-top: 1em;
+	}
+
+	.a-testimonial:first-child {
+		margin-left: 1em;
+	}
+
+	.a-testimonial {
+		padding: 1.4em;
+		flex-basis: 100vw;
+		flex-basis: calc(100vw - 2em);
+		margin-right: 1em;
+		box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+    
+	}
+	
+	.a-testimonial svg{
+		display: none;
 	}
 }
