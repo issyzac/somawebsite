@@ -9,7 +9,7 @@ main{
 
 #blogHeader{
     position: relative;
-    height: 450px;
+    overflow: hidden;
     background: #fb8300;
     margin-bottom: 3em;
     margin-left: -45px;
@@ -17,26 +17,26 @@ main{
 }
 
 #blogHeader img{
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: top;
     mix-blend-mode: multiply;
 }
 
 #blogHeader #text{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 1;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 3.5em;
+    padding: 2em 3.5em;
+    min-height: 450px;
 }
 
 #blogHeader h1{
@@ -62,6 +62,7 @@ main{
     border: 2px solid #999;
     border-radius: 3px;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .blog-item{
@@ -135,6 +136,115 @@ footer #footerLocation a {
 }
 
 footer .section-wrapper{
-    padding-top: 1em;
+    padding-top: 0;
     padding-bottom: 0;
+}
+
+@media screen and (max-width: 520px) {
+    main{
+        padding-top: 12px;
+    }
+
+    .section-wrapper {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #blogHeaderWrapper{
+        
+    }
+
+    #blogHeader {
+        position: relative;
+        height: auto;
+        background: #fb8300;
+        margin-bottom: 1.5em;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #blogHeader img{
+        position: relative;
+        height: 50vw;
+    }
+
+    #blogHeader #text{
+        position: relative;
+        padding: 0;
+        padding-top: 0.5em;
+        min-height: 0;
+        background: #fff;
+    }
+
+    #blogHeader h1 {
+        color: #333;
+        font-size: 1.1em;
+        line-height: 1.3em;
+        margin-bottom: 0.3em;
+    }
+
+    #blogHeader p {
+        display: none;
+        font-size: 0.8em;
+        line-height: 1.5em;
+    }
+    
+    #blogHeader a{
+        padding: 0;
+        background: transparent;
+        color: #555;
+        border: none;
+        font-size: 0.9em;
+        line-height: 1.7em;
+        text-transform: none;
+    }
+
+    .blog-item{
+        flex-direction: row-reverse;
+        margin-bottom: 1em;
+        padding-top: 0;
+        padding-bottom: 1em;
+    }
+
+    .blog-item:last-of-type {
+        margin-bottom: 1em;
+    }
+
+    .blog-item:not(:last-of-type) {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .blog-item .text {
+        padding-top: 1.2em;
+        border-bottom: none !important;
+    }
+
+    .blog-item img {
+        width: 75px;
+        height: 60px;
+        border-radius: 5px;
+        margin-right: 0;
+        margin-left: 1em;
+    }
+
+    .blog-item h3 {
+        flex: 1;
+        font-size: 0.9em;
+        line-height: 1.5em;
+        /* margin-top: 0.1em; */
+        color: #333;
+        margin-bottom: 0.2em;
+    }
+
+    .blog-item p {
+        display: none;
+    }
+
+    .blog-item .date {
+        position: absolute;
+        top: auto;
+        left: 0;
+        font-size: 0.85em;
+        color: #777;
+    }
 }

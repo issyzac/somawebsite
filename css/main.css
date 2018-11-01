@@ -220,7 +220,7 @@ footer #copyright hr {
 
 @media screen and (min-width: 521px) {
     .for-mob {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -233,6 +233,7 @@ footer #copyright hr {
     header{
         position: relative;
         background: #000;
+        padding-top: 0.5em;
     }
 
     header #logo {
@@ -248,7 +249,8 @@ footer #copyright hr {
         padding: 0.9em 0.7em;
         min-width: 0;
         position: relative;
-        color: #9b9a9a
+        color: #9b9a9a;
+        font-size: 4.55vw;
     }
     
     nav a:not(.active) {
@@ -287,25 +289,43 @@ footer #copyright hr {
 		padding-top: 0.5em;
 		text-align: center;
 		color: #fff;
-	}
+    }
+    
+    footer > .section-wrapper:last-of-type{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 
 	footer #ceoQuote q {
-		font-size: 1.2em;
+        font-size: 1.2em;
+        line-height: 1.7em;
+    }
+    
+    footer #ceoQuote q + .text-accent{
+        line-height: 1.5em;
     }
     
     #copyright{
-        flex-direction: column;
+        flex-direction: column-reverse;
+        padding-bottom: 1em !important;
     }
 
-    #copyright img{
-        height: 30px;
+    #copyright img,
+    #copyright hr{
+        display: none;
     }
 
     #copyright img ~ span{
         line-height: 1.4em;
     }
 
-    #copyright > div:first-child{
+    #copyright > div:last-child{
         margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .section-title {
+        font-size: 1em;
     }
 }

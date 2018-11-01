@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Somaapps Technologies</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#003a75">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
-    <meta name="theme-color" content="#003a75">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#003a75">
+    <meta name="theme-color" content="#231f21">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#231f21">
+    <meta name="theme-color" content="#231f21">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#231f21">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -26,12 +26,12 @@
 
 <body class="show-na">
     <header class="layout vertical center">
-        <a id="logo" href="index.html" class="layout center">
+        <a id="logo" href="/" class="layout center">
             <img src="img/logo.png" alt="Somaapps Technologies" width="70px;" height="70px">
         </a>
 
         <nav class="layout center">
-            <a href="/" class="layout center-center">Home</a>
+            <a href="/" class="layout center-center for-lg">Home</a>
             <a href="#" class="layout center-center active">SomaApp</a>
             <a href="/somafiti" class="layout center-center">SomaFit</a>
             <a href="/blog" class="layout center-center">Blog</a>
@@ -44,7 +44,7 @@
     <section id="somaapp-banner">
         <div class="text start vertical center text-bold">
             <h1 class="section-title center black">
-                Revolutionizing the scholarship ecosystem<br/> across Africa!
+                Revolutionizing the scholarship ecosystem <span class="for-lg"><br/></span> across Africa!
             </h1>
         </div>
 
@@ -55,7 +55,7 @@
             <div class="second-phone">
 
             </div>
-            <div class="download-section">
+            <div class="download-section for-lg">
                 <a href="https://play.google.com/store/apps/details?id=com.apps.soma.soma&hl=en" target="_blank" class="google-play-btn">
                     <img src="img/playstore.png" width="180">
                 </a>
@@ -72,6 +72,22 @@
             </div>
         </div>
 
+        <div class="download-section for-mob">
+            <a href="https://play.google.com/store/apps/details?id=com.apps.soma.soma&hl=en" target="_blank" class="google-play-btn">
+                <img src="img/playstore.png" width="180">
+            </a>
+            <input type="checkbox" id="iosTrigger">
+            <label for="iosTrigger" class="ios-trigger"> I have an iOS device</label>
+
+            <div id="iosPopup">
+                <div id="iosForm">
+                    <p>Enter your email below and we'll notify you when the iOS app is ready.</p>
+                    <input type="email" placeholder="E.g. john.doe@example.com">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+
         <div class="decos"></div>
     </section>
 
@@ -83,7 +99,9 @@
                 We can make your dreams come true.
             </h1>
             <h2 class="section-sub-title center text-only">
-                SomaApp is a revolutionary product that matches you with opportunities that are perfect for you. <br> Gain access to fully funded scholarships, conferences, and internships, all at your fingertips.
+                SomaApp is a revolutionary product that matches you with opportunities that are perfect for you. 
+                <span class="for-lg"><br></span> 
+                Gain access to fully funded scholarships, conferences, and internships, all at your fingertips.
             </h2>
         </div>
         <div class="values-items">
@@ -184,7 +202,6 @@
                 </span>
                 <span class="feature-sub-title">
                     Whether it's a conference on microbiology or a conference on conferences, we've got you covered. And best yet, it's just a swipe away.
-                    Access Winning Essays, Instantly: We've got advice on how to write that award winning essay so that you can ensure you give it your best shot, with over hundreds of brilliantly crafted sample essays, right from our expert essay writing desk.                        
                 </span>
             </h1>
             <img src="img/somaapp-page/app-conferences.png" width="400">
@@ -208,7 +225,8 @@
 
     <section id="testimonials">
         <h1 class="section-title center ">
-            We have heard inspiring stories from SomaApp users. <br> Here are a few that'll get you excited.
+            We have heard inspiring stories from SomaApp users. <span class="for-lg"><br></span>
+            Here are a few that'll get you excited.
         </h1>
 
         <div class="section-wrapper">
@@ -310,21 +328,21 @@
             <div id="copyright" class="section-wrapper layout start justified">
                 <div class="layout center">
                     <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
-                    <hr>&emsp;&nbsp;
+                    <hr><span class="for-lg">&emsp;&nbsp;</span>
                     <span>Copyright &copy; 2018 Somaapps Technologies</span>
                 </div>
 
                 <div id="footerLocation" class="layout">
                     <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                    </svg> &emsp;
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg> <span class="for-lg">&emsp;</span><span class="for-mob">&nbsp;</span>
 
                     <div>
                         Somaapps HQ Dar Es Salaam, Tanzania <br>
                         <a target="_blank" href="https://www.google.com/maps/place/SomaApp+HQ/@-6.7807388,39.218371,15z/data=!4m5!3m4!1s0x0:0xb0dada27a1439432!8m2!3d-6.7807388!4d39.218371">
-                            View on Google Maps
-                        </a>
+							View on Google Maps
+						</a>
                     </div>
                 </div>
             </div>
@@ -365,16 +383,19 @@
                 .addTo(controller);
         }
 
-        new ScrollMagic.Scene({
-                triggerElement: '#testimonials',
-                triggerHook: 1,
-                duration: window.innerHeight * 2
-            })
-            .setTween(TweenMax.from('.testimonial', 1, {
-                y: '100%',
-                ease: Power0.easeNone
-            }))
-            .addTo(controller);
+        if(window.innerWidth > 540){
+            new ScrollMagic.Scene({
+                    triggerElement: '#testimonials',
+                    triggerHook: 1,
+                    duration: window.innerHeight * 2
+                })
+                .setTween(TweenMax.from('.testimonial', 1, {
+                    y: '100%',
+                    ease: Power0.easeNone
+                }))
+                .addTo(controller);
+        }
+
     </script>
 </body>
 

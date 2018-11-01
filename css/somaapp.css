@@ -341,7 +341,7 @@ nav a {
     align-self: flex-start;
     object-fit: contain;
     object-position: center;
-    min-height: 736px;
+    width: 480px;
 }
 
 #testimonials{
@@ -436,4 +436,185 @@ nav a {
 .testimonial:nth-child(even) .text div{
     background: #768394;
     color: #fff;
+}
+
+
+/*MEDIA QUERIES*/
+@media screen and (min-width: 521px){
+    
+}
+
+@media screen and (max-width: 520px){
+    nav a.active{
+        color: #e5e5e5
+    }
+
+    #somaapp-banner {
+        padding-top: 2em;
+        height: auto;
+    }
+
+    #somaapp-banner .section-title, 
+    #values .section-title {
+        color: #333!important;
+        line-height: 1.3;
+        font-size: 1.3em;
+    }
+
+    .banner-contents {
+        flex-wrap: wrap;
+        max-height: 250px;
+        padding-top: 0;
+    }
+
+    .download-section{
+        width: 100% !important;
+        padding-left: 0;
+        padding-top: 2.5em;
+    }
+
+    .first-phone, .second-phone{
+        /* transform: none; */
+        height: 350px;
+        width: 50% !important;
+        margin-left: 0 !important;
+    }
+
+    .second-phone{
+        margin-left: -2em !important;
+    }
+
+    #somaapp-banner .decos {
+        position: absolute;
+        top: 250px;
+        left: -25%;
+        right: auto;
+        height: 100px;
+        width: 130vw;
+        margin: 0 auto;
+        background-size: 160px;
+    }
+
+    #values .text{
+        padding: 0 2em;
+    }
+
+    .values-items{
+        flex-wrap: wrap;
+        margin-top: 2em;
+    }
+
+    .values-items>div {
+        width: 100%;
+        text-align: center;
+        padding: 0 5%;
+        margin-bottom: 2em;
+    }
+    
+    .values-items>div h1{
+        font-size: 1.3em;
+        font-weight: normal;
+    }
+
+    #map-countries {
+        background-size: 270%;
+        background-position: center;
+        height: auto;
+        padding: 0;
+        padding-top: 2em;
+        padding-bottom: 240px;
+        align-items: flex-start;
+    }
+
+    #map-countries>div {
+        flex-direction: column;
+    }
+
+    #map-countries>div h1 {
+        font-size: 7.5vw;
+        text-align: center;
+    }
+
+    #map-countries>div h2 {
+        margin-left: 0;
+        font-weight: 100;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #features {
+        /* padding: 100px 20% 30px; */
+        padding: 0 1em;
+        padding-right: 0;
+    }
+
+    #features>div{
+        margin-bottom: 1.2em;
+        max-height: 1000px;
+    }
+
+    #features>div:nth-of-type(even) {
+        flex-direction: row;
+    }
+
+    #features>div h1 {
+        flex: none;
+        margin-left: 0 !important;
+        width: 70% !important;
+        position: relative;
+        z-index: 1;
+    }
+
+    #features .feature-title {
+        font-size: 1.4em;
+    }
+
+    #features .feature-title:after {
+        width: 50%;
+    }
+
+    .feature-sub-title {
+        margin-bottom: 2em;
+    }
+
+    #features>div img {
+        position: absolute;
+        top: 0;
+        right: -10%;
+        max-width: 60%;
+        flex: none !important;
+        margin-right: -3.5em !important;
+    }
+
+    #testimonials h1{
+        padding: 0 1em;
+        font-size: 1.3em;
+        font-weight: normal;
+    }
+
+    #testimonials .section-wrapper > div {
+        margin-top: -23%;
+    }
+
+    .testimonial {
+        flex: 1;
+        flex-basis: 90%;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 3em;
+    }
+
+    .testimonial:first-of-type{
+        margin-top: 6em !important;
+    }
+
+    .testimonial:nth-of-type(even){
+        flex-direction: row-reverse
+    }
+
+    .testimonial:nth-of-type(even) img {
+        margin-right: auto;
+        margin-left: 1em;
+    }
 }

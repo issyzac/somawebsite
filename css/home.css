@@ -96,8 +96,9 @@ nav a {
 
 .scroll-item .image img{
 	object-fit: cover;
-	object-position: right;
+	object-position: bottom;
 	transform: skew(8deg) scale(1.3);
+	min-height: 115%;
 	/* transition: transform 1s ease-out; */
 }
 
@@ -345,7 +346,8 @@ nav a {
 
 .team-item.text-only{
 	line-height: 2em;
-	text-align: justify;
+	text-align: left;
+	/* text-align: justify; */
 }
 
 .team-item .image{
@@ -791,6 +793,10 @@ footer #ceoQuote q {
 }
 
 @media screen and (max-width: 520px){
+	header{
+		padding-bottom: 0.5em;
+	}
+
     #upcomingEvents .row{
 		flex-wrap: wrap;
 	}
@@ -851,6 +857,20 @@ footer #ceoQuote q {
 		margin-bottom: 0.2em;
 		transform: none !important;
 		transition: all 0.45s ease-out;
+	}
+
+	#bannerVideoPlayer{
+		position: fixed;
+	}
+
+	#bannerVideoPlayer iframe {
+		width: 100vw;
+		height: 72vw;
+	}
+
+	#bannerVideoPlayer button {
+		top: 4%;
+		right: 18%;
 	}
 
 	#sectionAbout{
