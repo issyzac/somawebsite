@@ -783,6 +783,29 @@ section {
     }
 }
 
+@media screen and (min-width: 521px){
+    #notificationOptions{
+        width: 110%;
+        margin-left: -1em;
+        flex-wrap: nowrap !important;
+    }
+
+    #notificationOptions .fit-option{
+        flex-basis: auto;
+        text-align: center;
+        padding: 0 1em;
+    }
+    
+    #notificationOptions .fit-option span{
+        /* text-transform: none; */
+        margin-top: 0.5em;
+    }
+    
+    #notificationOptions .fit-option img{
+        width: 50px;
+    }
+}
+
 @media screen and (max-width: 520px){
     header{
         background: transparent;

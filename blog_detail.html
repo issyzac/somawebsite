@@ -20,115 +20,105 @@
     <meta property="og:description"   content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit temporibus facilis eveniet vero itaque!" />
     <meta property="og:image"         content="img/blog/1.jpg" />
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/flex.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/blog_detail-actual.css">
     <link rel="icon" href="logo.png">
-</head>
 
-<body class="show-na">
+    <link href="https://fonts.googleapis.com/css?family=Caudex:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/flex.css">
+	  <link rel="stylesheet" href="css/main.css">
+	  <link rel="stylesheet" href="css/blog_detail.css">
+  </head>
+  <body>
     <header class="layout vertical center">
-        <a id="logo" href="/" class="layout vertica center">
+        <a href="/blog" class="for-mob">
+            <svg fill="#888" width="25px" height="25px" x="0px" y="0px" viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve"><path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554 c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587 c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/></svg>
+        </a>
+        
+        <a id="logo" href="/" class="layout center">
             <img src="img/logo.png" alt="Somaapps Technologies" width="70px;" height="70px">
         </a>
 
         <nav class="layout center">
-            <a href="/" class="layout center-center">Home</a>
-            <a href="/somaapp" class="layout center-center">SomaApp</a>
-            <a href="/somafiti" class="layout center-center">SomaFiti</a>
-            <a href="#" class="layout center-center active">Blog</a>
+            <a href="/" class="for-lg layout center-center">Home</a>
+            <a href="/somaapp" class="for-lg layout center-center">SomaApp</a>
+            <a href="/somafiti" class="for-lg layout center-center">SomaFiti</a>
+            <a href="#" class="for-lg layout center-center active">Blog</a>
             <a href="/contacts" class="layout center-center">Contact Us</a>
         </nav>
     </header>
-
     <main>
-        <img id="blogImage" src="img/blog/1.jpg" alt="">
-
-        <div class="section-wrapper">
-            <h1 id="blogTitle">Why telling of actual Africa stories is more likely to drive change</h1>
-            <small id="blogDate">
-                <small>Published</small> Oct 17, 2018 &nbsp;&nbsp; <small>By</small> Isaya Yunge
-            </small>
-
-            <div id="blogContent">
-                <p>
-                    Your home is your space. It’s also a place where you can express your style with color and personal touches. And we want our products to reflect your aesthetic while giving you the help you need. So we recently introduced three new colors to the Nest Learning Thermostat lineup (bringing the total to seven) to give you more options to fit your style.<br>
-                    These new finishes—black, brass and polished steel—are part of the new Artists Collection, inspired by the work of industrial artists who create beautiful pieces using various metals. Just like the original Nest Learning Thermostat that comes in copper, black, stainless steel or white, these new thermostats are designed to look beautiful in your home while also keeping you comfortable and helping you save energy.
-                </p>
-                
-                <img src="img/blog/3.jpg" alt="">
-                <small>The way through the mountains is a blurry one</small>
-
-                <p>
-                    They can program themselves to create a personalized schedule and turn down automatically to save energy when you’re away. You can control your thermostat from a phone, tablet, Google Home Hub or even an Android Watch or Apple Watch with the Nest or Google Home app. And, you can use your smart speaker or display to change the temperature with your voice—just say, “Hey Google, set the temperature to 68.”
-                </p>
-
-                <div class="video-iframe" styl="background-image: url(https://i.ytimg.com/vi/1TtWUk4EXs8/hqdefault.jpg)">
-                    <iframe src="https://www.youtube.com/embed/sjQIodZlgeA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div id="content">
+          <div id="insightBody">
+            
+            <div id="insightImage" style="margin-top: 0" class="blogpost-section-wrapper cover-image-wide">
+                <img src="https://images.unsplash.com/photo-1506370612293-360919ece3d9?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE2MTY1fQ&s=da2a49c380cd9eee0ea24d57df1b2489 ?>" alt="">
+            </div>    
+            <div class="blogpost-section-wrapper">
+                <div id="insightTitle">
+                    <h1 style="overflow: visible; margin-bottom: 0.4em; overflow: visible;">
+                      Why telling of actual Africa stories is more likely to drive change                    </h1>
+    
+                    <!-- <h5><span class="taggy-item">BUSINESS GROWTH</span><span class="taggy-item">TECHNOLOGY</span></h5> -->
                 </div>
-
-                <small>You can always count on Julia to show up</small>
-
-                <p>
-                    LEVI DRAHEIM IS a nine-year-old science geek. He founded an environmental club as a fourth grader and gives talks about climate change to audiences of grown-ups. His home is on a slender barrier island on Florida’s Atlantic coast, 21 miles south of Cape Canaveral and a five-minute walk from the beach. By mid-century, his sandy childhood playground could be submerged by rising seas. He will be just 42.
-                </p>
-
-                <p>
-                    Nathan Baring is 17 and a high school junior in Fairbanks, Alaska—120 miles south of the Arctic Circle. He loves cold weather and skis. The Arctic is warming twice as fast as the rest of the planet. Now winter snows that Baring once celebrated as early as August in Fairbanks can hold off until November.
-                </p>
+                <span id="insightDate">
+                    <!-- Published {{date | formatDate}} -->
+                    By Isaiah Zachariah    
+                    <span style="color: #777; display: inline-block; position: relative; top: -2px"> &nbsp;|&nbsp; </span> Nov 02, 2018                </span>
             </div>
-
-            <div id="shareOptions" class="layout center start-justified">
-                <small>SHARE POST:</small>
-
-                <a target="_blank" class="share-option layout center" title="twitter"
-                    href="https://twitter.com/intent/tweet?original_referer=http://staging.somaapps.com/blog_detail.html&amp;ref_src=&amp;text=Why telling of actual Africa stories is more likely to drive change&amp;url=somaapps.com&amp;via=somaapps" target="_blank" onclick="javascript:window.open('https://twitter.com/intent/tweet?original_referer=http://somaapps.com&amp;ref_src=&amp;text=Why telling of actual Africa stories is more likely to drive change&amp;url=somaapps.com&amp;via=somaapps'); return false;">
-                    <svg width="20" height="20" fill="#333" viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-                </a>
-
-                <a target="_blank" href="https://www.facebook.com/sharer.php?s=100&p[url]=http://staging.somaapps.com/blog_detail.html" class="share-option layout center">
-                    <svg width="20" height="20" fill="#333" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg>
-                </a>
-
-                <!-- <a href="#" class="share-option layout center">
-                    <svg width="26" height="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
-                </a> -->
+    
+            <div class="blog-content">
+              <div class="blogpost-section-wrapper"><p>Your home is your space. It’s also a place where you can express your style with color and personal touches. And we want our products to reflect your aesthetic while giving you the help you need. So we recently introduced three new colors to the Nest Learning Thermostat lineup (bringing the total to seven) to give you more options to fit your style.</p><p>These new finishes—black, brass and polished steel—are part of the new Artists Collection, inspired by the work of industrial artists who create beautiful pieces using various metals. Just like the original Nest Learning Thermostat that comes in copper, black, stainless steel or white, these new thermostats are designed to look beautiful in your home while also keeping you comfortable and helping you save energy.</p></div><div class="blogpost-section-wrapper"><img src="https://images.unsplash.com/photo-1526080676457-4544bf0ebba9?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE2MTY1fQ&amp;s=ce21ed0a607ea619514651e97358e0e2" alt="The way through the mountains is a blurry one" class="normal"><small>The way through the mountains is a blurry one</small></div><div class="blogpost-section-wrapper"><h2><strong>Hey can program themselves</strong></h2><p>To create a personalized schedule and turn down automatically to save energy when you’re away. You can <a href="https://imgur.com/gallery/edcYX19" target="_blank">control your thermostat from a phone</a>, tablet, Google Home Hub or even an Android Watch or Apple Watch with the Nest or Google Home app. And, you can use your smart speaker or display to change the temperature with your voice—just say, “Hey Google, set the temperature to 68.”</p></div><div class="blogpost-section-wrapper wide-image"><div><div class="video-iframe wide playing"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/sjQIodZlgeA?rel=0&amp;amp;autoplay=0&amp;amp;controls=0&amp;amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe></div><small>You can always count on Julia to show up</small></div></div><div class="blogpost-section-wrapper"><p><strong>LEVI DRAHEIM IS</strong> a nine-year-old science geek. He founded an environmental club as a fourth grader and gives talks about climate change to audiences of grown-ups. His home is on a slender barrier island on Florida’s Atlantic coast, 21 miles south of Cape Canaveral and a five-minute walk from the beach. By mid-century, his sandy childhood playground could be submerged by rising seas. He will be just 42.</p><p>Nathan Baring is 17 and a high school junior in Fairbanks, Alaska—120 miles south of the Arctic Circle. He loves cold weather and skis. The Arctic is warming twice as fast as the rest of the planet. Now winter snows that Baring once celebrated as early as August in Fairbanks can hold off until November.</p></div>    
+              <div class="blogpost-section-wrapper">
+                <div id="shareOptions" class="layout center start-justified">
+                    <small>SHARE POST:</small>
+    
+                    <a target="_blank" class="share-option layout center" title="twitter"
+                        href="https://twitter.com/intent/tweet?original_referer=http://staging.somaapps.com/blog_detail.html&amp;ref_src=&amp;text=Why telling of actual Africa stories is more likely to drive change&amp;url=somaapps.com&amp;via=somaapps" target="_blank" onclick="javascript:window.open('https://twitter.com/intent/tweet?original_referer=http://somaapps.com&amp;ref_src=&amp;text=Why telling of actual Africa stories is more likely to drive change&amp;url=somaapps.com&amp;via=somaapps'); return false;">
+                        <svg width="20" height="20" fill="#333" viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+                    </a>
+    
+                    <a target="_blank" href="https://www.facebook.com/sharer.php?s=100&p[url]=http://staging.somaapps.com/blog_detail.html" class="share-option layout center">
+                        <svg width="20" height="20" fill="#333" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg>
+                    </a>
+    
+                    <!-- <a href="#" class="share-option layout center">
+                        <svg width="26" height="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                    </a> -->
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-
         <div id="relatedArticles">
-            <div class="section-wrapper">
-                <div class="layout start justified">
-                    <a href="blog_detail.html" class="blog-item">
-                        <h2>PREVIOUS POST</h2>
-                        <div>
-                            <img src="img/blog/2.jpg" alt="">
-                            <div class="text">
-                                <h3>
-                                    Pioneering creation of technology awaraness among africa's 
-                                    sons and daughters
-                                </h3>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <a href="blog_detail.html" class="blog-item">
-                        <h2>NEXT POST</h2>
-                        <div>
-                            <img src="img/blog/3.jpg" alt="">
-                            <div class="text">
-                                <h3>
-                                    Retrospective look at whether we're ready to dive into smart cities or if it's just a facade
-                                </h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+          <div class="section-wrapper">
+              <div class="layout start justified">
+                  <a href="blog_detail.html" class="blog-item">
+                      <h2>PREVIOUS POST</h2>
+                      <div>
+                          <img src="img/blog/2.jpg" alt="">
+                          <div class="text">
+                              <h3>
+                                  Pioneering creation of technology awaraness among africa's 
+                                  sons and daughters
+                              </h3>
+                          </div>
+                      </div>
+                  </a>
+                  
+                  <a href="blog_detail.html" class="blog-item">
+                      <h2>NEXT POST</h2>
+                      <div>
+                          <img src="img/blog/3.jpg" alt="">
+                          <div class="text">
+                              <h3>
+                                  Retrospective look at whether we're ready to dive into smart cities or if it's just a facade
+                              </h3>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </div>
         </div>
     </main>
-
     <footer>
         <div id="ceoQuote" class="section-wrapper layout vertical center-center">
             <q>
@@ -140,11 +130,11 @@
 			</small>
         </div>
 
-        <div class="section-wrapper" style="max-width: 1300px !important; border-to: 1px solid #444">
+        <div class="section-wrapper" style="max-width: 1300px !important;">
             <div id="copyright" class="section-wrapper layout start justified">
                 <div class="layout center">
                     <img src="img/logo-wide.png" height="50px" alt="Somaapps wide logo"> &nbsp;&emsp;
-                    <hr>&emsp;&nbsp;
+                    <hr><span class="for-lg">&emsp;&nbsp;</span>
                     <span>Copyright &copy; 2018 Somaapps Technologies</span>
                 </div>
 
@@ -152,7 +142,7 @@
                     <svg fill="#555" width="60" height="60" viewBox="0 0 24 24">
 						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
 						<path d="M0 0h24v24H0z" fill="none"/>
-					</svg> &emsp;
+					</svg> <span class="for-lg">&emsp;</span>&nbsp;
 
                     <div>
                         Somaapps HQ Dar Es Salaam, Tanzania <br>
@@ -164,6 +154,5 @@
             </div>
         </div>
     </footer>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  
+</head>
+    <body>
+      <input type="file" onchange="UploadFile(event.target.files[0])">
+      <script src="js/axios.js"></script>
+      <script>
+        var url = "upload_image.php";
+        function UploadFile(file){
+          const config = {
+            headers: { 'content-type': 'multipart/form-data' },
+            onUploadProgress: progressEvent => {
+                var per = progressEvent.loaded / progressEvent.total * 100;
+                console.log("Progress: ", per);
+            }
+          }
+          var form = new FormData();
+          var name = file.name.replace(/ /g, "-");
+          var ext = name.split('.').pop()
+          form.append('photo', file);
+          form.append('name', name);
+          form.append('ext', ext);
+
+          axios.post(url, form, config)
+              .then(res => {
+                  console.log(res.data);
+              }).catch(error => {
+                  console.log("Error", error)
+              });
+        }
+      </script>
+    </body>
+</html> -->
+
+<html>
+            <head>
+                <title>Somafit Watch Order</title>
+            </head>
+            <body>
+                <p>Hello there, I would like to order a watch.</p>
+                <br> 
+                
+                <strong style='padding: 0.3em 0;display:inline-block; min-width: 120px;'>Screen: </strong>&nbsp; $screen <br>
+                <strong style='padding: 0.3em 0;display:inline-block; min-width: 120px;'>Color: </strong>&nbsp; $color <br>
+                <strong style='padding: 0.3em 0;display:inline-block; min-width: 120px;'>Qty: </strong>&nbsp; $qty <br>
+                
+                <br>
+                <p>Here's my number: $phone_number</p>
+            </body>
+        </html>

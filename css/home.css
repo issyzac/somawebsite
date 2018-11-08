@@ -419,7 +419,8 @@ nav a {
 .team-item.text-only {
 	line-height: 2em;
 	text-align: justify;
-	padding: 0 0.5em;
+	padding-left: 0 0.5em;
+	text-align: left;
 }
 
 .team-item .team-member-caption .text{

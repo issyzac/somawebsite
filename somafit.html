@@ -31,12 +31,13 @@
         const PHONE_SECTION_INDEX = 3;
         let workoutImage;
         const watchImageSrcs = ['watch-blue.png', 'watch-dark-blue.png', 'watch-purple.png', 'watch-black.png', 'watch-blue.png'];
-        const watchNames = ['Cerulean Blue', 'Dark Blue', 'Palatinate Purple', 'Mahogany Dark', 'Carmine Red'];
+        const bwWatchImageSrcs = ['watch-blue-bw.png', 'watch-dark-blue.png', 'watch-purple.png', 'watch-black-bw.png', 'watch-red-bw.png'];
+        const watchNames = ['Barely Blue', 'Brilliant Blue', 'Pretty Purple', 'Boldly Black', 'Rad Red'];
 
         let maxTextIndex, sectionScroller, sections, navigation,
             circlesSection, rightCircle, leftCircle,
             rightImages, leftImages, diverVideo, diverActualVideo,
-            outFitImages, cylinderImages, orderItems, currentOrderItem, orderForm;
+            outFitImages, cylinderImages, orderItems, currentColorIdx, currentOrderItem, orderForm;
 
         function moveOutFitImages(el, index) {
             cylinderImages.removeClass('visible');
@@ -53,6 +54,7 @@
         }
         
         function changeCurrentOrderWatch(index) {
+            currentColorIdx = index;
             orderItems.addClass('hidden')
             currentOrderItem = orderItems.eq(index);
             currentOrderItem.removeClass('hidden');
@@ -62,7 +64,8 @@
         }
         
         function changeCurrentOrderColor(index) {
-            currentOrderItem.find('img').get(0).src = "img/somafit/" + watchImageSrcs[index];
+            var src = currentColorIdx == 0 ? bwWatchImageSrcs[index] : watchImageSrcs[index];
+            currentOrderItem.find('img').get(0).src = "img/somafit/" + src;
             currentOrderItem.find('span').text(watchNames[index]);
         }
         
@@ -241,12 +244,34 @@
 
         function submitOrder(e, form) {
             e.preventDefault();
-
             orderForm.addClass('loading');
 
-            setTimeout(() => {
-                orderForm.removeClass('loading');
-            }, 2000);
+            var data = orderForm.serializeArray();
+            var dataObj = {};
+            data.map( item => {
+                dataObj[item.name] = item.value;
+            });
+
+            // var formData = new FormData(form);
+            var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function(e) {
+				if (xhr.readyState == 4) {
+					console.log(xhr.responseText)
+                    orderForm.removeClass('loading');
+
+                    $("#orderForm input[type='phone']").val("");
+				}
+			};
+
+            xhr.open("POST", "send_mail.php", true);
+            // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			// xhr.setRequestHeader("X-FILENAME", file.name.replace(/ /g, "_"));
+            xhr.send(JSON.stringify(dataObj));
+            
+            // setTimeout(() => {
+            //     orderForm.removeClass('loading');
+            // }, 2000);
         }
     </script>
 </head>
@@ -288,27 +313,27 @@
                                 <div id="frame">
                                     <div class="strip">
                                         <div class="blue">
-                                            <div class="layout center-center" color="Blue">
+                                            <div class="layout center-center" color="Barely Blue">
                                                 <img src="img/somafit/watch-blues.png" alt="">
                                             </div>
                                         </div>
                                         <div class="darkblue">
-                                            <div class="layout center-center" color="Dark Blue">
+                                            <div class="layout center-center" color="Brilliant Blue">
                                                 <img src="img/somafit/watch-dark-blues.png" alt="">
                                             </div>
                                         </div>
                                         <div class="purple">
-                                            <div class="layout center-center" color="Purple">
+                                            <div class="layout center-center" color="Pretty Purple">
                                                 <img src="img/somafit/watch-purples.png" alt="">
                                             </div>
                                         </div>
                                         <div class="red">
-                                            <div class="layout center-center" color="Red">
+                                            <div class="layout center-center" color="Rad Red">
                                                 <img src="img/somafit/watch-blacks.png" alt="">
                                             </div>
                                         </div>
                                         <div class="black">
-                                            <div class="layout center-center" color="Black">
+                                            <div class="layout center-center" color="Boldly Black">
                                                 <img src="img/somafit/watch-blacks.png" alt="">
                                             </div>
                                         </div>
@@ -331,7 +356,7 @@
                             <img src="img/somafit-page/swimmer.jpg" alt="">
                             <img src="img/somafit/driving.jpg" alt="">
                             <video id="diverVideo" muted loop src="img/somafit/dive.mp4"></video>
-                            <img style="background: #efe0d6" src="img/somafit-page/somafitextras.gif" alt="">
+                            <img style="background: #efe0d6" src="img/somafit-page/somafiti-jogger.png" alt="">
 
                             <div id="otherOptions" class="layout center-justified wrap">
                                 <div class="fit-option layout vertical center">
@@ -484,7 +509,7 @@
                             Driving just got <span class="for-sm"><br></span> a whole lot safer
                         </h1>
                         <p>
-                            See who’s calling with a flick of your wrist - all your notifications are just a glance away. All so you can can focus on what’s important.
+                            See who’s calling with a flick of your wrist - all your notifications are just a glance away. All so you can focus on what’s important.
                             <!-- A SomaFiti bracelet provides you with both  <br>
                             call and message notifications allowing you<br> 
                             to rest easy knowing that you won't miss out. -->
@@ -597,26 +622,26 @@
             <div id="orderWatch" class="section-wrapper layout vertical center-center">
                 <h1>Order a SomaFiti <span class="for-lg">bracelet</span></h1>
 
-                <div id="orderForm">
+                <div id="orderForm" class="loading">
                     <div class="layout">
                         <div class="flex order-item layout vertical center-center">
-                            <img src="img/somafit/watch-blue.png" alt="">
-                            <span>Cerulean Blue</span>
+                            <img src="img/somafit/watch-blue-bw.png" alt="">
+                            <span>Barely Blue</span>
                             <strong>Tshs. 99,000/-</strong>
                             <a href="#" onclick="showOrderForm(0)">ORDER NOW</a>
                         </div>
 
-                        <form action="#" class="visible" onsubmit="submitOrder(event, this)">
+                        <form action="#" class="visible loading" onsubmit="submitOrder(event, this)">
                             <img id="loader" src="img/loading.gif" alt="">
     
                             <span>Display Variant</span>
                             <div id="typeOptions" class="order-form-section layout center">
-                                <input checked id="blackAndWhite" type="radio" name="type" value="1"/>
+                                <input checked id="blackAndWhite" type="radio" name="screen" value="Black & White"/>
                                 <label onclick="changeCurrentOrderWatch(0)" class="layout center-center" for="blackAndWhite">
                                     Black & White
                                 </label>
                                 
-                                <input id="colored" type="radio" name="type" value="2"/>
+                                <input id="colored" type="radio" name="screen" value="Coloured"/>
                                 <label onclick="changeCurrentOrderWatch(1)" class="layout center-center" for="colored">
                                     Coloured
                                 </label>
@@ -666,14 +691,14 @@
                                 <input id="quantity5" type="radio" name="quantity" value="5"/>
                                 <label class="layout center-center" for="quantity5">5</label>
                                 
-                                <input id="quantityMore" type="radio" name="quantity" value="more"/>
+                                <input id="quantityMore" type="radio" name="quantity" value="more than 5"/>
                                 <label class="layout center-center" for="quantityMore">More</label>
                             </div>
                             <br><br>
 
                             <div class="order-form-section">
                                 <span>Phone Number</span>
-                                <input type="phone" required placeholder="E.g. 0712 34 56 78">
+                                <input type="phone" name="phone_number" required placeholder="E.g. 0712 34 56 78">
                             </div>
                             <br>
     
@@ -686,7 +711,7 @@
                         
                         <div class="flex order-item hidden layout vertical center-center">
                             <img src="img/somafit/watch-blue.png" alt="">
-                            <span>Carmine Red</span>
+                            <span>Barely Blue</span>
                             <strong>Tshs. 99,000/-</strong>
                             <a href="#" onclick="showOrderForm(3)">ORDER NOW</a>
                         </div>
