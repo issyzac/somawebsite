@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Somaapps Technologies | SomaFit</title>
+    <title>SomaFiti</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#231f21">
     <meta name="apple-mobile-web-app-status-bar-style" content="#231f21">
@@ -13,7 +13,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="iPF Softwares">
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="img/somafit/fav.png">
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/flex.css">
@@ -30,14 +30,15 @@
         const SWIM_SECTION_INDEX = 3;
         const PHONE_SECTION_INDEX = 3;
         let workoutImage;
-        const watchImageSrcs = ['watch-blue.png', 'watch-dark-blue.png', 'watch-purple.png', 'watch-black.png', 'watch-blue.png'];
-        const bwWatchImageSrcs = ['watch-blue-bw.png', 'watch-dark-blue.png', 'watch-purple.png', 'watch-black-bw.png', 'watch-red-bw.png'];
-        const watchNames = ['Barely Blue', 'Brilliant Blue', 'Pretty Purple', 'Boldly Black', 'Rad Red'];
+        const watchImageSrcs = ['watch-dark-blue.png', 'watch-black.png', 'watch-purple.png'];
+        const bwWatchImageSrcs = ['watch-blue-bw.png', 'watch-black-bw.png', 'watch-red-bw.png'];
+        const watchNames = ['Barely Blue', 'Boldly Black', 'Pretty Purple'];
+        const bwWatchNames = ['Brilliant Blue', 'Boldly Black', 'Rad Red'];
 
         let maxTextIndex, sectionScroller, sections, navigation,
             circlesSection, rightCircle, leftCircle,
             rightImages, leftImages, diverVideo, diverActualVideo,
-            outFitImages, cylinderImages, orderItems, currentColorIdx, currentOrderItem, orderForm;
+            outFitImages, cylinderImages, orderItems, currentColorIdx = 0, currentOrderItem, orderForm;
 
         function moveOutFitImages(el, index) {
             cylinderImages.removeClass('visible');
@@ -59,14 +60,22 @@
             currentOrderItem = orderItems.eq(index);
             currentOrderItem.removeClass('hidden');
 
+            if(currentColorIdx !== 0){
+                orderForm.removeClass('for-bw');
+            }
+            else{
+                orderForm.addClass('for-bw');
+            }
+
             changeCurrentOrderColor(0);
-            $('#colorOptions').find('label').eq(0).trigger('click');
+            $('#colorOptions').find('label').eq(index).trigger('click');
         }
         
         function changeCurrentOrderColor(index) {
             var src = currentColorIdx == 0 ? bwWatchImageSrcs[index] : watchImageSrcs[index];
+            var name = currentColorIdx == 0 ? bwWatchNames[index] : watchNames[index];
             currentOrderItem.find('img').get(0).src = "img/somafit/" + src;
-            currentOrderItem.find('span').text(watchNames[index]);
+            currentOrderItem.find('span').text(name);
         }
         
         function showOrderForm(index) {
@@ -622,16 +631,16 @@
             <div id="orderWatch" class="section-wrapper layout vertical center-center">
                 <h1>Order a SomaFiti <span class="for-lg">bracelet</span></h1>
 
-                <div id="orderForm" class="loading">
+                <div id="orderForm">
                     <div class="layout">
                         <div class="flex order-item layout vertical center-center">
                             <img src="img/somafit/watch-blue-bw.png" alt="">
-                            <span>Barely Blue</span>
+                            <span>Brilliant Blue</span>
                             <strong>Tshs. 99,000/-</strong>
                             <a href="#" onclick="showOrderForm(0)">ORDER NOW</a>
                         </div>
 
-                        <form action="#" class="visible loading" onsubmit="submitOrder(event, this)">
+                        <form action="#" class="for-bw visible" onsubmit="submitOrder(event, this)">
                             <img id="loader" src="img/loading.gif" alt="">
     
                             <span>Display Variant</span>
@@ -652,24 +661,24 @@
                             
                             <div id="colorOptions" class="order-form-section layout center">
                                 <input checked id="colorblue" type="radio" name="color" value="blue"/>
-                                <label class="layout center-center" for="colorblue"
+                                <label class="is-bw layout center-center" for="colorblue"
                                     onclick="changeCurrentOrderColor(0)"></label>
                                 
                                 <input id="colordarkblue" type="radio" name="color" value="darkblue"/>
                                 <label class="layout center-center" for="colordarkblue"
+                                    onclick="changeCurrentOrderColor(0)"></label>
+
+                                <input id="colorblack" type="radio" name="color" value="black"/>
+                                <label class="is-both layout center-center" for="colorblack"
                                     onclick="changeCurrentOrderColor(1)"></label>
                                 
                                 <input id="colorpurple" type="radio" name="color" value="purple"/>
                                 <label class="layout center-center" for="colorpurple"
                                     onclick="changeCurrentOrderColor(2)"></label>
                                 
-                                <input id="colorblack" type="radio" name="color" value="black"/>
-                                <label class="layout center-center" for="colorblack"
-                                    onclick="changeCurrentOrderColor(3)"></label>
-                                
                                 <input id="colorred" type="radio" name="color" value="red"/>
-                                <label class="layout center-center" for="colorred"
-                                    onclick="changeCurrentOrderColor(4)"></label>
+                                <label class="is-bw layout center-center" for="colorred"
+                                    onclick="changeCurrentOrderColor(2)"></label>
                             </div>
                             <br><br>
                             
@@ -710,7 +719,7 @@
                         </form>
                         
                         <div class="flex order-item hidden layout vertical center-center">
-                            <img src="img/somafit/watch-blue.png" alt="">
+                            <img src="img/somafit/watch-dark-blue.png" alt="">
                             <span>Barely Blue</span>
                             <strong>Tshs. 99,000/-</strong>
                             <a href="#" onclick="showOrderForm(3)">ORDER NOW</a>

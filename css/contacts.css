@@ -197,6 +197,24 @@ h5{
     border: none;
 }
 
+#phoneNumber{
+    position: relative;
+}
+
+#phoneNumber svg{
+    position: absolute;
+    top: 36px;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    fill: #777;
+}
+
+#phoneNumber input:focus + svg,
+#phoneNumber input:valid + svg{
+    opacity: 0;
+    pointer-events: none;
+}
 
 #ceoQuote{
     display: none;

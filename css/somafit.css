@@ -459,7 +459,7 @@ section .images .circle>*.has-transition {
 }
 
 #orderForm{
-    background: #000;
+    background: #fbfbfb;
     width: 85vw;
     max-width: 1000px;
     min-height: 400px;
@@ -663,6 +663,11 @@ section .images .circle>*.has-transition {
 #colorOptions label{
     position: relative;
     opacity: 0.6;
+}
+
+#orderForm form.for-bw #colorOptions label:not(.is-bw):not(.is-both),
+#orderForm form:not(.for-bw) #colorOptions label.is-bw{
+    display: none;
 }
 
 #colorOptions label::before,

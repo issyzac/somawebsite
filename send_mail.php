@@ -15,7 +15,7 @@
         $color = $_POST['color'];
         $phone_number = $_POST['phone_number'];
         
-        $to = "wakyj07@gmail.com";
+        $to = "info@somaapps.com";
         $subject = "Somafit Watch Oder";
 
         $message = "
