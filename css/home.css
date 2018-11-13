@@ -303,10 +303,19 @@ nav a {
 }
 
 #aboutImage{
-	flex-basis: 38%;
+	flex-basis: 30%;
 	flex-shrink: 0;
 	margin-left: 12%;
+	margin-right: 4%;
 	background: #ddd;
+	overflow: visible;
+}
+
+#aboutImage img{
+	width: 105%;
+	height: 100%;
+	box-shadow: 0 0 70px rgba(79, 69, 129, 0.45);
+	background: rgba(79, 69, 129, 0.45);
 }
 
 #sectionTeam .section-wrapper > .layout{

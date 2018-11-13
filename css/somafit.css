@@ -789,6 +789,10 @@ section {
 }
 
 @media screen and (min-width: 521px){
+    #somafitBanner .fit-option img{
+        min-height: 65px;
+    }
+
     #notificationOptions{
         width: 110%;
         margin-left: -1em;
