@@ -490,6 +490,10 @@ nav a {
 	color: #333;
 }
 
+.team-item:not(.job-invite) .team-member-caption p {
+	display: none;
+}
+
 .team-item.team-item.job-invite .team-member-caption h5{
 	margin-bottom: 0.5em;
 }
@@ -610,7 +614,7 @@ nav a {
 	border-top: 1px solid #bbb;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ccc;
-	transform: rotateX(0.1deg);
+	transform: rotateX(0deg);
 }
 
 .phone .app-screen {
