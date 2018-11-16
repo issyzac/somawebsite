@@ -112,6 +112,20 @@ nav a {
     z-index: 1;
 }
 
+#iosForm{
+    display: inline-block !important;
+    width: auto;
+    background: #f0f0f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 1em;
+    padding-top: 0.5em;
+    position: relative;
+    margin-top: 1em;
+    text-align: center;
+    width: 300px;
+}
+
 #iosForm::before{
     content: '';
     position: absolute;
@@ -127,18 +141,33 @@ nav a {
     z-index: 1;
 }
 
-#iosForm{
-    display: inline-block !important;
-    width: auto;
-    background: #f0f0f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 1em;
-    padding-top: 0.5em;
-    position: relative;
-    margin-top: 1em;
-    text-align: center;
-    width: 300px;
+#iosForm:not(.loading)::after,
+#iosForm:not(.loading) img{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#iosForm::after{
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.82);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+#iosForm img{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 45px;
+    height: 45px;
+    z-index: 2;
 }
 
 #iosForm p{

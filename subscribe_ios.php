@@ -6,6 +6,7 @@
         $email = $_POST['email'];
         
         $to = "info@somaapps.com";
+        // $to = "wakyj07@gmail.com";
         $subject = "Subscribe on SomaApp for iOS";
 
         $message = "
@@ -15,7 +16,6 @@
                 </head>
                 <body>
                     <p>Hello there, I would like to be notified when SomaApp will be available for iOS.</p>
-                    <br> 
                     
                     <br>
                     <p>Here's my email: $email</p>
@@ -31,7 +31,7 @@
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         // More headers
-        $headers .= 'From: <somaapp-subscribe@example.com>' . "\r\n";
+        $headers .= 'From: <somaapp-form@example.com>' . "\r\n";
         // $headers .= 'Cc: myboss@example.com' . "\r\n";
         $headers .= '' . "\r\n";
 
