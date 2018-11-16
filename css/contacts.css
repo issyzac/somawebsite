@@ -210,7 +210,7 @@ h5{
     fill: #777;
 }
 
-#phoneNumber input:focus + svg,
+/* #phoneNumber input:focus + svg, */
 #phoneNumber input:valid + svg{
     opacity: 0;
     pointer-events: none;
