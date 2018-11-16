@@ -428,6 +428,7 @@ nav a {
 
 .team-item:not(:hover) .team-member-caption .social-media a {
 	opacity: 0;
+	pointer-events: none;
 	transform: translateY(100%);
 
 	transition: opacity 0.2s ease-out,
@@ -828,8 +829,97 @@ footer #ceoQuote q {
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+	#sectionTestimonials, #sectionProducts{
+		overflow-x: hidden;
+	}
 
+	section:not(.no-pad) {
+		padding: 2em 0;
+	}
+
+	#banner, #bannerScroller{
+		max-height: 500px;
+	}
+
+	#bannerScroller {
+		position: relative;
+		margin-left: -5vw;
+		height: 100vh;
+		max-height: 500px;
+		transition: transform .7s;
+	}
+
+	#sectionAbout{
+		margin-bottom: 0;
+	}
+	
+	#sectionAbout .section-wrapper > div:first-child{
+		padding-right: 2.5em;
+	}
+
+	#aboutImage {
+		width: 50%;
+		float:right;
+		flex-basis: 50%;
+		flex-shrink: 0;
+		margin-left: 0;
+		margin-right: 0;
+		background: #ddd;
+		overflow: visible;
+	}
+
+	#aboutImage img{
+		min-height: 0;
+		/* height: 200px !important; */
+	}
+
+	.team-item {
+		margin: 0.55em;
+		flex-basis: calc(50% - 1.1em);
+		min-height: 380px;
+		text-align: center;
+		border-radius: 5px;
+	}
+
+	#appScreenMovers{
+		margin-top: 20px;
+		margin-left: -350px;
+	}
+
+	.product-item:first-of-type .product-image{
+		margin-right: -40%;
+    	margin-left: 10%;
+	}
+
+	.phone:hover {
+		/* transform: rotateX(60deg); */
+	}
+	.phone {
+		position: relative;
+		/* margin-top: 80px; */
+		width: 550px;
+		transition: 0.35s transform ease-out;
+		transform: rotateX(60deg);
+		transform-origin: top;
+		transform-style: preserve-3d;
+	}
+
+	#watchFace {
+		margin-bottom: 0;
+		height: 250px;
+		margin-top: -45%;
+	}
+
+	#fitImages{
+		top: auto;
+		bottom: 15%;
+	}
+
+	#fitImages > div.has-caption:nth-of-type(4),
+	#fitImages > div.has-caption:nth-of-type(4) img {
+		opacity: 1 !important;
+	}
 }
 
 /* 
