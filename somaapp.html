@@ -63,11 +63,13 @@
                 <label for="iosTrigger" class="ios-trigger"> I have an iOS device</label>
 
                 <div id="iosPopup">
-                    <div id="iosForm">
+                    <form id="iosForm" method="POST" action="#" onsubmit="subscribe(event)">
+                        <img src="img/loading.gif" alt="">
+
                         <p>Enter your email below and we'll notify you when the iOS app is ready.</p>
-                        <input type="email" placeholder="E.g. john.doe@example.com">
-                        <button>SUBSCRIBE</button>
-                    </div>
+                        <input required type="email" name="email" placeholder="E.g. john.doe@example.com" />
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -80,11 +82,13 @@
             <label for="iosTrigger" class="ios-trigger"> I have an iOS device</label>
 
             <div id="iosPopup">
-                <div id="iosForm">
+                <form id="iosForm" class="loading" onsubmit="subscribe(event)">
+                    <img id="loader" src="img/loading.gif" alt="">
+                    
                     <p>Enter your email below and we'll notify you when the iOS app is ready.</p>
-                    <input type="email" placeholder="E.g. john.doe@example.com">
-                    <button>SUBSCRIBE</button>
-                </div>
+                    <input required type="email" placeholder="E.g. john.doe@example.com">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
             </div>
         </div>
 
@@ -240,7 +244,7 @@
                             Thank you very much, I applied for the World Youth Forum as the Tanzania youth delegate in a Model of Arabs- African Summit (MAAS) and was selected as the one of the delegates. Thank you again for such initiative to provide opportunities for young leaders who really strive to make a change.
                         </p>
                         <div>
-                            WYF Conference, Egypt.
+                            Model of Arabs- African Summit
                         </div>
                     </div>
                 </div>
@@ -393,6 +397,28 @@
                     ease: Power0.easeNone
                 }))
                 .addTo(controller);
+        }
+
+        function subscribe(e, form) {
+            e.preventDefault();
+            var subscribeForm = document.querySelector("#iosForm");
+            var subscribeInput = document.querySelector("#iosForm input");
+
+            subscribeForm.classList.add('loading');
+
+            var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function(e) {
+				if (xhr.readyState == 4) {
+					console.log(xhr.responseText)
+                    subscribeForm.classList.remove('loading');
+                    subscribeInput.value = "";
+				}
+			};
+
+            xhr.open("POST", "subscribe_ios.php", true);
+            // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(JSON.stringify({ email: subscribeInput.value }));
         }
 
     </script>
