@@ -217,6 +217,17 @@ footer #copyright hr {
 }
 
 /*MEDIA QUERIES*/
+@media screen and (min-width: 1025px) {
+    .for-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.for-lg:not(.for-md){
+		display: none !important;
+    }
+}
 
 @media screen and (min-width: 521px) {
     .for-mob {
