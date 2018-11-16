@@ -1,3 +1,9 @@
+<?
+    require_once 'includes/Blog.php';
+    $blogs = Blog::all();
+    // echo json_encode($blogs);
+    // return;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,51 +46,59 @@
     <main>
         <div id="blogHeaderWrapper" class="section-wrapper">
             <div id="blogHeader">
-                <img src="img/blog/1.jpg" alt="">
-                <div id="text" class="layout vertical center-justified">
-                    <h1>Telling actual Africa stories will definitely have impact</h1>
-                    <p class="for-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit temporibus facilis eveniet vero itaque! Libero ut quam fuga recusandae sequi mollitia.</p>
-                    <p class="for-mob">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit...</p>
-                    <a href="blog_detail.html">Read More</a>
-                </div>
+                <?php
+                    $blog = $blogs[0];
+                    $title = preg_replace("/\\\\'/", "'", $blog->title);
+                    $body = strip_tags($blog->body);
+                    $short_body = substr($body, 0, 200);
+                    if(strlen($body) > 200){
+                        $short_body .= '...';
+                    }
+
+                    echo '<img src="'. $blog->cover_url .'" alt="">';
+                    
+                    echo '
+                        <div id="text" class="layout vertical center-justified">
+                            <h1>'. $title .'</h1>
+                            <p class="for-lg">
+                                ' . $short_body . '
+                            </p>
+                            <a href="read_blog.php?blog_id='. $blog->id .'">Read More</a>
+                        </div>
+                    ';
+                ?>
+                
             </div>
         </div>
 
         <div class="section-wrapper">
-            <a href="blog_detail.html" class="blog-item">
-                <img src="img/blog/2.jpg" alt="">
-                <div class="text">
-                    <h3>
-                        Pioneering creation of technology awaraness among africa's 
-                        sons and daughters
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit temporibus facilis eveniet...</p>
-                </div>
-
-                <small class="date">Oct 17, 2018</small>
-            </a>
-            <a href="blog_detail.html" class="blog-item">
-                <img src="img/blog/3.jpg" alt="">
-                <div class="text">
-                    <h3>
-                        Retrospective look at whether we're ready to dive into smart cities or if it's just a facade
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit temporibus facilis eveniet...</p>
-                </div>
-
-                <small class="date">Oct 17, 2018</small>
-            </a>
-            <a href="blog_detail.html" class="blog-item">
-                <img src="img/blog/4.jpg" alt="">
-                <div class="text">
-                    <h3>
-                        Not every technology based challenge can be solved by a mobile phone app.
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, architecto non consequuntur neque odio fuga similique modi suscipit temporibus facilis eveniet...</p>
-                </div>
-
-                <small class="date">Oct 17, 2018</small>
-            </a>
+            <?php
+                for ($i=1; $i < count($blogs); $i++) { 
+                    $blog = $blogs[$i];
+                    $title = preg_replace("/\\\\'/", "'", $blog->title);
+                    $unix_date = $blog->published_at != null ? strtotime( $blog->published_at ) : "";
+                    $date = $blog->published_at != null ? date("M d, Y", $unix_date) : "";
+                    $body = strip_tags($blog->body);
+                    $short_body = substr($body, 0, 200);
+                    if(strlen($body) > 200){
+                        $short_body .= '...';
+                    }else if(strlen($body) < 1){
+                        $short_body = "This blog has no content";
+                    }
+    
+                    echo '<a href="read_blog.php?blog_id='. $blog->id .'" class="blog-item">
+                        <img src="' . $blog->cover_url . '" alt="">
+                        <div class="text">
+                            <h3>'. $title .'</h3>
+                            <p class="for-lg">
+                                ' . $short_body . '
+                            </p>
+                        </div>
+    
+                        <small class="date">'. $date .'</small>
+                    </a>';
+                }
+            ?>
         </div>
     </main>
 
@@ -123,6 +137,23 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        var entered = [];
+        var cheatcode = "create";
+
+        document.addEventListener('keyup', (event) => {
+            console.log(event.key);
+            entered.push(event.key);
+            entered.splice(-cheatcode.length, entered.length - cheatcode.length);
+
+            if(entered.join("").toLocaleLowerCase() === cheatcode.toLocaleLowerCase()){
+                var new_location = window.location.href.replace("blog.php", "create_blog.html");
+                console.log(new_location);
+                window.location.href = new_location;
+            }
+        }, false);
+    </script>
 </body>
 
 </html>

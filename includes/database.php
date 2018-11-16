@@ -85,7 +85,7 @@ class MySQLDatabase {
 	}
 
 	public function find($table, $id=0) {
-		return $this->find_where($table, "id={$id} LIMIT 1");
+		return $this->find_where($table, "id='{$id}' LIMIT 1");
 	}
 
 	public function find_where($table, $condition) {

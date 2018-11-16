@@ -160,7 +160,7 @@
 			$object_array = array();
 
 			while ($row = $database->fetch_array($result)) {
-			  $object_array[] = static::to_oject($row);
+			  $object_array[] = static::to_object($row);
 			}
 
 			return $object_array;
@@ -178,7 +178,7 @@
 			return $object;
 		}
 
-		private static function to_oject($cursor){
+		private static function to_object($cursor){
 			$object = new static;
 
 			foreach ($cursor as $key => $value) {

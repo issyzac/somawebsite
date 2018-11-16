@@ -1,9 +1,11 @@
 <?php
-	require_once 'includes/Blog.php';
-	$blog_id = $_GET['blog_id'];
-  $blog = Blog::find($blog_id);
-  $cover = json_decode($blog->creator_json)->cover;
-  $cover_class = 'cover-image-' . $cover->options->width;
+    require_once 'includes/Blog.php';
+    
+    $blog_id = $_GET['blog_id'];
+    $blog = Blog::find($blog_id);
+    $title = preg_replace("/\\\\'/", "'", $blog->title);
+    $cover = json_decode($blog->creator_json)->cover;
+    $cover_class = 'cover-image-' . $cover->options->width;
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +55,7 @@
             <a href="/contacts" class="layout center-center">Contact Us</a>
         </nav>
     </header>
-    <main>
+    <main style="min-height: calc(100vh - 320px);">
         <div id="content">
           <div id="insightBody">
             <?php if($blog->cover_url != null) {
@@ -66,7 +68,7 @@
             <div class="blogpost-section-wrapper">
                 <div id="insightTitle">
                     <h1 style="overflow: visible; margin-bottom: 0.4em; overflow: visible;">
-                      <?php echo $blog->title; ?>
+                      <?php echo $title; ?>
                     </h1>
     
                     <!-- <h5><span class="taggy-item">BUSINESS GROWTH</span><span class="taggy-item">TECHNOLOGY</span></h5> -->
@@ -172,6 +174,24 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            var entered = [];
+            var cheatcode = "edit";
+
+            document.addEventListener('keyup', (event) => {
+                entered.push(event.key);
+                entered.splice(-cheatcode.length, entered.length - cheatcode.length);
+                var current_word = entered.join("").toLocaleLowerCase();
+                console.log(current_word);
+
+                if(current_word === cheatcode.toLocaleLowerCase()){
+                    var new_location = window.location.href.replace('read_blog', 'edit_blog');
+                    console.log(new_location);
+                    window.location.href = new_location;
+                }
+            }, false);
+        </script>
     </footer>
   </body>
 </html>
