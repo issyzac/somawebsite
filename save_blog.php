@@ -31,7 +31,7 @@ $new_blog_id = $blog->save();
 
 if($new_blog_id){
 	if($is_new_blog)
-		echo json_encode(["new_id" => $new_blog_id, "status" => true]);
+		echo json_encode(["new_id" => $new_blog_id, "redirect_url" => getBaseUrl() . "edit_blog.php?blog_id=" . $new_blog_id, "status" => true]);
 	else 
 		echo json_encode(["status" => true]);
 }
@@ -43,4 +43,21 @@ else
 function createSlug($str, $delimiter = '-'){
 	$slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
 	return $slug;
+}
+
+function getBaseUrl() {
+	// output: /myproject/index.php
+	$currentPath = $_SERVER['PHP_SELF'];
+	
+	// output: Array ( [dirname] => /myproject [basename] => index.php [extension] => php [filename] => index )
+	$pathInfo = pathinfo($currentPath);
+	
+	// output: localhost
+	$hostName = $_SERVER['HTTP_HOST'];
+	
+	// output: http://
+	$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https://'?'https://':'http://';
+	
+	// return: http://localhost/myproject/
+	return $protocol.$hostName."/";
 }

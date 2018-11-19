@@ -77,6 +77,7 @@ main{
 }
 
 .blog-item img{
+    background: #ddd;
     width: 250px;
     height: 150px;
     margin-right: 2em;
