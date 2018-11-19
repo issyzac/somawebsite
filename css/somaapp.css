@@ -50,7 +50,7 @@ nav a {
 }
 
 .first-phone {
-    background-image: url(../img/somaappphone.png);
+    background-image: url(../img/somaapp-page/app-internship.png);
     height: 700px;
     background-repeat: no-repeat;
     background-position: right;
@@ -62,7 +62,7 @@ nav a {
 }
 
 .second-phone {
-    background-image: url(../img/somaappphone.png);
+    background-image: url(../img/somaapp-page/app-scholarships.png);
     height: 700px;
     background-repeat: no-repeat;
     background-position: left;
@@ -458,8 +458,9 @@ nav a {
 
 .testimonial .text div{
     padding: 1.5em 1.9em;
-    background: #f58e95;
+    background: #F0592D;
     font-size: 0.8em;
+    color: #FFFFFF;
 }
 
 .testimonial:nth-child(even) .text div{
